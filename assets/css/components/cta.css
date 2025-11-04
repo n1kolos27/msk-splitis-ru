@@ -1,0 +1,82 @@
+/* CTA Component */
+
+.cta {
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  padding: var(--spacing-3xl) 0;
+  text-align: center;
+}
+
+.cta__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-inverse);
+}
+
+.cta__description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .cta__actions {
+    flex-direction: row;
+  }
+}
+
+.cta__button {
+  min-width: 200px;
+}
+
+.cta--inverse {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.cta--inverse .cta__title {
+  color: var(--text-primary);
+}
+
+/* CTA Button Variants */
+.cta__button--light {
+  background: white !important;
+  color: var(--color-primary) !important;
+}
+
+.cta__button--light:hover {
+  background: var(--bg-secondary) !important;
+  color: var(--color-primary) !important;
+}
+
+.cta__button--outline-light {
+  border-color: white !important;
+  color: white !important;
+}
+
+.cta__button--outline-light:hover {
+  background: white !important;
+  color: var(--color-primary) !important;
+}
+
+/* Hero Button Variants */
+.hero__button--outline {
+  color: white;
+  border-color: white;
+}
+
+.hero__button--outline:hover {
+  background: white;
+  color: var(--color-primary);
+}

@@ -1,0 +1,29 @@
+/* Testimonials Component */
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .testimonials {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonials {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonials__section {
+  padding: var(--spacing-3xl) 0;
+}
+
+.testimonials__title {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+

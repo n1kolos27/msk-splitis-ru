@@ -1,0 +1,19 @@
+{
+  "main": [
+    { "title": "Главная", "url": "/", "id": "home" },
+    { "title": "Каталог", "url": "/katalog.html", "id": "catalog" },
+    { "title": "Услуги", "url": "/uslugi/ustanovka.html", "id": "services" },
+    { "title": "Кейсы", "url": "/cases.html", "id": "cases" },
+    { "title": "Отзывы", "url": "/reviews.html", "id": "reviews" },
+    { "title": "Блог", "url": "/blog.html", "id": "blog" },
+    { "title": "О компании", "url": "/o-kompanii.html", "id": "about" },
+    { "title": "Контакты", "url": "/kontakty.html", "id": "contacts" }
+  ],
+  "services": [
+    { "title": "Установка", "url": "/uslugi/ustanovka.html" },
+    { "title": "Обслуживание", "url": "/uslugi/obsluzhivanie.html" },
+    { "title": "Ремонт", "url": "/uslugi/remont.html" },
+    { "title": "Заправка", "url": "/uslugi/zapravka.html" }
+  ]
+}
+

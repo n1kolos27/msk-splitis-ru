@@ -1,0 +1,30 @@
+<!-- Breadcrumbs Component -->
+<nav class="breadcrumbs" aria-label="Хлебные крошки">
+  <div class="container">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="/">
+          <span itemprop="name">Главная</span>
+        </a>
+        <meta itemprop="position" content="1">
+      </li>
+      <!-- Breadcrumb items будут добавлены динамически на каждой странице -->
+    </ol>
+  </div>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://msk.splitis.ru"
+    }
+  ]
+}
+</script>
+

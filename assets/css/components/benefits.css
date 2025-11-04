@@ -1,0 +1,20 @@
+/* Benefits Component - уже включен в stats.css, но создам отдельно для полноты */
+
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+

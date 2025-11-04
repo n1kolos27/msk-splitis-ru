@@ -1,0 +1,55 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Название товара",
+  "description": "Описание товара",
+  "image": "https://msk.splitis.ru/assets/images/products/product.jpg",
+  "sku": "PRODUCT-SKU",
+  "brand": {
+    "@type": "Brand",
+    "name": "Название бренда"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://msk.splitis.ru/katalog/product.html",
+    "priceCurrency": "RUB",
+    "price": "0",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "ИП Лагуто Иван Иванович"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "0",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Мощность",
+      "value": "2.5 кВт"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Площадь",
+      "value": "25 м²"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Уровень шума",
+      "value": "21 дБ"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Класс энергоэффективности",
+      "value": "A++"
+    }
+  ]
+}
+

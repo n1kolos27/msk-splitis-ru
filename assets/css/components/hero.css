@@ -1,0 +1,221 @@
+/* ============================================
+   Hero Component Styles
+   ============================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-hero);
+  color: var(--text-inverse);
+  overflow: hidden;
+  padding: var(--spacing-3xl) 0;
+  margin-left: 0;
+  margin-right: 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 100vh;
+  }
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, var(--opacity-overlay));
+  z-index: 1;
+}
+
+.hero__container {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  max-width: 100% !important;
+  width: 100%;
+}
+
+/* Переопределяем max-width для container внутри hero */
+.hero .container,
+.hero .container.hero__container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .hero .container,
+  .hero .container.hero__container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: var(--spacing-xl);
+    padding-right: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero .container,
+  .hero .container.hero__container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero__content {
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero__content {
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-lg);
+  text-align: left;
+  width: 100%;
+}
+
+.hero__subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, var(--opacity-text-secondary));
+  margin-bottom: var(--spacing-xl);
+  width: 100%;
+  text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .hero__subtitle {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .hero__actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero__actions {
+    justify-content: flex-start;
+  }
+}
+
+.hero__button {
+  min-width: 200px;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .hero__stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.hero__stat {
+  text-align: center;
+}
+
+.hero__stat-number {
+  display: block;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-xs);
+}
+
+.hero__stat-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, var(--opacity-text-muted));
+}
+
+.hero__image {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+.hero__trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: flex-start;
+  margin-top: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .hero__trust-badges {
+    justify-content: flex-start;
+  }
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, var(--opacity-backdrop));
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  color: var(--text-inverse);
+}
+

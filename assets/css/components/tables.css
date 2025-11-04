@@ -1,0 +1,117 @@
+/* ============================================
+   Responsive Tables Component
+   ============================================ */
+
+/* Table Wrapper for Horizontal Scroll */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: var(--spacing-xl) 0;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 767px) {
+  .table-wrapper {
+    margin-left: calc(var(--spacing-md) * -1);
+    margin-right: calc(var(--spacing-md) * -1);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    border-radius: 0;
+  }
+}
+
+/* Responsive Table Base */
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  min-width: 600px;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.responsive-table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.responsive-table tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+.responsive-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Card-based table for mobile */
+@media (max-width: 767px) {
+  .responsive-table,
+  .responsive-table thead,
+  .responsive-table tbody,
+  .responsive-table th,
+  .responsive-table td,
+  .responsive-table tr {
+    display: block;
+  }
+
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tr {
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .responsive-table td {
+    border: none;
+    padding: var(--spacing-sm) 0;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  .responsive-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 45%;
+    padding-right: var(--spacing-sm);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+}
+
+/* Alternative: Keep table structure, add scroll */
+.table-scroll {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .table-scroll {
+    display: table;
+    overflow-x: visible;
+    white-space: normal;
+  }
+}
+

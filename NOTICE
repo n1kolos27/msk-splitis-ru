@@ -1,0 +1,154 @@
+================================================================================
+NOTICE - УВЕДОМЛЕНИЕ О ЗАВИСИМОСТЯХ И ЛИЦЕНЗИЯХ
+NOTICE - DEPENDENCIES AND LICENSES NOTIFICATION
+================================================================================
+
+Этот проект использует следующие open-source библиотеки и технологии:
+
+ОСНОВНЫЕ ТЕХНОЛОГИИ (CORE TECHNOLOGIES):
+----------------------------------------
+
+1. HTML5 (W3C Standard)
+   - Лицензия: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Коммерческое использование: Разрешено ✅
+   - Тип: W3C Living Standard
+
+2. CSS3 (W3C Standard)
+   - Лицензия: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Коммерческое использование: Разрешено ✅
+   - Тип: W3C Living Standard
+
+3. JavaScript (ECMAScript ES6+)
+   - Лицензия: Нет (стандарт языка, не требует лицензии)
+   - Коммерческое использование: Разрешено ✅
+   - Тип: ECMA International Standard
+
+ВНЕШНИЕ ЗАВИСИМОСТИ (EXTERNAL DEPENDENCIES):
+---------------------------------------------
+
+4. Inter Font (Google Fonts)
+   - Провайдер: Google LLC
+   - Лицензия: SIL Open Font License 1.1 (OFL-1.1)
+   - URL: https://scripts.sil.org/OFL
+   - Коммерческое использование: Разрешено ✅
+   - Подключение: CDN (https://fonts.googleapis.com)
+   - Требования лицензии: Автоматически соблюдены через Google Fonts
+
+5. Schema.org Vocabulary
+   - Провайдер: Schema.org (Google, Microsoft, Yahoo, Yandex)
+   - Лицензия: Creative Commons Attribution-ShareAlike 3.0 Unported
+   - URL: https://schema.org/docs/terms.html
+   - Коммерческое использование: Разрешено ✅
+   - Использование: JSON-LD разметка на страницах
+
+6. Open Graph Protocol
+   - Провайдер: Meta (Facebook)
+   - Лицензия: MIT License
+   - URL: https://github.com/opengraphprotocol/specs
+   - Коммерческое использование: Разрешено ✅
+   - Использование: Meta-теги на страницах
+
+7. Twitter Cards
+   - Провайдер: Twitter (X Corp)
+   - Лицензия: Открытый стандарт
+   - Коммерческое использование: Разрешено ✅
+   - Использование: Meta-теги на страницах
+
+СТАНДАРТЫ (STANDARDS):
+---------------------
+
+8. JSON-LD (JSON for Linking Data)
+   - Стандарт: W3C Recommendation
+   - Лицензия: W3C Software Notice and License
+   - Коммерческое использование: Разрешено ✅
+
+ВАЖНАЯ ИНФОРМАЦИЯ (IMPORTANT INFORMATION):
+------------------------------------------
+
+✅ Все используемые технологии и библиотеки разрешены для коммерческого использования.
+✅ Проект не содержит GPL или AGPL зависимостей.
+✅ Все лицензии совместимы с проприетарным использованием.
+
+Полный анализ зависимостей и breakdown проекта см. в PROJECT_BREAKDOWN.md
+Детальная информация о лицензиях см. в README.md
+
+================================================================================
+
+This project uses the following open-source libraries and technologies:
+
+CORE TECHNOLOGIES:
+------------------
+
+1. HTML5 (W3C Standard)
+   - License: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Commercial use: Permitted ✅
+   - Type: W3C Living Standard
+
+2. CSS3 (W3C Standard)
+   - License: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Commercial use: Permitted ✅
+   - Type: W3C Living Standard
+
+3. JavaScript (ECMAScript ES6+)
+   - License: None (language standard, no license required)
+   - Commercial use: Permitted ✅
+   - Type: ECMA International Standard
+
+EXTERNAL DEPENDENCIES:
+----------------------
+
+4. Inter Font (Google Fonts)
+   - Provider: Google LLC
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+   - URL: https://scripts.sil.org/OFL
+   - Commercial use: Permitted ✅
+   - Connection: CDN (https://fonts.googleapis.com)
+   - License requirements: Automatically satisfied via Google Fonts
+
+5. Schema.org Vocabulary
+   - Provider: Schema.org (Google, Microsoft, Yahoo, Yandex)
+   - License: Creative Commons Attribution-ShareAlike 3.0 Unported
+   - URL: https://schema.org/docs/terms.html
+   - Commercial use: Permitted ✅
+   - Usage: JSON-LD markup on pages
+
+6. Open Graph Protocol
+   - Provider: Meta (Facebook)
+   - License: MIT License
+   - URL: https://github.com/opengraphprotocol/specs
+   - Commercial use: Permitted ✅
+   - Usage: Meta tags on pages
+
+7. Twitter Cards
+   - Provider: Twitter (X Corp)
+   - License: Open Standard
+   - Commercial use: Permitted ✅
+   - Usage: Meta tags on pages
+
+STANDARDS:
+----------
+
+8. JSON-LD (JSON for Linking Data)
+   - Standard: W3C Recommendation
+   - License: W3C Software Notice and License
+   - Commercial use: Permitted ✅
+
+IMPORTANT INFORMATION:
+----------------------
+
+✅ All used technologies and libraries are permitted for commercial use.
+✅ The project does not contain GPL or AGPL dependencies.
+✅ All licenses are compatible with proprietary use.
+
+See PROJECT_BREAKDOWN.md for complete dependency analysis and project breakdown
+See README.md for detailed license information
+
+================================================================================
+Last updated: January 2025
+Последнее обновление: Январь 2025
+================================================================================
+

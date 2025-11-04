@@ -1,0 +1,52 @@
+/* Breadcrumbs Component */
+
+.breadcrumbs {
+  padding: var(--spacing-md) 0;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.breadcrumbs li::after {
+  content: '/';
+  color: var(--text-muted);
+  margin-left: var(--spacing-sm);
+}
+
+.breadcrumbs li:last-child::after {
+  display: none;
+}
+
+.breadcrumbs li:last-child a {
+  color: var(--text-primary);
+  font-weight: 500;
+  pointer-events: none;
+}
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="keywords" content="{% if keywords %}{{ keywords }}{% else %}кондиционеры москва, установка кондиционеров, продажа кондиционеров{% endif %}">
+  <meta name="author" content="{{ site.name }}">
+  <meta name="generator" content="Eleventy">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if ogTitle %}{{ ogTitle }}{% elif title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if ogDescription %}{{ ogDescription }}{% elif description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{% if canonical %}{{ canonical }}{% else %}https://{{ site.domain }}{% if page.url %}{{ page.url }}{% else %}/{% endif %}{% endif %}">
+  {% if ogImage %}
+  <meta property="og:image" content="https://{{ site.domain }}{{ ogImage }}">
+  {% else %}
+  <meta property="og:image" content="https://{{ site.domain }}/assets/images/og-image.jpg">
+  {% endif %}
+  <meta property="og:locale" content="ru_RU">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if ogTitle %}{{ ogTitle }}{% elif title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if ogDescription %}{{ ogDescription }}{% elif description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  {% if ogImage %}
+  <meta name="twitter:image" content="https://{{ site.domain }}{{ ogImage }}">
+  {% else %}
+  <meta name="twitter:image" content="https://{{ site.domain }}/assets/images/og-image.jpg">
+  {% endif %}
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{% if canonical %}{{ canonical }}{% else %}https://{{ site.domain }}{% if page.url %}{{ page.url }}{% else %}/{% endif %}{% endif %}">
+  
+  {% if title %}
+    {% if site.domain in title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>{{ title }} | {{ site.name }} | {{ site.domain }}</title>
+    {% endif %}
+  {% else %}
+    <title>{{ site.title }} | {{ site.name }} | {{ site.domain }}</title>
+  {% endif %}
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Resource Hints -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://yandex.ru">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="/assets/css/main.css" as="style">
+  <link rel="preload" href="/assets/js/components-loader.js" as="script">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  
+  <!-- Schema.org JSON-LD -->
+  {% if schema %}
+    {% set parsedSchema = schema | parseJson %}
+    {% if parsedSchema | isArray %}
+      {% for item in parsedSchema %}
+      <script type="application/ld+json">
+      {{ item | stringify | safe }}
+      </script>
+      {% endfor %}
+    {% else %}
+    <script type="application/ld+json">
+    {{ parsedSchema | stringify | safe }}
+    </script>
+    {% endif %}
+  {% endif %}
+</head>
+<body>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+  
+  <!-- Header -->
+  {% include "header.html" %}
+  
+  <!-- Theme anchors -->
+  <span id="light" class="theme-anchor"></span>
+  <span id="dark" class="theme-anchor"></span>
+  
+  <!-- Main Content -->
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+  
+  <!-- Footer -->
+  {% include "footer.html" %}
+  
+  <!-- Scripts -->
+  <script src="/assets/js/components-loader.js" defer></script>
+  <script src="/assets/js/mobile-menu.js" defer></script>
+  <script src="/assets/js/theme-switcher.js" defer></script>
+  <script src="/assets/js/smooth-scroll.js" defer></script>
+  <script src="/assets/js/accordion.js" defer></script>
+  <script src="/assets/js/phone-formatter.js" defer></script>
+  <script src="/assets/js/form-handler.js" defer></script>
+  {% if scripts %}
+    {% for script in scripts %}
+    <script src="{{ script }}" defer></script>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>
+

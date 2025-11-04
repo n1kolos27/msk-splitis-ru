@@ -1,0 +1,31 @@
+# Игнорируем файлы из корня проекта
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+!NOTICE
+
+# Игнорируем служебные файлы
+node_modules/
+.git/
+.gitignore
+*.log
+
+# Игнорируем старые файлы миграции
+fix-layout.js
+fix-layouts.js
+migrate-pages.js
+
+# Игнорируем тесты
+tests/
+playwright.config.js
+
+# Игнорируем конфигурационные файлы
+serve.bat
+serve.py
+serve.sh
+server.js
+
+# Игнорируем исходные includes (используем _includes в корне)
+src/_includes/
+

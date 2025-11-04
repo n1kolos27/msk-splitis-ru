@@ -1,0 +1,148 @@
+/* ============================================
+   Floating CTA Component
+   Плавающая кнопка звонка для конверсий
+   ============================================ */
+
+.floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.floating-cta__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.4);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-cta__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--color-primary-rgb), 0.5);
+  text-decoration: none;
+  color: white;
+}
+
+.floating-cta__button:active {
+  transform: translateY(0);
+}
+
+.floating-cta__button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.floating-cta__button:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.floating-cta__icon {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  position: relative;
+  z-index: 1;
+}
+
+.floating-cta__label {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+  pointer-events: none;
+}
+
+.floating-cta__button:hover .floating-cta__label {
+  opacity: 1;
+  visibility: visible;
+  right: 90px;
+}
+
+.floating-cta__pulse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--color-primary);
+  animation: pulse 2s infinite;
+  opacity: 0.6;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Hide on mobile menu open */
+.mobile-menu--open ~ .floating-cta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .floating-cta {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .floating-cta__button {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .floating-cta__icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .floating-cta__label {
+    display: none;
+  }
+}
+

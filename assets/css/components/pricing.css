@@ -1,0 +1,135 @@
+/* Pricing Component */
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-xl) 0;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Responsive table wrapper */
+.pricing-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: var(--spacing-xl) 0;
+}
+
+@media (max-width: 767px) {
+  .pricing-table-wrapper {
+    margin-left: calc(var(--spacing-md) * -1);
+    margin-right: calc(var(--spacing-md) * -1);
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+  
+  .pricing-table {
+    min-width: 600px;
+  }
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.pricing-table tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table__price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.pricing-table__price-old {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  margin-right: var(--spacing-xs);
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .pricing-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .pricing-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pricing-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.pricing-card--featured {
+  border: 2px solid var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .pricing-card--featured {
+    transform: scale(1.05);
+  }
+}
+
+@media (hover: none) {
+  .pricing-card--featured {
+    transform: none;
+  }
+}
+
+.pricing-card__price {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: var(--spacing-md) 0;
+}
+
+.pricing-card__period {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+  text-align: left;
+}
+
+.pricing-card__feature {
+  padding: var(--spacing-sm) 0;
+  color: var(--text-secondary);
+}
+
+.pricing-card__feature::before {
+  content: '✓ ';
+  color: var(--color-success);
+  font-weight: 700;
+  margin-right: var(--spacing-sm);
+}
+

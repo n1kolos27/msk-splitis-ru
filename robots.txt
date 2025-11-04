@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Служебные директории
+Disallow: /components/
+Disallow: /schemas/
+Disallow: /docs/
+Disallow: /_includes/
+Disallow: /test-results/
+Disallow: /playwright-report/
+
+# Sitemap
+Sitemap: https://msk.splitis.ru/sitemap.xml
+

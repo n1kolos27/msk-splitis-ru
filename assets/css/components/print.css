@@ -1,0 +1,201 @@
+/* ============================================
+   Print Styles (@media print)
+   ============================================ */
+
+@media print {
+  /* Hide non-essential elements */
+  .header,
+  .footer,
+  .mobile-menu,
+  .theme-switcher,
+  .btn,
+  .hero__actions,
+  .cta__actions,
+  .form,
+  .hero__image,
+  .breadcrumbs,
+  .hero__trust-badges,
+  .hero__badge,
+  .faq__icon,
+  .pricing-table__row:has(.pricing-table__cell:empty) {
+    display: none !important;
+  }
+
+  /* Optimize colors for printing */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Remove backgrounds and shadows */
+  .card,
+  .hero,
+  .cta,
+  .section--gray {
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .hero {
+    color: black !important;
+    padding: var(--spacing-xl) 0 !important;
+  }
+
+  /* Improve readability */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  a[href^="tel:"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.875rem;
+    color: #666;
+  }
+
+  /* Page breaks */
+  section {
+    page-break-inside: avoid;
+    page-break-before: auto;
+  }
+
+  .card,
+  .review-card,
+  .product-card,
+  .benefit-card,
+  .testimonial-card {
+    page-break-inside: avoid;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid #ddd !important;
+  }
+
+  /* Remove padding/margins */
+  .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .section {
+    padding: var(--spacing-lg) 0 !important;
+  }
+
+  /* Optimize images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    color: black !important;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  h1 {
+    font-size: 24pt !important;
+  }
+
+  h2 {
+    font-size: 20pt !important;
+  }
+
+  h3 {
+    font-size: 16pt !important;
+  }
+
+  p, li {
+    color: black !important;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Tables */
+  table {
+    page-break-inside: avoid;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+  }
+
+  th, td {
+    border: 1px solid #ddd !important;
+    padding: var(--spacing-sm) !important;
+    color: black !important;
+  }
+
+  th {
+    background: #f5f5f5 !important;
+    font-weight: 700;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+
+  /* Lists */
+  ul, ol {
+    page-break-inside: avoid;
+  }
+
+  /* Statistics */
+  .stat-card__number {
+    color: black !important;
+  }
+
+  /* Links in footer */
+  .footer__legal-link {
+    color: black !important;
+  }
+
+  /* FAQ */
+  .faq__answer {
+    display: block !important;
+    max-height: none !important;
+  }
+
+  /* Pricing tables */
+  .pricing-table {
+    border: 1px solid #ddd !important;
+  }
+
+  .pricing-table__cell {
+    color: black !important;
+    border: 1px solid #ddd !important;
+  }
+
+  /* Hero content */
+  .hero__title {
+    color: black !important;
+    font-size: 24pt !important;
+  }
+
+  .hero__subtitle {
+    color: #333 !important;
+  }
+
+  /* Print URLs */
+  @page {
+    margin: 2cm;
+    size: A4;
+  }
+
+  /* Avoid breaking */
+  .hero__content,
+  article {
+    page-break-inside: avoid;
+  }
+}
+
