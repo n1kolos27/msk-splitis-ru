@@ -1,6 +1,7 @@
 ---
 layout: page.html
-title: "Цены на кондиционеры в Москве | От 25 000 ₽"
+permalink: /pricing.html
+title: "Цены на кондиционеры в Москве | От 25 000 ₽ | Прозрачные цены"
 description: "Цены на кондиционеры в Москве. Прозрачные цены без скрытых платежей. Рассрочка 0% до 12 месяцев. Установка от 5000₽. Низкие цены на кондиционеры Daikin, Mitsubishi, LG. Опыт 14 лет. ☎️ +7 (499) 757-57-19"
 keywords: "цены кондиционеры москва, стоимость кондиционеров, цена установки кондиционера, кондиционеры цены"
 ogImage: "/assets/images/og-image.jpg"
@@ -14,13 +15,15 @@ schema: |
       "url": "https://msk.splitis.ru",
       "logo": "https://msk.splitis.ru/assets/images/logo.svg",
       "foundingDate": "2010",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+7-499-757-57-19",
-        "contactType": "customer service",
-        "areaServed": "RU",
-        "availableLanguage": "Russian"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+7-499-757-57-19",
+          "contactType": "customer service",
+          "areaServed": "RU",
+          "availableLanguage": "Russian"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Веры Волошиной, д. 19/16, офис 229",
@@ -52,7 +55,7 @@ schema: |
         "longitude": 37.7308
       },
       "url": "https://msk.splitis.ru",
-      "priceRange": "$$",
+      "priceRange": "25000-65000 RUB",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -103,10 +106,89 @@ schema: |
           "item": "https://msk.splitis.ru/pricing.html"
         }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит кондиционер с установкой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Стоимость кондиционера с установкой зависит от типа кондиционера, бренда и сложности монтажа. Настенный кондиционер с установкой стоит от 38 000 ₽, премиум модели Daikin или Mitsubishi Electric с установкой от 58 000 ₽."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли купить в рассрочку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы предлагаем рассрочку 0% на покупку и установку кондиционеров до 12 месяцев без переплаты. Рассрочка доступна при покупке от 30 000 рублей."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Входят ли скрытые платежи в стоимость?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Нет, мы гарантируем прозрачные цены без скрытых платежей. Все цены на кондиционеры и установку указаны на сайте и в договоре."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли получить скидку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы предоставляем скидки при покупке нескольких кондиционеров или комплексном заказе. Также действуют сезонные акции и специальные предложения."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что влияет на стоимость установки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На стоимость установки влияет тип кондиционера, сложность монтажа, длина фреоновой трассы, этаж установки, необходимость алмазного бурения и другие факторы."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли бесплатная доставка?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы предоставляем бесплатную доставку кондиционеров по Москве и Московской области при покупке кондиционера с установкой."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли вернуть кондиционер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, согласно Закону о защите прав потребителей, вы можете вернуть кондиционер в течение 14 дней с момента покупки при условии, что товар не был в эксплуатации."
+          }
+        }
+      ]
     }
   ]
 ---
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Цены</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -114,21 +196,21 @@ schema: |
         <div class="hero__content">
           <h1 class="hero__title">Цены на кондиционеры в Москве и Московской области</h1>
           <p class="hero__subtitle">
-            Цены на кондиционеры в Москве и МО — прозрачные цены без скрытых платежей. Рассрочка 0% до 12 месяцев на покупку и установку. Установка кондиционеров от 5000₽. Низкие цены на кондиционеры всех типов: настенные от 25000₽, кассетные от 35000₽, канальные от 45000₽. Официальные дилеры Daikin, Mitsubishi Electric, LG, Samsung, Panasonic, Gree, Haier, Electrolux. Опыт 14 лет, более 3850 установок выполнено в Москве и МО. Гарантия до 5 лет, бесплатная консультация.
+            Цены на кондиционеры в Москве и Московской области — прозрачные цены без скрытых платежей от официальных дилеров ведущих брендов. В нашем каталоге представлены цены на кондиционеры всех типов: настенные сплит-системы от 25 000 ₽, напольно-потолочные кондиционеры от 35 000 ₽, кассетные кондиционеры от 45 000 ₽, канальные системы от 55 000 ₽, мульти-сплит системы от 60 000 ₽. Цены на кондиционеры в Москве и МО зависят от бренда производителя: японские премиум бренды Daikin от 45 000 ₽, Mitsubishi Electric от 52 000 ₽, бюджетные китайские Gree от 25 000 ₽, Haier от 22 000 ₽, корейские LG от 32 000 ₽, Samsung от 28 000 ₽. Прозрачные цены без скрытых платежей, рассрочка 0% до 12 месяцев на покупку и установку кондиционеров в Москве и Московской области. Установка кондиционеров от 5 000 ₽, точная стоимость рассчитывается индивидуально после бесплатного выезда специалиста. Опыт 14 лет работы в Москве и МО, более 3850 установок выполнено. Гарантия лучшей цены, бесплатная консультация по выбору кондиционера.
           </p>
           <div class="hero__actions">
             <a href="tel:+74997575719" class="btn btn--primary btn--lg hero__button">
-              Позвонить +7 (499) 757-57-19
+              Узнать цену +7 (499) 757-57-19
             </a>
-            <a href="/kontakty.html" class="btn btn--outline btn--lg hero__button" style="color: white; border-color: white;">
-              Все контакты
+            <a href="/katalog.html" class="btn btn--outline btn--lg hero__button" style="color: white; border-color: white;">
+              Посмотреть каталог
             </a>
           </div>
           <div class="hero__trust-badges">
-            <span class="hero__badge">✓ Гарантия до 5 лет</span>
-            <span class="hero__badge">✓ 3850+ установок</span>
-            <span class="hero__badge">✓ Бесплатный выезд</span>
+            <span class="hero__badge">✓ Прозрачные цены</span>
             <span class="hero__badge">✓ Рассрочка 0%</span>
+            <span class="hero__badge">✓ Без скрытых платежей</span>
+            <span class="hero__badge">✓ Гарантия лучшей цены</span>
           </div>
         </div>
       </div>
@@ -153,6 +235,254 @@ schema: |
           <div class="stat-card">
             <span class="stat-card__number">24/7</span>
             <span class="stat-card__label">Приём заявок</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Prices by Type Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Цены на кондиционеры по типам</h2>
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background-color: var(--color-primary); color: white;">
+                  <th style="padding: var(--spacing-md); text-align: left;">Тип кондиционера</th>
+                  <th style="padding: var(--spacing-md); text-align: right;">Цена от</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Настенные кондиционеры</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">25 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Напольно-потолочные</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">35 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Кассетные кондиционеры</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">45 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Канальные кондиционеры</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">55 000 ₽</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--spacing-md);">Мульти-сплит системы</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">60 000 ₽</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card" style="max-width: 900px; margin: 2rem auto 0;">
+          <h3 class="text-center mb-lg">Цены на кондиционеры по брендам</h3>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background-color: var(--color-primary); color: white;">
+                  <th style="padding: var(--spacing-md); text-align: left;">Бренд</th>
+                  <th style="padding: var(--spacing-md); text-align: right;">Цена от</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Daikin</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">45 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Mitsubishi Electric</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">52 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">LG</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">32 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Samsung</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">28 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Panasonic</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">30 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Gree</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">25 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Haier</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">22 000 ₽</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--spacing-md);">Electrolux</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">26 000 ₽</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Installation Prices Section -->
+    <section class="section section--gray">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Цены на установку кондиционеров</h2>
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background-color: var(--color-primary); color: white;">
+                  <th style="padding: var(--spacing-md); text-align: left;">Тип установки</th>
+                  <th style="padding: var(--spacing-md); text-align: right;">Стоимость</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Настенный кондиционер (стандарт)</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">13 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Настенный (сложные условия)</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">16 000 - 20 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Напольно-потолочный</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">18 000 - 22 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Кассетный</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">22 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Канальная система</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">от 45 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Мульти-сплит (2 внутренних)</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">25 000 ₽</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: var(--spacing-md);">Мульти-сплит (3 внутренних)</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">35 000 ₽</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--spacing-md);">Дополнительный метр трассы</td>
+                  <td style="padding: var(--spacing-md); text-align: right; font-weight: 600; color: var(--color-primary);">1 000 ₽/м</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-center mt-lg text-muted" style="font-size: 0.875rem;">
+            Точная стоимость рассчитывается индивидуально после бесплатного выезда специалиста
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Installment Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Рассрочка 0% на покупку и установку</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto; padding: var(--spacing-xl);">
+          <div style="text-align: center;">
+            <h3 style="margin-bottom: var(--spacing-lg); color: var(--color-primary);">Условия рассрочки</h3>
+            <div class="benefits grid grid--lg-cols-2" style="gap: var(--spacing-lg); margin-bottom: var(--spacing-xl);">
+              <div>
+                <div style="font-size: 2rem; margin-bottom: var(--spacing-sm);">📅</div>
+                <h4>Срок рассрочки</h4>
+                <p style="color: var(--text-secondary);">До 12 месяцев</p>
+              </div>
+              <div>
+                <div style="font-size: 2rem; margin-bottom: var(--spacing-sm);">💰</div>
+                <h4>Переплата</h4>
+                <p style="color: var(--text-secondary);">0%</p>
+              </div>
+              <div>
+                <div style="font-size: 2rem; margin-bottom: var(--spacing-sm);">💳</div>
+                <h4>Первоначальный взнос</h4>
+                <p style="color: var(--text-secondary);">От 0%</p>
+              </div>
+              <div>
+                <div style="font-size: 2rem; margin-bottom: var(--spacing-sm);">✅</div>
+                <h4>Условия получения</h4>
+                <p style="color: var(--text-secondary);">Покупка от 30 000 ₽</p>
+              </div>
+            </div>
+            <p style="margin-bottom: var(--spacing-lg); color: var(--text-secondary);">
+              Рассрочка 0% доступна на покупку и установку кондиционеров всех типов и брендов. Оформление рассрочки занимает всего 15 минут. Никаких скрытых платежей и переплат. Рассрочка распространяется как на покупку кондиционера, так и на услуги установки в Москве и Московской области.
+            </p>
+            <a href="tel:+74997575719" class="btn btn--primary btn--lg">Оформить рассрочку</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Cost Factors Section -->
+    <section class="section section--gray">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Что влияет на стоимость кондиционера</h2>
+        <div class="benefits grid grid--lg-cols-2">
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">🏠</div>
+            <h3 class="benefit-card__title">Тип кондиционера</h3>
+            <p class="benefit-card__description">
+              Настенные кондиционеры самые доступные (от 25 000 ₽), канальные и мульти-сплит системы дороже (от 55 000 ₽)
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">📏</div>
+            <h3 class="benefit-card__title">Мощность и площадь помещения</h3>
+            <p class="benefit-card__description">
+              Чем больше площадь помещения, тем мощнее нужен кондиционер и выше его стоимость
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">⭐</div>
+            <h3 class="benefit-card__title">Бренд производителя</h3>
+            <p class="benefit-card__description">
+              Японские премиум бренды (Daikin, Mitsubishi Electric) дороже бюджетных китайских (Gree, Haier)
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">⚡</div>
+            <h3 class="benefit-card__title">Класс энергоэффективности</h3>
+            <p class="benefit-card__description">
+              Кондиционеры класса A+++ дороже, но экономят электроэнергию в процессе эксплуатации
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">📱</div>
+            <h3 class="benefit-card__title">Дополнительные функции</h3>
+            <p class="benefit-card__description">
+              Wi-Fi управление, фильтры очистки воздуха, ионизация увеличивают стоимость кондиционера
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">🔧</div>
+            <h3 class="benefit-card__title">Сложность установки</h3>
+            <p class="benefit-card__description">
+              Высотные работы, сложные условия монтажа увеличивают стоимость установки кондиционера
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">📐</div>
+            <h3 class="benefit-card__title">Длина трассы</h3>
+            <p class="benefit-card__description">
+              Стандартная трасса до 5 метров входит в стоимость, каждый дополнительный метр стоит 1 000 ₽
+            </p>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">🏗️</div>
+            <h3 class="benefit-card__title">Высотные работы</h3>
+            <p class="benefit-card__description">
+              Установка кондиционера выше 3 этажа требует специального оборудования и увеличивает стоимость
+            </p>
           </div>
         </div>
       </div>
@@ -368,62 +698,86 @@ schema: |
         <h2 class="text-center mb-2xl">Часто задаваемые вопросы</h2>
         <div class="faq">
           <div class="faq__item">
-            <button class="faq__question">
-              Сколько стоит установка кондиционера?
-              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+              Сколько стоит кондиционер с установкой?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
-            <div class="faq__answer">
-              <p>Стоимость установки настенного кондиционера начинается от 5 000 рублей. Итоговая цена зависит от сложности монтажа, длины трассы, этажа и других факторов. Бесплатный выезд замерщика для точного расчета.</p>
+            <div class="faq__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
+              <p>Стоимость кондиционера с установкой зависит от типа кондиционера, бренда и сложности монтажа. Настенный кондиционер с установкой стоит от 38 000 ₽ (Gree от 25 000 ₽ + установка от 13 000 ₽), премиум модели Daikin или Mitsubishi Electric с установкой от 58 000 ₽. Кассетные кондиционеры с установкой от 67 000 ₽, канальные системы от 100 000 ₽. Точная стоимость рассчитывается индивидуально после бесплатного выезда специалиста, который оценит сложность монтажа, длину трассы и другие факторы, влияющие на стоимость установки кондиционера в Москве и Московской области.</p>
             </div>
           </div>
           
           <div class="faq__item">
-            <button class="faq__question">
-              Какой кондиционер выбрать для квартиры?
-              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+              Можно ли купить в рассрочку?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
-            <div class="faq__answer">
-              <p>Для квартиры обычно выбирают настенные сплит-системы. Мощность рассчитывается исходя из площади помещения: примерно 1 кВт на 10 м². Также учитывают этаж, количество окон, наличие техники. Наш специалист поможет выбрать оптимальную модель.</p>
+            <div class="faq__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
+              <p>Да, мы предлагаем рассрочку 0% на покупку и установку кондиционеров до 12 месяцев без переплаты. Рассрочка доступна при покупке от 30 000 рублей. Оформление рассрочки занимает всего 15 минут. Рассрочка 0% распространяется как на покупку кондиционера, так и на услуги установки в Москве и Московской области. Первоначальный взнос от 0%, никаких скрытых платежей и переплат. Все кондиционеры из каталога можно купить в рассрочку: от бюджетных моделей Gree и Haier до премиум кондиционеров Daikin и Mitsubishi Electric.</p>
             </div>
           </div>
           
           <div class="faq__item">
-            <button class="faq__question">
-              Какая гарантия предоставляется?
-              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+              Входят ли скрытые платежи в стоимость?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
-            <div class="faq__answer">
-              <p>На оборудование предоставляется официальная гарантия производителя от 3 до 5 лет. На монтажные работы - гарантия 2 года. Все гарантийные обязательства закреплены в договоре.</p>
+            <div class="faq__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
+              <p>Нет, мы гарантируем прозрачные цены без скрытых платежей. Все цены на кондиционеры и установку указаны на сайте и в договоре. В стоимость стандартной установки входит: монтаж внутреннего и наружного блоков, прокладка фреоновой трассы до 5 метров, прокладка дренажа, подключение электричества, вакуумирование системы, заправка фреоном, пусконаладочные работы. Дополнительно оплачиваются только услуги, не входящие в стандартную установку: удлинение трассы (1 000 ₽/метр), высотные работы, алмазное бурение. Все дополнительные расходы обсуждаются и согласовываются заранее, до начала работ.</p>
             </div>
           </div>
           
           <div class="faq__item">
-            <button class="faq__question">
-              Можно ли установить кондиционер зимой?
-              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+              Можно ли получить скидку?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
-            <div class="faq__answer">
-              <p>Да, установка возможна зимой при температуре до -5°C. Мы используем специальное оборудование и технологии для безопасной установки в холодное время года. Для более низких температур может потребоваться дополнительное оборудование.</p>
+            <div class="faq__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+              <p>Да, мы предоставляем скидки при покупке нескольких кондиционеров или комплексном заказе (покупка + установка + обслуживание). Размер скидки зависит от суммы заказа и обсуждается индивидуально. Также действуют сезонные акции и специальные предложения на популярные модели кондиционеров. Гарантия лучшей цены: если вы найдете аналогичный кондиционер дешевле, мы вернем разницу. Узнать о текущих акциях и скидках можно по телефону +7 (499) 757-57-19 или у наших менеджеров при оформлении заказа.</p>
             </div>
           </div>
           
           <div class="faq__item">
-            <button class="faq__question">
-              Нужно ли разрешение на установку кондиционера?
-              <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 9l6 6 6-6"/>
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+              Что влияет на стоимость установки?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
               </svg>
             </button>
-            <div class="faq__answer">
-              <p>Для установки настенного кондиционера в частной квартире разрешение не требуется. Однако если вы проживаете в доме, являющемся объектом культурного наследия, или планируете установку на фасаде многоквартирного дома, может потребоваться согласование с управляющей компанией.</p>
+            <div class="faq__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+              <p>На стоимость установки кондиционера влияет несколько факторов: тип кондиционера (настенный, кассетный, канальный), сложность монтажа (стандартная установка или сложные условия), длина фреоновой трассы (стандартная до 5 метров входит в стоимость, каждый дополнительный метр стоит 1 000 ₽), этаж установки (высотные работы выше 3 этажа требуют специального оборудования), необходимость алмазного бурения стен, наличие подвесных потолков или других препятствий. Точная стоимость установки рассчитывается индивидуально после бесплатного выезда специалиста, который оценит все факторы влияющие на стоимость монтажа.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+              Есть ли бесплатная доставка?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+              <p>Да, мы предоставляем бесплатную доставку кондиционеров по Москве и Московской области при покупке кондиционера с установкой. Доставка кондиционеров возможна в день заказа при оформлении заявки до 14:00. Доставка по Москве занимает 2-4 часа, в города Московской области осуществляется в течение 24 часов с момента заказа. При покупке кондиционера без установки доставка оплачивается отдельно (стоимость уточняется у менеджера). Все кондиционеры в наличии на складе в Москве, готовы к доставке и установке в любой район Москвы и города Московской области.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+              Можно ли вернуть кондиционер?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+              <p>Да, согласно Закону о защите прав потребителей, вы можете вернуть кондиционер в течение 14 дней с момента покупки при условии, что товар не был в эксплуатации и сохранены его товарный вид, потребительские свойства и упаковка. Возврат возможен только при покупке кондиционера без установки. Если кондиционер был установлен, возврат возможен только при обнаружении заводского брака или несоответствия характеристикам, указанным в договоре. При возврате кондиционера стоимость установки не возвращается. Все вопросы по возврату товара решаются индивидуально, свяжитесь с нами по телефону +7 (499) 757-57-19.</p>
             </div>
           </div>
         </div>
@@ -433,16 +787,16 @@ schema: |
     <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <h2 class="cta__title">Готовы сделать заказ?</h2>
+        <h2 class="cta__title">Узнайте точную стоимость кондиционера прямо сейчас</h2>
         <p class="cta__description">
-          Свяжитесь с нами удобным способом и получите бесплатную консультацию по выбору и установке кондиционера
+          Бесплатный выезд замерщика для точного расчета стоимости. Прозрачные цены, рассрочка 0%.
         </p>
         <div class="cta__actions">
           <a href="tel:+74997575719" class="btn btn--primary btn--lg cta__button" style="background: white; color: var(--color-primary);">
-            📞 +7 (499) 757-57-19
+            Узнать цену +7 (499) 757-57-19
           </a>
-          <a href="/kontakty.html" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
-            Все контакты
+          <a href="tel:+74997575719" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
+            Бесплатный выезд замерщика
           </a>
         </div>
       </div>

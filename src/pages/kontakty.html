@@ -45,10 +45,135 @@ schema: |
           "item": "https://msk.splitis.ru/kontakty.html"
         }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ИП Лагуто Иван Иванович",
+      "image": "https://msk.splitis.ru/assets/images/og-image.jpg",
+      "priceRange": "5000-45000 RUB",
+      "telephone": "+7-499-757-57-19",
+      "email": "info@msk.splitis.ru",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Веры Волошиной, д. 19/16, офис 229",
+        "addressLocality": "Мытищи",
+        "addressRegion": "Московская область",
+        "postalCode": "141000",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.9116,
+        "longitude": 37.7308
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Москва"
+        },
+        {
+          "@type": "State",
+          "name": "Московская область"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Какие телефоны для связи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Для связи с нами используйте телефоны: +7 (499) 757-57-19 (основной) и +7 (903) 236-60-50 (альтернативный). Приём заявок осуществляется круглосуточно 24/7. Наш менеджер свяжется с вами в течение 15 минут после получения заявки."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Где находится офис компании?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Офис компании msk.splitis.ru находится в городе Мытищи, Московская область, по адресу: ул. Веры Волошиной, д. 19/16, офис 229, почтовый индекс 141000. Мы работаем во всех районах Москвы и городах Московской области."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "В какие города выезжаете?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Мы выполняем установку и обслуживание кондиционеров во всех городах Москвы и Московской области. Основные города: Мытищи, Королёв, Химки, Балашиха, Одинцово, Люберцы, Реутов, Москва, Подольск, Красногорск и другие города МО."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие часы работы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Офис компании работает: Понедельник - Пятница с 9:00 до 20:00, Суббота - Воскресенье с 10:00 до 18:00. Приём заявок на установку и обслуживание кондиционеров осуществляется круглосуточно 24/7."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как добраться до офиса?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Наш офис находится в Мытищах по адресу: ул. Веры Волошиной, д. 19/16, офис 229. Добраться можно от метро Медведково на автобусе 419 до остановки \"Веры Волошиной\", от станции Мытищи на маршрутке или такси."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли получить консультацию по телефону?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, наши менеджеры-консультанты готовы предоставить бесплатную консультацию по телефону в любое время. Звоните по номеру +7 (499) 757-57-19 или +7 (903) 236-60-50. Консультация бесплатная и ни к чему не обязывает."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Есть ли бесплатный выезд замерщика?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы предоставляем бесплатный выезд замерщика для расчета мощности и стоимости установки кондиционера в Москве и Московской области. Наш специалист приедет в удобное для вас время, проведет замеры помещения и рассчитает точную стоимость установки."
+          }
+        }
+      ]
     }
   ]
 ---
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Контакты</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -56,7 +181,7 @@ schema: |
         <div class="hero__content">
           <h1 class="hero__title">Контакты</h1>
           <p class="hero__subtitle">
-            Мы всегда на связи! Свяжитесь с нами удобным способом и получите бесплатную консультацию.
+            Контакты компании по продаже и установке кондиционеров в Москве и Московской области. Мы всегда на связи и готовы помочь вам выбрать и установить кондиционер. Свяжитесь с нами удобным способом и получите бесплатную консультацию по выбору оборудования, расчету стоимости установки и техническим вопросам. Телефоны для связи: +7 (499) 757-57-19 и +7 (903) 236-60-50. Приём заявок 24/7, выезд мастера в течение 24 часов в любой район Москвы и города Московской области. Наш офис находится в Мытищах по адресу: ул. Веры Волошиной, д. 19/16, офис 229. Работаем ежедневно: Пн-Пт с 9:00 до 20:00, Сб-Вс с 10:00 до 18:00. Также вы можете связаться с нами через WhatsApp, Telegram или отправить сообщение на email info@msk.splitis.ru. Бесплатный выезд замерщика для расчета мощности и стоимости установки кондиционера в Москве и МО.
           </p>
           <div class="hero__actions">
             <a href="tel:+74997575719" class="btn btn--primary btn--lg hero__button">
@@ -78,6 +203,7 @@ schema: |
     <!-- Contact Info Section -->
     <section class="section">
       <div class="container">
+        <h2 class="text-center mb-2xl">Телефоны и способы связи</h2>
         <div class="grid grid--lg-cols-3">
           <!-- Телефоны -->
           <div class="card">
@@ -92,7 +218,7 @@ schema: |
               </a>
             </p>
             <p style="margin-top: var(--spacing-md); color: var(--text-muted); font-size: 0.875rem;">
-              Приём заявок 24/7
+              Приём заявок 24/7. Более подробную информацию о наших услугах смотрите в <a href="/katalog.html">каталоге кондиционеров</a> или на странице <a href="/uslugi/ustanovka.html">услуг по установке</a>.
             </p>
           </div>
           
@@ -166,7 +292,7 @@ schema: |
       <div class="container">
         <h2 class="text-center mb-2xl">Работаем в городах Московской области</h2>
         <p class="text-center text-muted mb-xl" style="max-width: 800px; margin-left: auto; margin-right: auto;">
-          Выполняем установку и обслуживание кондиционеров во всех городах Москвы и Московской области. Более 3850 успешных установок за 14 лет работы.
+          Выполняем установку и обслуживание кондиционеров во всех городах Москвы и Московской области. Более 3850 успешных установок за 14 лет работы. Кондиционеры в Москве и Московской области - наша основная специализация. Мы работаем во всех районах Москвы и городах МО с гарантией качества. Профессиональный монтаж кондиционеров в Москве и Московской области, выезд мастера в течение 24 часов, бесплатный выезд замерщика для расчета стоимости и выбора оптимальной модели кондиционера. Наша компания имеет богатый опыт работы в регионе и знает все особенности монтажа в разных городах.
         </p>
         <div class="grid grid--lg-cols-4" style="gap: var(--spacing-md); margin-bottom: var(--spacing-xl);">
           <div class="card" style="text-align: center; padding: var(--spacing-lg);">
@@ -204,7 +330,7 @@ schema: |
         </div>
         <div class="text-center">
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md);">
-            Также работаем в: Подольск, Красногорск, Домодедово, Раменское, Серпухов, Ногинск, Павловский Посад, Электросталь, Жуковский, Коломна, Орехово-Зуево и других городах Московской области.
+            Также работаем в: Подольск, Красногорск, Домодедово, Раменское, Серпухов, Ногинск, Павловский Посад, Электросталь, Жуковский, Коломна, Орехово-Зуево и других городах Московской области. Подробнее о компании и наших услугах читайте на странице <a href="/o-kompanii.html">о компании</a>.
           </p>
         </div>
       </div>
@@ -258,6 +384,98 @@ schema: |
               Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
             </p>
           </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="section section--gray">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Часто задаваемые вопросы</h2>
+        <div class="faq">
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-question-1">
+              Какие телефоны для связи?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
+              <p>Для связи с нами используйте телефоны: +7 (499) 757-57-19 (основной) и +7 (903) 236-60-50 (альтернативный). Приём заявок осуществляется круглосуточно 24/7. Наш менеджер свяжется с вами в течение 15 минут после получения заявки. Также вы можете связаться с нами через WhatsApp и Telegram по номеру +7 (903) 236-60-50 или отправить сообщение на email info@msk.splitis.ru. Мы работаем в Москве и Московской области.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+              Где находится офис компании?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
+              <p>Офис компании msk.splitis.ru находится в городе Мытищи, Московская область, по адресу: ул. Веры Волошиной, д. 19/16, офис 229, почтовый индекс 141000. Мы работаем во всех районах Москвы и городах Московской области. Выезд мастера для диагностики и установки возможен в любой район Москвы и МО. От метро Медведково можно добраться на автобусе 419 до остановки "Веры Волошиной", или от станции Мытищи на маршрутке.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+              В какие города выезжаете?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
+              <p>Мы выполняем установку и обслуживание кондиционеров во всех городах Москвы и Московской области. Основные города: Мытищи (наш офис), Королёв, Химки, Балашиха, Одинцово, Люберцы, Реутов, Москва (все районы), Подольск, Красногорск, Домодедово, Раменское, Серпухов, Ногинск, Павловский Посад, Электросталь, Жуковский, Коломна, Орехово-Зуево и другие города МО. Более 3850 установок выполнено за 14 лет работы. Выезд мастера в течение 24 часов, бесплатный выезд замерщика для расчета стоимости.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+              Какие часы работы?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+              <p>Офис компании работает: Понедельник - Пятница с 9:00 до 20:00, Суббота - Воскресенье с 10:00 до 18:00. Приём заявок на установку и обслуживание кондиционеров осуществляется круглосуточно 24/7. Вы можете оставить заявку в любое время через сайт или по телефону. Наш менеджер свяжется с вами в течение 15 минут. Выезд мастера возможен в удобное для вас время, включая выходные дни.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+              Как добраться до офиса?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+              <p>Наш офис находится в Мытищах по адресу: ул. Веры Волошиной, д. 19/16, офис 229. Добраться можно несколькими способами: от метро Медведково на автобусе 419 до остановки "Веры Волошиной", от станции Мытищи на маршрутке или такси. При необходимости наши сотрудники подскажут точный маршрут. Также вы можете найти нас на карте Яндекс.Карты или связаться с нами по телефону для уточнения маршрута.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+              Можно ли получить консультацию по телефону?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+              <p>Да, конечно! Наши менеджеры-консультанты готовы предоставить бесплатную консультацию по телефону в любое время. Звоните по номеру +7 (499) 757-57-19 или +7 (903) 236-60-50. Мы поможем вам выбрать подходящую модель кондиционера, рассчитать необходимую мощность для вашего помещения, ответим на все технические вопросы и расскажем о стоимости установки. Консультация бесплатная и ни к чему не обязывает.</p>
+            </div>
+          </div>
+          
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+              Есть ли бесплатный выезд замерщика?
+              <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="faq__answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+              <p>Да, мы предоставляем бесплатный выезд замерщика для расчета мощности и стоимости установки кондиционера в Москве и Московской области. Наш специалист приедет в удобное для вас время, проведет замеры помещения, оценит сложность монтажа, поможет выбрать оптимальную модель кондиционера и рассчитает точную стоимость установки. Бесплатный выезд возможен во все районы Москвы и города МО. Записаться на выезд можно по телефону или через форму обратной связи на сайте.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

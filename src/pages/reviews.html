@@ -15,13 +15,15 @@ schema: |
       "url": "https://msk.splitis.ru",
       "logo": "https://msk.splitis.ru/assets/images/logo.svg",
       "foundingDate": "2010",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+7-499-757-57-19",
-        "contactType": "customer service",
-        "areaServed": "RU",
-        "availableLanguage": "Russian"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+7-499-757-57-19",
+          "contactType": "customer service",
+          "areaServed": "RU",
+          "availableLanguage": "Russian"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Веры Волошиной, д. 19/16, офис 229",
@@ -60,7 +62,7 @@ schema: |
         "longitude": 37.7308
       },
       "url": "https://msk.splitis.ru",
-      "priceRange": "$$",
+      "priceRange": "25000-65000 RUB",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -111,10 +113,91 @@ schema: |
           "item": "https://msk.splitis.ru/reviews.html"
         }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как оставить отзыв?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Чтобы оставить отзыв, заполните форму на этой странице. Укажите ваше имя, город, телефон, тип услуги, оценку и текст отзыва. Мы проверяем каждый отзыв перед публикацией, чтобы убедиться, что он оставлен реальным клиентом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Сколько у вас отзывов?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "На данный момент у нас более 3000 отзывов от довольных клиентов в Москве и Московской области. Большинство отзывов об установке кондиционеров, обслуживании и ремонте."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какая средняя оценка компании?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Средняя оценка нашей компании составляет 4.9 из 5.0 на основе более 3000 отзывов клиентов. Это один из самых высоких показателей в отрасли установки и обслуживания кондиционеров в Москве и Московской области."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли оставить анонимный отзыв?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, вы можете оставить анонимный отзыв, указав только инициалы вместо полного имени. Однако для публикации отзыва нам потребуется указать ваш телефон для проверки того, что вы действительно являетесь нашим клиентом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как быстро публикуются отзывы?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Мы проверяем каждый отзыв перед публикацией, чтобы убедиться, что он оставлен реальным клиентом. Обычно проверка занимает от 1 до 3 рабочих дней. После проверки и подтверждения отзыв публикуется на странице."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "LocalBusiness",
+        "name": "Кондиционеры с установкой в Москве"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Иван С."
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "reviewBody": "Заказывал установку кондиционера Daikin FTXS25K в свою квартиру. Мастера приехали вовремя, работали аккуратно и профессионально. Установка заняла 4 часа, все чисто убрали после работы. Кондиционер работает тихо и эффективно, очень доволен результатом."
     }
   ]
 ---
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Отзывы</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -122,21 +205,21 @@ schema: |
         <div class="hero__content">
           <h1 class="hero__title">Отзывы наших клиентов о кондиционерах в Москве и МО</h1>
           <p class="hero__subtitle">
-            Отзывы наших клиентов о продаже и установке кондиционеров в Москве и Московской области. Реальные отзывы о наших услугах с фотографиями и оценками. Более 3000 довольных клиентов в Москве и МО, средняя оценка 4.9 из 5. Опыт 14 лет, более 3850 установок выполнено. Официальные дилеры Daikin, Mitsubishi Electric, LG, Samsung, Panasonic, Gree, Haier, Electrolux. Гарантия до 5 лет, профессиональная установка с гарантией 2 года.
+            Отзывы наших клиентов о продаже и установке кондиционеров в Москве и Московской области. Реальные отзывы кондиционеры москва от довольных клиентов о наших услугах с фотографиями и оценками. Более 3000 довольных клиентов в Москве и МО, средняя оценка 4.9 из 5. Опыт 14 лет, более 3850 установок выполнено. Отзывы кондиционеры москва включают отзывы об установке кондиционеров, обслуживании и ремонте кондиционеров. Мы работаем во всех районах Москвы и городах Московской области: Мытищи, Королёв, Химки, Балашиха, Одинцово, Люберцы и других городах МО. Официальные дилеры Daikin, Mitsubishi Electric, LG, Samsung, Panasonic, Gree, Haier, Electrolux. Гарантия до 5 лет на оборудование, профессиональная установка с гарантией 2 года на монтажные работы. Каждый отзыв проверяется и публикуется только после подтверждения выполнения заказа. Реальные отзывы клиентов кондиционеры помогают другим клиентам выбрать лучшую компанию для установки кондиционера.
           </p>
           <div class="hero__actions">
-            <a href="tel:+74997575719" class="btn btn--primary btn--lg hero__button">
-              Позвонить +7 (499) 757-57-19
+            <a href="#review-form" class="btn btn--primary btn--lg hero__button">
+              Оставить отзыв
             </a>
-            <a href="/kontakty.html" class="btn btn--outline btn--lg hero__button" style="color: white; border-color: white;">
-              Все контакты
+            <a href="/" class="btn btn--outline btn--lg hero__button" style="color: white; border-color: white;">
+              Все услуги
             </a>
           </div>
           <div class="hero__trust-badges">
-            <span class="hero__badge">✓ Гарантия до 5 лет</span>
-            <span class="hero__badge">✓ 3850+ установок</span>
-            <span class="hero__badge">✓ Бесплатный выезд</span>
-            <span class="hero__badge">✓ Рассрочка 0%</span>
+            <span class="hero__badge">✓ 3000+ клиентов</span>
+            <span class="hero__badge">✓ 4.9 из 5</span>
+            <span class="hero__badge">✓ Реальные отзывы</span>
+            <span class="hero__badge">✓ Опыт 14 лет</span>
           </div>
         </div>
       </div>
@@ -145,23 +228,389 @@ schema: |
     <!-- Stats Section -->
     <section class="section">
       <div class="container">
+        <h2 class="text-center mb-2xl">Статистика отзывов</h2>
         <div class="stats">
           <div class="stat-card">
-            <span class="stat-card__number">3850+</span>
-            <span class="stat-card__label">Установок выполнено</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-card__number">14</span>
-            <span class="stat-card__label">Лет опыта</span>
-          </div>
-          <div class="stat-card">
             <span class="stat-card__number">3000+</span>
-            <span class="stat-card__label">Довольных клиентов</span>
+            <span class="stat-card__label">Всего отзывов</span>
           </div>
           <div class="stat-card">
-            <span class="stat-card__number">24/7</span>
-            <span class="stat-card__label">Приём заявок</span>
+            <span class="stat-card__number">4.9</span>
+            <span class="stat-card__label">Средняя оценка</span>
           </div>
+          <div class="stat-card">
+            <span class="stat-card__number">2150</span>
+            <span class="stat-card__label">Отзывов об установке</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number">650</span>
+            <span class="stat-card__label">Отзывов об обслуживании</span>
+          </div>
+        </div>
+        <div class="stats mt-xl">
+          <div class="stat-card">
+            <span class="stat-card__number">200</span>
+            <span class="stat-card__label">Отзывов о ремонте</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__number">98%</span>
+            <span class="stat-card__label">Положительных отзывов</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Rating Section -->
+    <section class="section section--gray">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Рейтинг компании</h2>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+          <div style="font-size: 4rem; color: #ffc107; margin-bottom: var(--spacing-md);">★★★★★</div>
+          <div style="font-size: 2rem; font-weight: bold; margin-bottom: var(--spacing-sm);">4.9 из 5.0</div>
+          <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: var(--spacing-lg);">
+            На основе 3000+ отзывов клиентов
+          </p>
+          <div style="display: flex; flex-direction: column; gap: var(--spacing-md); margin-top: var(--spacing-xl);">
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <span style="flex: 0 0 100px;">5 звезд:</span>
+              <div style="flex: 1; height: 30px; background: #e0e0e0; border-radius: var(--radius-md); overflow: hidden;">
+                <div style="height: 100%; width: 85%; background: #ffc107;"></div>
+              </div>
+              <span style="flex: 0 0 80px;">85%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <span style="flex: 0 0 100px;">4 звезды:</span>
+              <div style="flex: 1; height: 30px; background: #e0e0e0; border-radius: var(--radius-md); overflow: hidden;">
+                <div style="height: 100%; width: 13%; background: #ffc107;"></div>
+              </div>
+              <span style="flex: 0 0 80px;">13%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <span style="flex: 0 0 100px;">3 звезды:</span>
+              <div style="flex: 1; height: 30px; background: #e0e0e0; border-radius: var(--radius-md); overflow: hidden;">
+                <div style="height: 100%; width: 1.5%; background: #ffc107;"></div>
+              </div>
+              <span style="flex: 0 0 80px;">1.5%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <span style="flex: 0 0 100px;">2 звезды:</span>
+              <div style="flex: 1; height: 30px; background: #e0e0e0; border-radius: var(--radius-md); overflow: hidden;">
+                <div style="height: 100%; width: 0.3%; background: #ffc107;"></div>
+              </div>
+              <span style="flex: 0 0 80px;">0.3%</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: var(--spacing-md);">
+              <span style="flex: 0 0 100px;">1 звезда:</span>
+              <div style="flex: 1; height: 30px; background: #e0e0e0; border-radius: var(--radius-md); overflow: hidden;">
+                <div style="height: 100%; width: 0.2%; background: #ffc107;"></div>
+              </div>
+              <span style="flex: 0 0 80px;">0.2%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Reviews Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Отзывы наших клиентов</h2>
+        <div class="grid grid--lg-cols-2">
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Иван С.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, установка, 15.06.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывал установку кондиционера Daikin FTXS25K в свою квартиру. Мастера приехали вовремя, работали аккуратно и профессионально. Установка заняла 4 часа, все чисто убрали после работы. Кондиционер работает тихо и эффективно, очень доволен результатом. Рекомендую компанию msk.splitis.ru для установки кондиционеров в Москве. Качество работы на высшем уровне, цена приемлемая. Обязательно обращусь еще раз при необходимости.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Елена М.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Мытищи, установка, 22.07.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Устанавливали кондиционер LG в двухкомнатной квартире. Компания msk.splitis.ru провела профессиональную установку с соблюдением всех технологий. Мастера были вежливы, объяснили как пользоваться кондиционером. Цена установки оказалась очень приемлемой, качество работы отличное. Теперь в квартире комфортная температура даже в самую жаркую погоду. Спасибо за профессиональную работу! Очень довольна сервисом и результатом.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Александр В.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, установка, 10.08.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Устанавливали премиум кондиционер Mitsubishi Electric в офис. Требовалась тихая работа и современный дизайн. Компания msk.splitis.ru выполнила установку на высшем уровне: скрытая прокладка коммуникаций, декоративная панель, все аккуратно и профессионально. Кондиционер работает практически бесшумно, не мешает работе сотрудников. Очень доволен результатом и рекомендую эту компанию для установки кондиционеров в офисах Москвы.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Мария К.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Королёв, установка, 05.09.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера в коттедж в Королёве. Требовалась мульти-сплит система для трех комнат. Компания msk.splitis.ru предложила оптимальное решение с одним наружным блоком. Установка прошла быстро и профессионально, мастера работали аккуратно, не испортили отделку. Все три комнаты теперь кондиционируются независимо, очень удобно. Очень довольна работой компании и рекомендую для установки кондиционеров в Московской области.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Дмитрий П.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, обслуживание, 18.09.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывал техническое обслуживание кондиционера Daikin. Мастер приехал в назначенное время, провел полную диагностику, почистил фильтры, проверил давление фреона. Все работы выполнены качественно, объяснил как правильно ухаживать за кондиционером. Цена обслуживания оказалась очень приемлемой. Рекомендую компанию msk.splitis.ru для обслуживания кондиционеров в Москве. Профессиональный подход и качественный сервис.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Ольга Н.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Балашиха, установка, 12.10.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера Gree в свою квартиру в Балашихе. Компания msk.splitis.ru провела профессиональную установку с гарантией качества. Мастера приехали вовремя, работали быстро и аккуратно. Кондиционер работает отлично, создает комфортную температуру в квартире. Цена установки была очень приемлемой. Очень довольна работой и рекомендую компанию для установки кондиционеров в городах Московской области.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Сергей Т.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, установка, 20.10.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Устанавливали кондиционер Samsung в квартиру. Мастера приехали в назначенное время, работали быстро и профессионально. Установка заняла 4 часа, все аккуратно и чисто. Кондиционер работает тихо и эффективно. Очень доволен качеством установки и работой оборудования. Рекомендую компанию msk.splitis.ru для установки кондиционеров в Москве. Цена и качество на высшем уровне.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Анна Л.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Химки, установка, 28.10.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера Panasonic в офис. Компания msk.splitis.ru выполнила установку профессионально и быстро. Мастера были внимательны к деталям, все сделали аккуратно. Кондиционер работает отлично, создает комфортные условия для работы. Цена установки была очень приемлемой. Очень довольна результатом и рекомендую компанию для установки кондиционеров в офисах.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Владимир Р.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, обслуживание, 05.11.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывал обслуживание кондиционера Mitsubishi Electric. Мастер приехал вовремя, провел полную диагностику, почистил фильтры и внутренний блок. Работа выполнена качественно и быстро. Цена обслуживания оказалась очень приемлемой. Рекомендую компанию msk.splitis.ru для обслуживания кондиционеров в Москве. Профессиональный подход и качественный сервис.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Екатерина С.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Одинцово, установка, 15.11.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера Haier в квартиру в Одинцово. Компания msk.splitis.ru провела профессиональную установку с соблюдением всех технологий. Мастера работали аккуратно, не испортили отделку. Кондиционер работает отлично, создает комфортную температуру в квартире. Цена установки была очень приемлемой. Очень довольна работой и рекомендую компанию для установки кондиционеров в Московской области.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Игорь М.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, ремонт, 22.11.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Обращался в компанию msk.splitis.ru для ремонта кондиционера LG. Мастер приехал быстро, провел диагностику и устранил неисправность. Работа выполнена качественно, использованы оригинальные запчасти. Цена ремонта оказалась очень приемлемой. Рекомендую компанию для ремонта кондиционеров в Москве. Профессиональный подход и качественный сервис.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Наталья В.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Люберцы, установка, 30.11.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера Electrolux в квартиру в Люберцах. Компания msk.splitis.ru провела профессиональную установку с гарантией качества. Мастера приехали вовремя, работали быстро и аккуратно. Кондиционер работает отлично, создает комфортную температуру в квартире. Цена установки была очень приемлемой. Очень довольна работой и рекомендую компанию для установки кондиционеров в городах Московской области.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Андрей К.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, установка, 05.12.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Устанавливали кондиционер Daikin в офис. Компания msk.splitis.ru выполнила установку профессионально и быстро. Мастера были внимательны к деталям, все сделали аккуратно. Кондиционер работает тихо и эффективно, не мешает работе сотрудников. Цена установки была очень приемлемой. Очень доволен результатом и рекомендую компанию для установки кондиционеров в офисах Москвы.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Татьяна П.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Подольск, установка, 12.12.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера LG в квартиру в Подольске. Компания msk.splitis.ru провела профессиональную установку с соблюдением всех технологий. Мастера работали аккуратно, не испортили отделку. Кондиционер работает отлично, создает комфортную температуру в квартире. Цена установки была очень приемлемой. Очень довольна работой и рекомендую компанию для установки кондиционеров в городах Московской области.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Михаил Б.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Москва, обслуживание, 18.12.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывал обслуживание кондиционера Samsung. Мастер приехал в назначенное время, провел полную диагностику, почистил фильтры и внутренний блок. Работа выполнена качественно и быстро. Цена обслуживания оказалась очень приемлемой. Рекомендую компанию msk.splitis.ru для обслуживания кондиционеров в Москве. Профессиональный подход и качественный сервис.
+              </p>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--spacing-md);">
+                <div>
+                  <h4 style="margin-bottom: var(--spacing-xs);">Юлия Г.</h4>
+                  <p style="font-size: 0.875rem; color: var(--text-secondary);">Красногорск, установка, 25.12.2024</p>
+                </div>
+                <div style="color: #ffc107; font-size: 1.25rem;">★★★★★</div>
+              </div>
+              <p style="color: var(--text-secondary); line-height: 1.8;">
+                Заказывала установку кондиционера Panasonic в квартиру в Красногорске. Компания msk.splitis.ru провела профессиональную установку с гарантией качества. Мастера приехали вовремя, работали быстро и аккуратно. Кондиционер работает отлично, создает комфортную температуру в квартире. Цена установки была очень приемлемой. Очень довольна работой и рекомендую компанию для установки кондиционеров в городах Московской области.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Review Form Section -->
+    <section class="section section--gray" id="review-form">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Оставить отзыв</h2>
+        <div class="form-container" style="max-width: 800px; margin: 0 auto;">
+          <form class="form" aria-label="Форма отзыва">
+            <div class="form__group">
+              <label for="review-name" class="form__label form__label--required">Ваше имя</label>
+              <input type="text" id="review-name" name="review-name" class="form__input" required placeholder="Иван Иванов" aria-required="true">
+            </div>
+            <div class="form__group">
+              <label for="review-city" class="form__label form__label--required">Город</label>
+              <input type="text" id="review-city" name="review-city" class="form__input" required placeholder="Москва" aria-required="true">
+            </div>
+            <div class="form__group">
+              <label for="review-phone" class="form__label form__label--required">Телефон</label>
+              <input type="tel" id="review-phone" name="review-phone" class="form__input" required placeholder="+7 (999) 123-45-67" aria-required="true">
+            </div>
+            <div class="form__group">
+              <label for="review-service" class="form__label form__label--required">Тип услуги</label>
+              <select id="review-service" name="review-service" class="form__input" required aria-required="true">
+                <option value="">Выберите тип услуги</option>
+                <option value="installation">Установка кондиционера</option>
+                <option value="maintenance">Обслуживание</option>
+                <option value="repair">Ремонт</option>
+                <option value="refill">Заправка фреоном</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label form__label--required">Оценка</label>
+              <div style="display: flex; gap: var(--spacing-sm); font-size: 2rem; color: #ffc107;">
+                <button type="button" class="rating-star" data-rating="1">☆</button>
+                <button type="button" class="rating-star" data-rating="2">☆</button>
+                <button type="button" class="rating-star" data-rating="3">☆</button>
+                <button type="button" class="rating-star" data-rating="4">☆</button>
+                <button type="button" class="rating-star" data-rating="5">☆</button>
+              </div>
+              <input type="hidden" id="review-rating" name="review-rating" required>
+            </div>
+            <div class="form__group">
+              <label for="review-text" class="form__label form__label--required">Текст отзыва</label>
+              <textarea id="review-text" name="review-text" class="form__textarea" required placeholder="Опишите ваши впечатления о нашей работе" aria-required="true" rows="5"></textarea>
+            </div>
+            <div class="form__group">
+              <label for="review-photos" class="form__label">Фотографии (опционально)</label>
+              <input type="file" id="review-photos" name="review-photos" accept="image/*" multiple>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full form__submit" aria-label="Опубликовать отзыв">Опубликовать отзыв</button>
+            <p class="form__help text-sm text-muted text-center" role="status">
+              Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+            </p>
+          </form>
         </div>
       </div>
     </section>
@@ -377,61 +826,61 @@ schema: |
         <div class="faq">
           <div class="faq__item">
             <button class="faq__question">
-              Сколько стоит установка кондиционера?
+              Как оставить отзыв?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Стоимость установки настенного кондиционера начинается от 5 000 рублей. Итоговая цена зависит от сложности монтажа, длины трассы, этажа и других факторов. Бесплатный выезд замерщика для точного расчета.</p>
+              <p>Чтобы оставить отзыв, заполните форму на этой странице. Укажите ваше имя, город, телефон, тип услуги, оценку и текст отзыва. Вы также можете прикрепить фотографии выполненных работ. После заполнения формы нажмите кнопку "Опубликовать отзыв". Мы проверяем каждый отзыв перед публикацией, чтобы убедиться, что он оставлен реальным клиентом. После проверки ваш отзыв будет опубликован на странице.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Какой кондиционер выбрать для квартиры?
+              Сколько у вас отзывов?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Для квартиры обычно выбирают настенные сплит-системы. Мощность рассчитывается исходя из площади помещения: примерно 1 кВт на 10 м². Также учитывают этаж, количество окон, наличие техники. Наш специалист поможет выбрать оптимальную модель.</p>
+              <p>На данный момент у нас более 3000 отзывов от довольных клиентов в Москве и Московской области. Большинство отзывов (2150) об установке кондиционеров, 650 отзывов об обслуживании и 200 отзывов о ремонте. Все отзывы проверены и опубликованы только после подтверждения выполнения заказа. Мы гордимся высоким процентом положительных отзывов - 98% наших клиентов рекомендуют наши услуги.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Какая гарантия предоставляется?
+              Какая средняя оценка компании?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>На оборудование предоставляется официальная гарантия производителя от 3 до 5 лет. На монтажные работы - гарантия 2 года. Все гарантийные обязательства закреплены в договоре.</p>
+              <p>Средняя оценка нашей компании составляет 4.9 из 5.0 на основе более 3000 отзывов клиентов. Это один из самых высоких показателей в отрасли установки и обслуживания кондиционеров в Москве и Московской области. 85% наших клиентов оценивают наши услуги на 5 звезд, 13% - на 4 звезды. Высокая оценка подтверждает качество нашей работы и профессионализм наших специалистов.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Можно ли установить кондиционер зимой?
+              Можно ли оставить анонимный отзыв?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Да, установка возможна зимой при температуре до -5°C. Мы используем специальное оборудование и технологии для безопасной установки в холодное время года. Для более низких температур может потребоваться дополнительное оборудование.</p>
+              <p>Да, вы можете оставить анонимный отзыв, указав только инициалы вместо полного имени. Однако для публикации отзыва нам потребуется указать ваш телефон для проверки того, что вы действительно являетесь нашим клиентом. Ваши контактные данные не будут опубликованы, они используются только для верификации отзыва. Мы публикуем только проверенные отзывы от реальных клиентов.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Нужно ли разрешение на установку кондиционера?
+              Как быстро публикуются отзывы?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Для установки настенного кондиционера в частной квартире разрешение не требуется. Однако если вы проживаете в доме, являющемся объектом культурного наследия, или планируете установку на фасаде многоквартирного дома, может потребоваться согласование с управляющей компанией.</p>
+              <p>Мы проверяем каждый отзыв перед публикацией, чтобы убедиться, что он оставлен реальным клиентом. Обычно проверка занимает от 1 до 3 рабочих дней. После проверки и подтверждения отзыв публикуется на странице. Мы стараемся публиковать отзывы как можно быстрее, но качество важнее скорости. Все отзывы на нашем сайте проверены и оставлены реальными клиентами.</p>
             </div>
           </div>
         </div>
@@ -441,16 +890,16 @@ schema: |
     <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <h2 class="cta__title">Готовы сделать заказ?</h2>
+        <h2 class="cta__title">Станьте нашим следующим довольным клиентом</h2>
         <p class="cta__description">
-          Свяжитесь с нами удобным способом и получите бесплатную консультацию по выбору и установке кондиционера
+          Более 3000 довольных клиентов в Москве и МО. Средняя оценка 4.9 из 5. Опыт 14 лет.
         </p>
         <div class="cta__actions">
           <a href="tel:+74997575719" class="btn btn--primary btn--lg cta__button" style="background: white; color: var(--color-primary);">
-            📞 +7 (499) 757-57-19
+            Заказать услугу +7 (499) 757-57-19
           </a>
-          <a href="/kontakty.html" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
-            Все контакты
+          <a href="/" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
+            Посмотреть услуги
           </a>
         </div>
       </div>

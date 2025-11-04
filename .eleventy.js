@@ -17,7 +17,27 @@ try {
   console.warn("@11ty/eleventy-img не установлен. Оптимизация изображений будет пропущена.");
 }
 
+// Минификация CSS
+let postcss, cssnano;
+try {
+  postcss = require("postcss");
+  cssnano = require("cssnano");
+} catch (e) {
+  console.warn("postcss/cssnano не установлены. Минификация CSS будет пропущена.");
+}
+
+// Минификация JavaScript
+let terser;
+try {
+  terser = require("terser");
+} catch (e) {
+  console.warn("terser не установлен. Минификация JavaScript будет пропущена.");
+}
+
 module.exports = function(eleventyConfig) {
+  // Определяем режим production (по умолчанию true для сборки)
+  const isProduction = process.env.NODE_ENV === 'production' || process.env.ELEVENTY_ENV === 'production' || true;
+  
   // Структура папок
   // В 11ty 3.x layouts ищутся относительно includes директории
   // Для работы с src/_includes нужно переместить includes в корень или использовать другой подход
@@ -27,6 +47,9 @@ module.exports = function(eleventyConfig) {
     includes: "../_includes", // Относительно input (src/pages), поэтому ../_includes = src/_includes
     data: "../_data" // Относительно input (src/pages), поэтому ../_data = src/_data
   };
+  
+  // Добавляем глобальную переменную для определения production режима
+  eleventyConfig.addGlobalData("isProduction", isProduction);
   
   // Загружаем данные из JSON файлов через addGlobalData для глобальной доступности
   const fs = require('fs');
@@ -162,6 +185,28 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(obj, null, 2);
   });
 
+  // Фильтр для автоматического использования минифицированных файлов в production
+  eleventyConfig.addFilter("assetPath", function(path) {
+    if (!path) return path;
+    
+    // Если не production или файл уже имеет .min, возвращаем как есть
+    if (!isProduction || path.includes('.min.')) {
+      return path;
+    }
+    
+    // Определяем расширение файла
+    const cssMatch = path.match(/\.css$/);
+    const jsMatch = path.match(/\.js$/);
+    
+    if (cssMatch) {
+      return path.replace('.css', '.min.css');
+    } else if (jsMatch) {
+      return path.replace('.js', '.min.js');
+    }
+    
+    return path;
+  });
+
   // Фильтр для автоматической генерации Schema.org разметки
   eleventyConfig.addFilter("generateSchema", function(page) {
     const baseUrl = 'https://msk.splitis.ru';
@@ -200,8 +245,11 @@ module.exports = function(eleventyConfig) {
   });
 
   // Оптимизация изображений
+  // Временно отключено из-за проблем с парсером Nunjucks
+  // TODO: Доработать shortcode для корректной работы
+  /*
   if (Image) {
-    eleventyConfig.addShortcode("image", async function(src, alt, widths = [400, 800, 1200], formats = ["webp", "jpeg"]) {
+    eleventyConfig.addShortcode("image", async function(src, alt = "", widths = [400, 800, 1200], formats = ["webp", "jpeg"]) {
       if (!src) return "";
       
       // Путь к исходному изображению
@@ -234,6 +282,7 @@ module.exports = function(eleventyConfig) {
       }
     });
   }
+  */
 
   // Автоматическая генерация sitemap.xml
   eleventyConfig.on('eleventy.after', async () => {
@@ -319,6 +368,108 @@ module.exports = function(eleventyConfig) {
       console.log('✅ Sitemap.xml сгенерирован автоматически');
     } catch (error) {
       console.warn('Ошибка при генерации sitemap:', error.message);
+    }
+    
+    // Минификация CSS файлов
+    if (postcss && cssnano) {
+      try {
+        const assetsDir = path.join(process.cwd(), '_site', 'assets');
+        const cssDir = path.join(assetsDir, 'css');
+        
+        if (fs.existsSync(cssDir)) {
+          const minifyCSS = async (filePath) => {
+            try {
+              const cssContent = fs.readFileSync(filePath, 'utf8');
+              const result = await postcss([cssnano({
+                preset: ['default', {
+                  discardComments: { removeAll: true },
+                }]
+              })]).process(cssContent, { from: filePath });
+              
+              const minifiedPath = filePath.replace('.css', '.min.css');
+              fs.writeFileSync(minifiedPath, result.css, 'utf8');
+              return true;
+            } catch (error) {
+              console.warn(`Ошибка при минификации CSS ${filePath}:`, error.message);
+              return false;
+            }
+          };
+          
+          const walkAndMinifyCSS = async (dir) => {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              const filePath = path.join(dir, file);
+              const stat = fs.statSync(filePath);
+              
+              if (stat.isDirectory()) {
+                await walkAndMinifyCSS(filePath);
+              } else if (file.endsWith('.css') && !file.endsWith('.min.css')) {
+                await minifyCSS(filePath);
+              }
+            }
+          };
+          
+          await walkAndMinifyCSS(cssDir);
+          console.log('✅ CSS файлы минифицированы');
+        }
+      } catch (error) {
+        console.warn('Ошибка при минификации CSS:', error.message);
+      }
+    }
+    
+    // Минификация JavaScript файлов
+    if (terser) {
+      try {
+        const assetsDir = path.join(process.cwd(), '_site', 'assets');
+        const jsDir = path.join(assetsDir, 'js');
+        
+        if (fs.existsSync(jsDir)) {
+          const minifyJS = async (filePath) => {
+            try {
+              const jsContent = fs.readFileSync(filePath, 'utf8');
+              const result = await terser.minify(jsContent, {
+                compress: {
+                  drop_console: false, // Сохраняем console для отладки
+                  passes: 2
+                },
+                format: {
+                  comments: false
+                }
+              });
+              
+              if (result.error) {
+                throw result.error;
+              }
+              
+              const minifiedPath = filePath.replace('.js', '.min.js');
+              fs.writeFileSync(minifiedPath, result.code, 'utf8');
+              return true;
+            } catch (error) {
+              console.warn(`Ошибка при минификации JS ${filePath}:`, error.message);
+              return false;
+            }
+          };
+          
+          const walkAndMinifyJS = async (dir) => {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              const filePath = path.join(dir, file);
+              const stat = fs.statSync(filePath);
+              
+              if (stat.isDirectory()) {
+                await walkAndMinifyJS(filePath);
+              } else if (file.endsWith('.js') && !file.endsWith('.min.js')) {
+                await minifyJS(filePath);
+              }
+            }
+          };
+          
+          await walkAndMinifyJS(jsDir);
+          console.log('✅ JavaScript файлы минифицированы');
+        }
+      } catch (error) {
+        console.warn('Ошибка при минификации JavaScript:', error.message);
+      }
     }
   });
 

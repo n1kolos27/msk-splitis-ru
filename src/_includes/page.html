@@ -20,6 +20,7 @@
   <meta property="og:image" content="https://{{ site.domain }}/assets/images/og-image.jpg">
   {% endif %}
   <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="msk.splitis.ru">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -55,11 +56,16 @@
   <link rel="dns-prefetch" href="https://yandex.ru">
   
   <!-- Preload Critical Resources -->
-  <link rel="preload" href="/assets/css/main.css" as="style">
-  <link rel="preload" href="/assets/js/components-loader.js" as="script">
+  <link rel="preload" href="/assets/css/main{% if isProduction %}.min{% endif %}.css" as="style">
+  <link rel="preload" href="/assets/js/components-loader{% if isProduction %}.min{% endif %}.js" as="script">
+  {% if ogImage %}
+  <link rel="preload" href="{{ ogImage }}" as="image">
+  {% else %}
+  <link rel="preload" href="/assets/images/og-image.jpg" as="image">
+  {% endif %}
   
   <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main{% if isProduction %}.min{% endif %}.css">
   
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
@@ -100,16 +106,16 @@
   {% include "footer.html" %}
   
   <!-- Scripts -->
-  <script src="/assets/js/components-loader.js" defer></script>
-  <script src="/assets/js/mobile-menu.js" defer></script>
-  <script src="/assets/js/theme-switcher.js" defer></script>
-  <script src="/assets/js/smooth-scroll.js" defer></script>
-  <script src="/assets/js/accordion.js" defer></script>
-  <script src="/assets/js/phone-formatter.js" defer></script>
-  <script src="/assets/js/form-handler.js" defer></script>
+  <script src="/assets/js/components-loader{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/mobile-menu{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/theme-switcher{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/smooth-scroll{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/accordion{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/phone-formatter{% if isProduction %}.min{% endif %}.js" defer></script>
+  <script src="/assets/js/form-handler{% if isProduction %}.min{% endif %}.js" defer></script>
   {% if scripts %}
     {% for script in scripts %}
-    <script src="{{ script }}" defer></script>
+    <script src="{{ script | assetPath }}" defer></script>
     {% endfor %}
   {% endif %}
 </body>

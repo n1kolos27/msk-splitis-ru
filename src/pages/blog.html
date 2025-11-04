@@ -15,13 +15,15 @@ schema: |
       "url": "https://msk.splitis.ru",
       "logo": "https://msk.splitis.ru/assets/images/logo.svg",
       "foundingDate": "2010",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+7-499-757-57-19",
-        "contactType": "customer service",
-        "areaServed": "RU",
-        "availableLanguage": "Russian"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+7-499-757-57-19",
+          "contactType": "customer service",
+          "areaServed": "RU",
+          "availableLanguage": "Russian"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "ул. Веры Волошиной, д. 19/16, офис 229",
@@ -60,7 +62,7 @@ schema: |
         "longitude": 37.7308
       },
       "url": "https://msk.splitis.ru",
-      "priceRange": "$$",
+      "priceRange": "25000-65000 RUB",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
@@ -111,10 +113,73 @@ schema: |
           "item": "https://msk.splitis.ru/blog.html"
         }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Как часто публикуются новые статьи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Мы публикуем новые статьи в блоге регулярно, обычно 2-3 раза в месяц. Все статьи актуальны и содержат полезную информацию о кондиционерах для жителей Москвы и Московской области."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли предложить тему для статьи?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, мы всегда открыты к предложениям наших читателей. Если у вас есть интересная тема, связанная с кондиционерами, вы можете написать нам через форму обратной связи или позвонить."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Кто пишет статьи в блоге?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Статьи в нашем блоге пишут практикующие мастера и эксперты с опытом работы более 14 лет. Все авторы имеют реальный опыт установки и обслуживания кондиционеров в Москве и МО."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли использовать статьи из блога?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Статьи нашего блога защищены авторским правом. Использование материалов блога возможно только с указанием источника и ссылки на оригинальную статью. Для коммерческого использования материалов необходимо получить письменное разрешение."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Как найти нужную статью?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Все статьи в блоге организованы по категориям: выбор кондиционера, установка, обслуживание, ремонт, советы. Вы можете использовать поиск по сайту или просматривать статьи по категориям."
+          }
+        }
+      ]
     }
   ]
 ---
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Блог</span>
+            <meta itemprop="position" content="2">
+          </li>
+        </ol>
+      </div>
+    </nav>
 
     
     <!-- Hero Section -->
@@ -123,21 +188,21 @@ schema: |
         <div class="hero__content">
           <h1 class="hero__title">Блог о кондиционерах — полезные статьи и советы экспертов в Москве</h1>
           <p class="hero__subtitle">
-            Блог о кондиционерах в Москве и МО — полезные статьи о выборе, установке и обслуживании кондиционеров от наших экспертов с 14-летним опытом. Актуальная информация и практические советы для жителей Москвы и Московской области. Как выбрать кондиционер для квартиры или офиса, как правильно установить сплит-систему, как обслуживать кондиционер, как экономить электроэнергию, рейтинги лучших моделей 2024 года. Все статьи написаны практикующими мастерами на основе реального опыта более 3850 установок в Москве и МО.
+            Блог о кондиционерах в Москве и Московской области — полезные статьи о выборе, установке и обслуживании кондиционеров от наших экспертов с 14-летним опытом. Актуальная информация и практические советы для жителей Москвы и Московской области. Блог о кондиционерах включает статьи о том, как выбрать кондиционер для квартиры или офиса, как правильно установить сплит-систему, как обслуживать кондиционер, как экономить электроэнергию, рейтинги лучших моделей 2024 года. Все статьи написаны практикующими мастерами на основе реального опыта более 3850 установок в Москве и МО. Мы делимся актуальной информацией, практическими советами и рекомендациями для жителей Москвы и Московской области. Темы статей в нашем блоге: выбор кондиционера — руководство по выбору мощности, типа и бренда; установка сплит-системы — советы по монтажу и размещению; обслуживание кондиционера — регулярное ТО для продления срока службы; ремонт кондиционера — диагностика и устранение неисправностей; практические советы по эксплуатации. Читайте наш блог о кондиционерах и получайте полезную информацию от экспертов!
           </p>
           <div class="hero__actions">
-            <a href="tel:+74997575719" class="btn btn--primary btn--lg hero__button">
-              Позвонить +7 (499) 757-57-19
+            <a href="#articles" class="btn btn--primary btn--lg hero__button">
+              Читать статьи
             </a>
             <a href="/kontakty.html" class="btn btn--outline btn--lg hero__button" style="color: white; border-color: white;">
-              Все контакты
+              Заказать консультацию
             </a>
           </div>
           <div class="hero__trust-badges">
-            <span class="hero__badge">✓ Гарантия до 5 лет</span>
-            <span class="hero__badge">✓ 3850+ установок</span>
-            <span class="hero__badge">✓ Бесплатный выезд</span>
-            <span class="hero__badge">✓ Рассрочка 0%</span>
+            <span class="hero__badge">✓ Экспертные статьи</span>
+            <span class="hero__badge">✓ Актуальная информация</span>
+            <span class="hero__badge">✓ Опыт 14 лет</span>
+            <span class="hero__badge">✓ Практические советы</span>
           </div>
         </div>
       </div>
@@ -235,10 +300,181 @@ schema: |
       </div>
     </section>
     
-    <!-- Blog Articles Section -->
+    <!-- Popular Articles Section -->
+    <section class="section section--gray" id="articles">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Популярные статьи</h2>
+        <div class="grid grid--lg-cols-3">
+          <article class="card">
+            <img src="/assets/images/blog/kak-vybrat-kondicioner.jpg" alt="Как выбрать кондиционер для квартиры - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Выбор кондиционера</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">8 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/kak-vybrat-kondicioner.html" style="color: var(--text-primary); text-decoration: none;">Как выбрать кондиционер для квартиры</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                Полное руководство по выбору кондиционера для квартиры: типы кондиционеров, расчет мощности, выбор бренда, сравнение цен. Экспертные советы от профессионалов с опытом более 14 лет. Практические рекомендации для Москвы и МО.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">29 октября 2024</time>
+              <a href="/blog/kak-vybrat-kondicioner.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <img src="/assets/images/blog/rejting-kondicionerov.jpg" alt="Рейтинг лучших кондиционеров 2024 - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Выбор кондиционера</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">10 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/rejting-konicionerov-2024.html" style="color: var(--text-primary); text-decoration: none;">Рейтинг лучших кондиционеров 2024</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                Топ лучших кондиционеров 2024 года по соотношению цена-качество. Сравнение моделей Daikin, Mitsubishi Electric, LG, Samsung и других брендов. Экспертные рекомендации для Москвы и МО на основе реального опыта установок.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">15 ноября 2024</time>
+              <a href="/blog/rejting-konicionerov-2024.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <img src="/assets/images/blog/obsluzhivanie.jpg" alt="Обслуживание кондиционера когда и как - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Обслуживание</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">7 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/obsluzhivanie-kondicionera-kogda-i-kak.html" style="color: var(--text-primary); text-decoration: none;">Обслуживание кондиционера: когда и как</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                Руководство по обслуживанию кондиционеров для продления срока службы. Когда нужен специалист, что можно делать самостоятельно. Практические советы для жителей Москвы и МО от опытных мастеров.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">10 декабря 2024</time>
+              <a href="/blog/obsluzhivanie-kondicionera-kogda-i-kak.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <img src="/assets/images/blog/invertornyj.jpg" alt="Что такое инверторный кондиционер - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Выбор кондиционера</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">6 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/chto-takoe-invertornyj.html" style="color: var(--text-primary); text-decoration: none;">Что такое инверторный кондиционер</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                Принцип работы инверторных кондиционеров, их преимущества и отличия от обычных сплит-систем. Экономия до 40% электроэнергии. Практические советы по выбору инверторного кондиционера для Москвы и МО.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">27 января 2025</time>
+              <a href="/blog/chto-takoe-invertornyj.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <img src="/assets/images/blog/ekonomiya.jpg" alt="Как экономить электроэнергию с кондиционером - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Советы</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">9 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/kak-ekonomit-elektroenergiyu.html" style="color: var(--text-primary); text-decoration: none;">Как экономить электроэнергию с кондиционером</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                10 эффективных способов снизить расходы на охлаждение. Экономия до 40% на счетах за электричество. Практические советы экспертов для жителей Москвы и МО. Проверенные методы экономии электроэнергии с кондиционером.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">27 января 2025</time>
+              <a href="/blog/kak-ekonomit-elektroenergiyu.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+          
+          <article class="card">
+            <img src="/assets/images/blog/ofis.jpg" alt="Как выбрать кондиционер для офиса - статья о кондиционерах в Москве" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius-md) var(--radius-md) 0 0;" loading="lazy">
+            <div style="padding: var(--spacing-lg);">
+              <div style="display: flex; gap: var(--spacing-sm); margin-bottom: var(--spacing-sm);">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">Выбор кондиционера</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">•</span>
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">8 мин чтения</span>
+              </div>
+              <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+                <a href="/blog/kak-vybrat-kondicioner-dlya-ofisa.html" style="color: var(--text-primary); text-decoration: none;">Как выбрать кондиционер для офиса</a>
+              </h3>
+              <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.8;">
+                Руководство по выбору кондиционера для офисных помещений. Типы систем, расчет мощности, особенности установки для офисов. Экспертные советы для бизнеса в Москве и МО от профессионалов с опытом установки в офисах.
+              </p>
+              <time style="color: var(--text-secondary); font-size: 0.875rem;">27 января 2025</time>
+              <a href="/blog/kak-vybrat-kondicioner-dlya-ofisa.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать далее</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Categories Section -->
     <section class="section">
       <div class="container">
-        <h2 class="text-center mb-2xl">Статьи блога</h2>
+        <h2 class="text-center mb-2xl">Категории статей</h2>
+        <div class="benefits grid grid--lg-cols-3">
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">📋</div>
+            <h3 class="benefit-card__title">Выбор кондиционера</h3>
+            <p class="benefit-card__description">
+              Статьи о том, как выбрать кондиционер: типы, мощность, бренды, цены. Руководства для квартир и офисов.
+            </p>
+            <a href="#articles" class="btn btn--primary btn--sm">Читать статьи (12)</a>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">🔧</div>
+            <h3 class="benefit-card__title">Установка</h3>
+            <p class="benefit-card__description">
+              Статьи об установке кондиционеров: монтаж, размещение, особенности установки для разных типов помещений.
+            </p>
+            <a href="#articles" class="btn btn--primary btn--sm">Читать статьи (8)</a>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">🛠️</div>
+            <h3 class="benefit-card__title">Обслуживание</h3>
+            <p class="benefit-card__description">
+              Статьи об обслуживании и уходе за кондиционерами: регулярное ТО, чистка фильтров, заправка фреоном.
+            </p>
+            <a href="#articles" class="btn btn--primary btn--sm">Читать статьи (10)</a>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">⚙️</div>
+            <h3 class="benefit-card__title">Ремонт</h3>
+            <p class="benefit-card__description">
+              Статьи о ремонте и диагностике кондиционеров: типичные неисправности, способы их устранения, когда нужен специалист.
+            </p>
+            <a href="#articles" class="btn btn--primary btn--sm">Читать статьи (6)</a>
+          </div>
+          <div class="card benefit-card">
+            <div class="benefit-card__icon">💡</div>
+            <h3 class="benefit-card__title">Советы</h3>
+            <p class="benefit-card__description">
+              Практические советы по эксплуатации кондиционеров: экономия электроэнергии, оптимальная температура, уход.
+            </p>
+            <a href="#articles" class="btn btn--primary btn--sm">Читать статьи (15)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Blog Articles Section -->
+    <section class="section section--gray">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Последние публикации</h2>
         <div class="grid grid--lg-cols-3">
           <article class="card">
             <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
@@ -327,6 +563,39 @@ schema: |
             <time style="color: var(--text-secondary); font-size: 0.875rem;">27 января 2025</time>
             <a href="/blog/obsluzhivanie-svoimi-rukami.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать</a>
           </article>
+          
+          <article class="card">
+            <h3 class="card__title" style="margin-bottom: var(--spacing-sm);">
+              <a href="/blog/kondicioner-dlya-detskoj.html" style="color: var(--text-primary); text-decoration: none;">Кондиционер для детской комнаты</a>
+            </h3>
+            <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm); font-size: 0.875rem;">
+              Особенности выбора безопасного кондиционера для детской. Требования к безопасности, оптимальная температура, уровень шума.
+            </p>
+            <time style="color: var(--text-secondary); font-size: 0.875rem;">27 января 2025</time>
+            <a href="/blog/kondicioner-dlya-detskoj.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Читать</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Newsletter Subscription Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-2xl">Подписка на новости</h2>
+        <div class="card" style="max-width: 600px; margin: 0 auto; padding: var(--spacing-xl);">
+          <p class="text-center mb-lg" style="color: var(--text-secondary);">
+            Получайте новые статьи блога на email. Актуальная информация о кондиционерах, советы экспертов и полезные материалы.
+          </p>
+          <form class="form" aria-label="Форма подписки на новости">
+            <div class="form__group">
+              <label for="newsletter-email" class="form__label form__label--required">Email</label>
+              <input type="email" id="newsletter-email" name="newsletter-email" class="form__input" required placeholder="example@mail.ru" aria-required="true">
+            </div>
+            <button type="submit" class="btn btn--primary btn--full form__submit" aria-label="Подписаться на новости">Подписаться</button>
+            <p class="form__help text-sm text-muted text-center" role="status" style="margin-top: var(--spacing-sm);">
+              Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+            </p>
+          </form>
         </div>
       </div>
     </section>
@@ -497,61 +766,61 @@ schema: |
         <div class="faq">
           <div class="faq__item">
             <button class="faq__question">
-              Сколько стоит установка кондиционера?
+              Как часто публикуются новые статьи?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Стоимость установки настенного кондиционера начинается от 5 000 рублей. Итоговая цена зависит от сложности монтажа, длины трассы, этажа и других факторов. Бесплатный выезд замерщика для точного расчета.</p>
+              <p>Мы публикуем новые статьи в блоге регулярно, обычно 2-3 раза в месяц. Все статьи актуальны и содержат полезную информацию о кондиционерах для жителей Москвы и Московской области. Подпишитесь на новости блога, чтобы получать уведомления о новых публикациях на email.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Какой кондиционер выбрать для квартиры?
+              Можно ли предложить тему для статьи?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Для квартиры обычно выбирают настенные сплит-системы. Мощность рассчитывается исходя из площади помещения: примерно 1 кВт на 10 м². Также учитывают этаж, количество окон, наличие техники. Наш специалист поможет выбрать оптимальную модель.</p>
+              <p>Да, конечно! Мы всегда открыты к предложениям наших читателей. Если у вас есть интересная тема, связанная с кондиционерами, вы можете написать нам через форму обратной связи или позвонить. Мы рассмотрим ваше предложение и обязательно учтем его при планировании новых статей для блога.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Какая гарантия предоставляется?
+              Кто пишет статьи в блоге?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>На оборудование предоставляется официальная гарантия производителя от 3 до 5 лет. На монтажные работы - гарантия 2 года. Все гарантийные обязательства закреплены в договоре.</p>
+              <p>Статьи в нашем блоге пишут практикующие мастера и эксперты с опытом работы более 14 лет. Все авторы имеют реальный опыт установки и обслуживания кондиционеров в Москве и МО. Мы делимся только проверенной информацией, основанной на реальном опыте более 3850 установок. Каждая статья проходит редакторскую проверку перед публикацией.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Можно ли установить кондиционер зимой?
+              Можно ли использовать статьи из блога?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Да, установка возможна зимой при температуре до -5°C. Мы используем специальное оборудование и технологии для безопасной установки в холодное время года. Для более низких температур может потребоваться дополнительное оборудование.</p>
+              <p>Статьи нашего блога защищены авторским правом. Использование материалов блога возможно только с указанием источника и ссылки на оригинальную статью. Для коммерческого использования материалов необходимо получить письменное разрешение. Мы всегда рады сотрудничеству и открыты к обсуждению вариантов использования наших материалов.</p>
             </div>
           </div>
           
           <div class="faq__item">
             <button class="faq__question">
-              Нужно ли разрешение на установку кондиционера?
+              Как найти нужную статью?
               <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M6 9l6 6 6-6"/>
               </svg>
             </button>
             <div class="faq__answer">
-              <p>Для установки настенного кондиционера в частной квартире разрешение не требуется. Однако если вы проживаете в доме, являющемся объектом культурного наследия, или планируете установку на фасаде многоквартирного дома, может потребоваться согласование с управляющей компанией.</p>
+              <p>Все статьи в блоге организованы по категориям: выбор кондиционера, установка, обслуживание, ремонт, советы. Вы можете использовать поиск по сайту или просматривать статьи по категориям. Также на странице блога есть разделы "Популярные статьи" и "Последние публикации" для удобной навигации.</p>
             </div>
           </div>
         </div>
@@ -561,16 +830,16 @@ schema: |
     <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <h2 class="cta__title">Готовы сделать заказ?</h2>
+        <h2 class="cta__title">Нужна помощь в выборе кондиционера?</h2>
         <p class="cta__description">
-          Свяжитесь с нами удобным способом и получите бесплатную консультацию по выбору и установке кондиционера
+          Получите бесплатную консультацию от наших экспертов. Опыт 14 лет, более 3850 установок.
         </p>
         <div class="cta__actions">
           <a href="tel:+74997575719" class="btn btn--primary btn--lg cta__button" style="background: white; color: var(--color-primary);">
-            📞 +7 (499) 757-57-19
+            Получить консультацию +7 (499) 757-57-19
           </a>
-          <a href="/kontakty.html" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
-            Все контакты
+          <a href="/katalog.html" class="btn btn--outline btn--lg cta__button" style="border-color: white; color: white;">
+            Посмотреть каталог
           </a>
         </div>
       </div>
