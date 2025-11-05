@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Google Tag Manager -->
+  {% if site.gtm %}
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','{{ site.gtm }}');</script>
+  {% endif %}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
@@ -11,7 +19,7 @@
   
   <!-- Content Security Policy (fallback meta tag) -->
   <!-- Основная CSP настраивается через HTTP заголовки в .htaccess или nginx.conf -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://fonts.googleapis.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://mc.yandex.ru https://yandex.ru https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'">
   
   <!-- Open Graph -->
   <meta property="og:title" content="{% if ogTitle %}{{ ogTitle }}{% elif title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
@@ -58,6 +66,8 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch" href="https://yandex.ru">
+  <link rel="dns-prefetch" href="https://mc.yandex.ru">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   
   <!-- Preload Critical Resources -->
   <link rel="preload" href="/assets/css/main{% if isProduction %}.min{% endif %}.css" as="style">
@@ -89,8 +99,41 @@
     </script>
     {% endif %}
   {% endif %}
+  
+  <!-- Яндекс.Метрика -->
+  {% if site.analytics and site.analytics.yandex %}
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+    ym({{ site.analytics.yandex }}, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+      ecommerce: "dataLayer"
+    });
+  </script>
+  {% endif %}
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  {% if site.gtm %}
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {% endif %}
+  
+  <!-- Яндекс.Метрика noscript -->
+  {% if site.analytics and site.analytics.yandex %}
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/{{ site.analytics.yandex }}" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+  </noscript>
+  {% endif %}
   <!-- Skip to main content link for accessibility -->
   <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
   

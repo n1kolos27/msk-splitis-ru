@@ -154,42 +154,69 @@
     submitButton.classList.add('btn--loading');
     submitButton.textContent = 'Отправка...';
 
-    // Имитация отправки (в реальном проекте здесь должен быть AJAX запрос)
-    setTimeout(() => {
-      // В реальном проекте здесь должен быть код отправки на сервер:
-      // fetch('/api/contact', {
-      //   method: 'POST',
-      //   body: formData
-      // })
-      // .then(response => response.json())
-      // .then(data => {
-      //   showSuccess(form);
-      // })
-      // .catch(error => {
-      //   console.error('Error:', error);
-      //   alert('Произошла ошибка при отправке формы. Попробуйте позвонить нам по телефону.');
-      // })
-      // .finally(() => {
-      //   submitButton.disabled = false;
-      //   submitButton.classList.remove('btn--loading');
-      //   submitButton.textContent = originalText;
-      // });
+    // Получаем email из формы (если есть)
+    const email = formData.get('email') || '';
 
-      // Для демонстрации показываем успех
+    // Отправка данных на сервер
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        email: email,
+        message: message
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(err => {
+          throw new Error(err.error || 'Ошибка при отправке формы');
+        });
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Успешная отправка
       showSuccess(form);
       
+      // Отслеживание отправки формы в аналитике (если доступно)
+      if (typeof ym !== 'undefined') {
+        ym(105124660, 'reachGoal', 'form_submit');
+      }
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          'event_category': 'form',
+          'event_label': 'contact_form'
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Ошибка отправки формы:', error);
+      
+      // Показываем ошибку пользователю
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'form__error-message';
+      errorMessage.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #fee; border: 1px solid #fcc; border-radius: 4px; color: #c33;';
+      errorMessage.innerHTML = `
+        <strong>Ошибка отправки:</strong><br>
+        ${error.message || 'Произошла ошибка при отправке формы. Попробуйте позже или свяжитесь с нами по телефону.'}
+      `;
+      form.insertBefore(errorMessage, form.firstChild);
+      
+      // Удаляем сообщение об ошибке через 10 секунд
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 10000);
+    })
+    .finally(() => {
       // Восстанавливаем кнопку
       submitButton.disabled = false;
       submitButton.classList.remove('btn--loading');
       submitButton.textContent = originalText;
-
-      // Логируем данные формы (в production не логировать!)
-      console.log('Form submitted:', {
-        name: name,
-        phone: phone,
-        message: message
-      });
-    }, 1000);
+    });
   }
 
   // Инициализация при загрузке DOM

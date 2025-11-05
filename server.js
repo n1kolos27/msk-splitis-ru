@@ -3,6 +3,19 @@ const fs = require('fs');
 const path = require('path');
 const url = require('url');
 
+// Загружаем Resend только если есть API ключ (для локальной разработки)
+let Resend = null;
+let resendApiKey = null;
+try {
+  // Проверяем наличие переменной окружения или .env файла
+  resendApiKey = process.env.RESEND_API_KEY;
+  if (resendApiKey) {
+    Resend = require('resend');
+  }
+} catch (e) {
+  console.log('⚠️  Resend не установлен. Установите: npm install resend');
+}
+
 const PORT = process.env.PORT || 5000;
 const HOST = '0.0.0.0';
 
@@ -63,11 +76,130 @@ function getSecurityHeaders(isProduction = false) {
   return headers;
 }
 
-const server = http.createServer((req, res) => {
+// Функция обработки API запросов
+async function handleApiRequest(req, res, parsedUrl) {
+  const securityHeaders = getSecurityHeaders(process.env.NODE_ENV === 'production');
+  
+  // CORS заголовки
+  const corsHeaders = {
+    ...securityHeaders,
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+  };
+
+  // Обработка OPTIONS (preflight)
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200, corsHeaders);
+    res.end();
+    return;
+  }
+
+  // Обработка /api/contact
+  if (parsedUrl.pathname === '/api/contact' && req.method === 'POST') {
+    let body = '';
+    
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+
+    req.on('end', async () => {
+      try {
+        const formData = JSON.parse(body);
+        const { name, phone, email, message } = formData;
+
+        // Валидация
+        if (!name || !phone) {
+          res.writeHead(400, {
+            ...corsHeaders,
+            'Content-Type': 'application/json'
+          });
+          res.end(JSON.stringify({ error: 'Имя и телефон обязательны для заполнения' }));
+          return;
+        }
+
+        // Проверка наличия Resend
+        if (!Resend || !resendApiKey) {
+          console.error('⚠️  Resend не настроен. Установите RESEND_API_KEY в переменных окружения.');
+          res.writeHead(500, {
+            ...corsHeaders,
+            'Content-Type': 'application/json'
+          });
+          res.end(JSON.stringify({ error: 'Сервис отправки писем не настроен' }));
+          return;
+        }
+
+        const resend = new Resend(resendApiKey);
+        const recipientEmail = process.env.CONTACT_EMAIL || 'info@msk.splitis.ru';
+
+        const subject = `Новая заявка с сайта msk.splitis.ru${name ? ` от ${name}` : ''}`;
+        const emailBody = `
+          <h2>Новая заявка с сайта</h2>
+          <p><strong>Имя:</strong> ${name}</p>
+          <p><strong>Телефон:</strong> ${phone}</p>
+          ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
+          ${message ? `<p><strong>Сообщение:</strong><br>${message.replace(/\n/g, '<br>')}</p>` : ''}
+          <hr>
+          <p><small>Дата отправки: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}</small></p>
+          <p><small>IP адрес: ${req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'неизвестно'}</small></p>
+        `;
+
+        const { data, error } = await resend.emails.send({
+          from: 'noreply@msk.splitis.ru', // Замените на ваш верифицированный домен
+          to: recipientEmail,
+          replyTo: email || recipientEmail,
+          subject: subject,
+          html: emailBody,
+        });
+
+        if (error) {
+          console.error('Ошибка отправки через Resend:', error);
+          res.writeHead(500, {
+            ...corsHeaders,
+            'Content-Type': 'application/json'
+          });
+          res.end(JSON.stringify({ error: 'Ошибка при отправке письма. Попробуйте позже или свяжитесь с нами по телефону.' }));
+          return;
+        }
+
+        res.writeHead(200, {
+          ...corsHeaders,
+          'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify({ 
+          success: true, 
+          message: 'Заявка успешно отправлена',
+          id: data?.id 
+        }));
+
+      } catch (error) {
+        console.error('Ошибка обработки запроса:', error);
+        res.writeHead(500, {
+          ...corsHeaders,
+          'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify({ error: 'Внутренняя ошибка сервера' }));
+      }
+    });
+    return true; // Указываем, что запрос обработан
+  }
+
+  return false; // Запрос не обработан
+}
+
+const server = http.createServer(async (req, res) => {
   console.log(`${req.method} ${req.url}`);
 
   // Парсим URL
   const parsedUrl = url.parse(req.url, true);
+  
+  // Пытаемся обработать как API запрос
+  const apiHandled = await handleApiRequest(req, res, parsedUrl);
+  if (apiHandled) {
+    return; // API запрос обработан
+  }
+
+  // Обработка статических файлов
   let filePath = '.' + parsedUrl.pathname;
 
   // Определяем базовый путь (для разработки используем _site если есть)
