@@ -9,19 +9,121 @@
   padding: var(--spacing-lg);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
+  position: relative;
+  will-change: transform, box-shadow;
 }
 
-.card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+.card:focus-visible {
+  outline: var(--focus-outline-width) solid var(--color-primary);
+  outline-offset: var(--focus-outline-offset);
+  box-shadow: var(--focus-ring), var(--shadow-md);
 }
 
-.card--elevated {
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+    border-color: var(--border-color-dark);
+  }
 }
 
-.card--elevated:hover {
-  box-shadow: var(--shadow-lg);
+/* Card with Gradient Border */
+.card--gradient-border {
+  position: relative;
+  background: var(--bg-primary);
+  border: none;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+}
+
+.card--gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.card--gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* Card with 3D Effect */
+.card--3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card--3d:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: var(--shadow-multi-layer-lg);
+  }
+}
+
+/* Card with Image Overlay */
+.card--overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-card);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.card--overlay:hover::after {
+  opacity: 1;
+}
+
+/* Premium Card Styles */
+.card--premium {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-multi-layer);
+  position: relative;
+  overflow: hidden;
+}
+
+.card--premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left var(--duration-slow);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card--premium:hover::before {
+    left: 100%;
+  }
+  
+  .card--premium:hover {
+    box-shadow: var(--shadow-multi-layer-lg);
+    transform: translateY(-4px);
+  }
 }
 
 .card__header {
@@ -58,20 +160,41 @@
   margin-bottom: var(--spacing-md);
 }
 
-/* Product Card */
 .product-card {
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
+  contain: layout style paint;
+  position: relative;
+}
+
+/* Product Card with Gradient Border */
+.product-card--gradient {
+  border: 2px solid transparent;
+  background-image: 
+    linear-gradient(var(--bg-primary), var(--bg-primary)),
+    var(--gradient-primary);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-card--gradient:hover {
+    background-image: 
+      linear-gradient(var(--bg-primary), var(--bg-primary)),
+      var(--gradient-multicolor);
+  }
 }
 
 .product-card__image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: var(--aspect-product);
   overflow: hidden;
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-md);
+  background-color: var(--bg-secondary);
 }
 
 .product-card__image {
@@ -79,16 +202,18 @@
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-base);
+  will-change: transform;
 }
 
-.product-card:hover .product-card__image {
-  transform: scale(1.05);
-}
-
-@media (hover: none) {
+@media (hover: hover) and (pointer: fine) {
   .product-card:hover .product-card__image {
-    transform: none;
+    transform: scale(1.05);
   }
+}
+
+.product-card:focus-visible .product-card__image {
+  outline: var(--focus-outline-width) solid var(--color-primary);
+  outline-offset: var(--focus-outline-offset);
 }
 
 .product-card__badges {
@@ -138,84 +263,6 @@
   margin-top: var(--spacing-xs);
 }
 
-/* Benefit Card */
-.benefit-card {
-  text-align: center;
-  padding: var(--spacing-xl);
-}
-
-.benefit-card__icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto var(--spacing-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-full);
-  color: var(--color-primary);
-}
-
-.benefit-card__icon svg {
-  width: 32px;
-  height: 32px;
-  stroke: currentColor;
-}
-
-.benefit-card__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-}
-
-.benefit-card__description {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-}
-
-/* Review Card */
-.review-card {
-  padding: var(--spacing-lg);
-}
-
-.review-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-md);
-  gap: var(--spacing-md);
-}
-
-.review-card__author {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.review-card__rating {
-  display: flex;
-  gap: var(--spacing-xs);
-  color: var(--color-warning);
-}
-
-.review-card__date {
-  font-size: 0.875rem;
-  color: var(--text-muted);
-}
-
-.review-card__text {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.review-card__verified {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-size: 0.875rem;
-  color: var(--color-success);
-  margin-top: var(--spacing-sm);
-}
-
 /* Step Number */
 .step-number {
   width: 64px;
@@ -224,11 +271,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: var(--gradient-primary);
   color: white;
   border-radius: 50%;
   font-size: 1.75rem;
   font-weight: 700;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-primary);
 }
 

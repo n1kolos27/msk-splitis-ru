@@ -1,11 +1,24 @@
 /* Layout Utilities */
 
 .section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
 }
 
 .section--sm {
   padding: var(--spacing-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .section--sm {
+    padding: var(--spacing-2xl) 0;
+  }
 }
 
 .section--lg {
@@ -14,7 +27,7 @@
 
 @media (min-width: 1024px) {
   .section--lg {
-    padding: var(--spacing-3xl) 0 calc(var(--spacing-3xl) * 1.5);
+    padding: calc(var(--spacing-3xl) * 1.5) 0;
   }
 }
 

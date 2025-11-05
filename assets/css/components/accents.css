@@ -1,0 +1,249 @@
+/* ============================================
+   Visual Accents Component
+   Premium Design Elements
+   ============================================ */
+
+/* Decorative Lines */
+.accent-line {
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  margin: var(--spacing-lg) 0;
+}
+
+.accent-line--horizontal {
+  width: 60px;
+  margin: var(--spacing-lg) auto;
+}
+
+.accent-line--vertical {
+  width: 2px;
+  height: 60px;
+  margin: var(--spacing-lg) auto;
+}
+
+.accent-line--full {
+  width: 100%;
+}
+
+/* Decorative Dividers */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+  color: var(--text-muted);
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+.divider--gradient::before,
+.divider--gradient::after {
+  background: var(--gradient-primary);
+  height: 2px;
+}
+
+/* Progress Indicators */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar__fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Visual Indicators */
+.indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  animation: pulseIndicator 2s ease-in-out infinite;
+}
+
+@keyframes pulseIndicator {
+  0%, 100% {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+  }
+}
+
+.indicator--warning {
+  background-color: var(--color-warning);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.indicator--error {
+  background-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.indicator--primary {
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+/* Decorative Shapes */
+.shape {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.shape--circle {
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+}
+
+.shape--square {
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  transform: rotate(45deg);
+}
+
+.shape--blob {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background: var(--gradient-primary);
+  opacity: 0.1;
+  animation: blob 20s ease-in-out infinite;
+}
+
+@keyframes blob {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+  25% {
+    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  }
+  50% {
+    border-radius: 30% 70% 70% 30% / 70% 30% 30% 70%;
+  }
+  75% {
+    border-radius: 70% 30% 30% 70% / 30% 70% 70% 30%;
+  }
+}
+
+/* Highlight Accent */
+.highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.3em;
+  background: var(--gradient-primary);
+  opacity: 0.3;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.highlight:hover::after {
+  transform: scaleX(1);
+}
+
+/* Sparkle Effect */
+.sparkle {
+  position: relative;
+  display: inline-block;
+}
+
+.sparkle::before,
+.sparkle::after {
+  content: '✨';
+  position: absolute;
+  opacity: 0;
+  font-size: 0.8em;
+  animation: sparkleAnimation 2s ease-in-out infinite;
+}
+
+.sparkle::before {
+  top: -0.5em;
+  left: -0.5em;
+  animation-delay: 0s;
+}
+
+.sparkle::after {
+  bottom: -0.5em;
+  right: -0.5em;
+  animation-delay: 1s;
+}
+
+@keyframes sparkleAnimation {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar__fill::after,
+  .indicator,
+  .shape--blob,
+  .sparkle::before,
+  .sparkle::after {
+    animation: none !important;
+  }
+  
+  .highlight::after {
+    transition: none !important;
+  }
+}
+

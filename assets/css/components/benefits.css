@@ -1,4 +1,4 @@
-/* Benefits Component - уже включен в stats.css, но создам отдельно для полноты */
+/* Benefits Component - Premium Enhanced */
 
 .benefits {
   display: grid;
@@ -16,5 +16,83 @@
   .benefits {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.benefit-card {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-primary-lg);
+    border-color: var(--color-primary);
+  }
+  
+  .benefit-card:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.benefit-card__icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  color: white;
+  box-shadow: var(--shadow-primary);
+  transition: all var(--transition-base);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefit-card:hover .benefit-card__icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-primary-lg);
+  }
+}
+
+.benefit-card__icon svg {
+  width: 40px;
+  height: 40px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.benefit-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.benefit-card__description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 

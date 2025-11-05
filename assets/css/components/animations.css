@@ -173,6 +173,7 @@
   opacity: 0;
   transform: translateY(30px);
   transition: opacity var(--duration-slow) var(--ease-out), transform var(--duration-slow) var(--ease-out);
+  will-change: opacity, transform;
 }
 
 .reveal.revealed {
@@ -180,7 +181,104 @@
   transform: translateY(0);
 }
 
-/* Reduced Motion Support */
+/* Parallax Effect */
+.parallax {
+  will-change: transform;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glow Pulse */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 163, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 163, 255, 0.8);
+  }
+}
+
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Slide In from Left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft var(--duration-base) var(--ease-out);
+}
+
+/* Slide In from Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight var(--duration-base) var(--ease-out);
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn var(--duration-base) var(--ease-out);
+}
+
+/* Rotate In */
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.rotate-in {
+  animation: rotateIn var(--duration-base) var(--ease-out);
+}
+
+/* Reduced Motion Support - Enhanced */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -188,10 +286,23 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   
   .animate-stagger > * {
     animation-delay: 0s !important;
+  }
+  
+  /* Отключаем transform анимации */
+  .card:hover,
+  .btn:hover,
+  .product-card:hover .product-card__image {
+    transform: none !important;
+  }
+  
+  /* Отключаем will-change для производительности */
+  * {
+    will-change: auto !important;
   }
 }
 

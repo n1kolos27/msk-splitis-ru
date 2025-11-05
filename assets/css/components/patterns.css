@@ -84,9 +84,10 @@
   z-index: 1;
 }
 
-/* Section Backgrounds */
+/* Section Backgrounds - Enhanced */
 .section--patterned {
   position: relative;
+  overflow: hidden;
 }
 
 .section--patterned::before {
@@ -98,6 +99,12 @@
   bottom: 0;
   opacity: 0.05;
   pointer-events: none;
+  z-index: 0;
+}
+
+.section--patterned > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section--patterned-dots::before {
@@ -110,5 +117,33 @@
     linear-gradient(var(--color-primary) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-primary) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+.section--patterned-gradient::before {
+  background: var(--gradient-multicolor-soft);
+  opacity: 0.1;
+}
+
+/* Animated Pattern Background */
+.section--patterned-animated::before {
+  background-image: radial-gradient(circle, var(--color-primary) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 30px 30px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .section--patterned-animated::before {
+    animation: none !important;
+  }
 }
 

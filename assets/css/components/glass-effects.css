@@ -1,0 +1,222 @@
+/* ============================================
+   Glassmorphism Effects Component
+   Premium Visual Design System
+   ============================================ */
+
+/* Glass Card Base */
+.glass {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-multi-layer);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-glass);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Glass Dark Variant */
+.glass--dark {
+  background: var(--gradient-glass-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Glass Card with Enhanced Blur */
+.glass--blur-lg {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+.glass--blur-xl {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* Glass Header */
+.header--glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header--glass.header--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header--glass {
+    background: rgba(17, 24, 39, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .header--glass.header--scrolled {
+    background: rgba(17, 24, 39, 0.95);
+  }
+}
+
+/* Glass Badge */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.875rem;
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Glass Button */
+.btn--glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+}
+
+.btn--glass:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Glass Modal/Overlay */
+.glass-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-modal {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-multi-layer-lg);
+  border-radius: var(--radius-xl);
+}
+
+/* Glass Card Hover Effects */
+.glass:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (hover: none) {
+  .glass:hover {
+    transform: none;
+  }
+}
+
+/* Neumorphism Base */
+.neu {
+  background: var(--bg-primary);
+  border: none;
+  box-shadow: var(--shadow-neumorphism);
+  transition: all var(--transition-base);
+}
+
+.neu:hover {
+  box-shadow: var(--shadow-neumorphism-lg);
+  transform: translateY(-2px);
+}
+
+.neu:active {
+  box-shadow: var(--shadow-inner);
+  transform: translateY(0);
+}
+
+/* Neumorphism Button */
+.btn--neu {
+  background: var(--bg-primary);
+  border: none;
+  box-shadow: var(--shadow-neumorphism);
+  color: var(--text-primary);
+}
+
+.btn--neu:hover:not(:disabled) {
+  box-shadow: var(--shadow-neumorphism-lg);
+  transform: translateY(-2px);
+}
+
+.btn--neu:active:not(:disabled) {
+  box-shadow: var(--shadow-inner);
+  transform: translateY(0);
+}
+
+/* Neumorphism Card */
+.card--neu {
+  background: var(--bg-primary);
+  border: none;
+  box-shadow: var(--shadow-neumorphism);
+}
+
+.card--neu:hover {
+  box-shadow: var(--shadow-neumorphism-lg);
+}
+
+/* Support for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .glass,
+  .neu,
+  .btn--glass,
+  .btn--neu {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .glass:hover,
+  .neu:hover {
+    transform: none !important;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass {
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  .glass--dark {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .header--glass {
+    background: rgba(255, 255, 255, 0.98);
+  }
+  
+  .glass-badge {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .btn--glass {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+

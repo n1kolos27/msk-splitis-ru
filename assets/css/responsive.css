@@ -120,21 +120,63 @@
   }
 }
 
-/* Touch Device Optimizations */
+/* Touch Device Optimizations - Enhanced Visual Feedback */
 @media (hover: none) and (pointer: coarse) {
   /* Увеличиваем touch targets на мобильных */
   .btn,
   .header__nav-link,
   .header__menu-toggle,
-  .mobile-menu__nav-link {
+  .mobile-menu__nav-link,
+  .form__checkbox-label,
+  .form__radio-label {
     min-height: 44px;
     min-width: 44px;
   }
   
-  /* Убираем hover эффекты на touch устройствах */
-  .card:hover,
-  .btn:hover {
-    transform: none;
+  /* Улучшаем readability на touch устройствах */
+  p, li, .card__body {
+    font-size: clamp(1rem, 4vw, 1.0625rem);
+    line-height: 1.6;
+  }
+  
+  /* Увеличиваем spacing между элементами */
+  .btn-group {
+    gap: var(--spacing-lg);
+  }
+  
+  .form {
+    gap: var(--spacing-xl);
+  }
+  
+  /* Улучшаем визуальный feedback для touch */
+  .btn--primary:active,
+  .btn--gradient:active,
+  .btn--glow:active {
+    transform: scale(0.98);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* Упрощаем эффекты для производительности */
+  .card--3d,
+  .card--premium::before,
+  .btn--gradient::before {
+    display: none;
+  }
+  
+  /* Улучшаем контрастность для touch интерфейсов */
+  .btn--primary {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Убираем сложные анимации на touch устройствах */
+  .hero::after,
+  .cta::before {
+    animation: none;
+  }
+  
+  .badge--glow,
+  .btn--glow {
+    animation: none;
   }
 }
 
@@ -210,6 +252,28 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  /* Отключаем сложные анимации */
+  .hero,
+  .cta,
+  .btn--multicolor,
+  .badge--glow,
+  .btn--glow {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+  
+  /* Отключаем transform анимации */
+  .card--3d:hover,
+  .card--premium:hover,
+  .benefit-card:hover .benefit-card__icon {
+    transform: none !important;
+  }
+  
+  /* Отключаем will-change для производительности */
+  * {
+    will-change: auto !important;
   }
 }
 

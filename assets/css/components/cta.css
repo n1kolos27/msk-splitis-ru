@@ -1,16 +1,39 @@
-/* CTA Component */
+/* CTA Component - Premium Enhanced */
 
 .cta {
   background: var(--gradient-primary);
+  background-size: var(--gradient-animated-size);
   color: var(--text-inverse);
   padding: var(--spacing-3xl) 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: gradientShift 15s ease infinite;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-radial-hero);
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta__container {
+  position: relative;
+  z-index: 2;
 }
 
 .cta__title {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   margin-bottom: var(--spacing-md);
   color: var(--text-inverse);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cta__description {
@@ -76,7 +99,21 @@
   border-color: white;
 }
 
-.hero__button--outline:hover {
-  background: white;
-  color: var(--color-primary);
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+  
+  .cta::before {
+    animation: none !important;
+  }
+}
+
+/* Fallback for browsers without backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+  .cta {
+    background: var(--gradient-primary);
+  }
 }
