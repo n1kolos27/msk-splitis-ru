@@ -43,3 +43,10 @@ Thumbs.db
 _site/
 .cache/
 .eleventy-cache/
+
+# SSL Certificates (local development)
+certs/
+*.key
+*.crt
+*.pem
+!**/node_modules/**/*.pem

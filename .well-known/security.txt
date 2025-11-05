@@ -1,0 +1,30 @@
+# ============================================
+# Security Policy для msk.splitis.ru
+# ============================================
+# Этот файл следует стандарту RFC 9116
+# https://www.rfc-editor.org/rfc/rfc9116.html
+
+# Контактная информация для отчетов о безопасности
+Contact: mailto:info@msk.splitis.ru
+Contact: tel:+74997575719
+
+# Предпочтительный язык для связи
+Preferred-Languages: ru, en
+
+# Политика раскрытия уязвимостей
+Policy: https://msk.splitis.ru/o-kompanii.html
+
+# Срок действия политики
+Expires: 2026-12-31T23:59:59.000Z
+
+# Дополнительная информация
+# Мы благодарим за ответственное раскрытие уязвимостей.
+# Мы рассмотрим все отчеты и ответим в течение 7 рабочих дней.
+# Мы не подаем судебные иски против исследователей безопасности,
+# которые действуют добросовестно и ответственно.
+
+# Acknowledgement (опционально)
+Acknowledgments: https://msk.splitis.ru/o-kompanii.html
+
+# Canonical URL (если файл размещен по другому адресу)
+# Canonical: https://msk.splitis.ru/.well-known/security.txt

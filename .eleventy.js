@@ -97,6 +97,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("schemas");
   eleventyConfig.addPassthroughCopy("components");
   
+  // Копирование файлов для production (безопасность и конфигурация)
+  eleventyConfig.addPassthroughCopy(".htaccess");
+  eleventyConfig.addPassthroughCopy(".well-known");
+  
   // Копирование из src/pages в корень _site (если есть)
   eleventyConfig.addPassthroughCopy({
     "src/pages/assets": "assets"
