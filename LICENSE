@@ -4,7 +4,15 @@
 Использование, копирование, изменение или распространение 
 без письменного разрешения правообладателя запрещено.
 
-Контакты: info@msk.splitis.ru
+ПРОЕКТ: Сайт msk.splitis.ru
+ВЛАДЕЛЕЦ: ИП Лагуто Иван Иванович
+ДОМЕН: msk.splitis.ru
+ВЕРСИЯ: 1.0.0
+ДАТА: Январь 2025
+
+КОНТАКТЫ:
+Email: info@msk.splitis.ru
+Телефон: +7 (499) 757-57-19
 
 ---
 
@@ -14,5 +22,27 @@ This project is private property.
 Use, copying, modification or distribution 
 without written permission from the copyright holder is prohibited.
 
-Contacts: info@msk.splitis.ru
+PROJECT: Website msk.splitis.ru
+OWNER: IP Laguto Ivan Ivanovich
+DOMAIN: msk.splitis.ru
+VERSION: 1.0.0
+DATE: January 2025
 
+CONTACTS:
+Email: info@msk.splitis.ru
+Phone: +7 (499) 757-57-19
+
+---
+
+ПРИМЕЧАНИЕ О ЗАВИСИМОСТЯХ / DEPENDENCIES NOTICE:
+
+Этот проект использует open-source библиотеки и технологии, которые имеют 
+собственные лицензии. Полный список зависимостей и их лицензий указан в 
+файлах NOTICE и THIRD_PARTY_LICENSES.md.
+
+This project uses open-source libraries and technologies that have their 
+own licenses. A complete list of dependencies and their licenses is provided 
+in the NOTICE and THIRD_PARTY_LICENSES.md files.
+
+Все используемые зависимости совместимы с коммерческим использованием.
+All used dependencies are compatible with commercial use.
