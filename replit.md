@@ -1,0 +1,201 @@
+# Air Conditioning Company Website - msk.splitis.ru
+
+## Project Overview
+This is a production-ready static website for an air conditioning sales and installation company (ИП Лагуто Иван Иванович) serving Moscow and Moscow Oblast. The site is built with Eleventy (11ty) static site generator and features multiple landing pages optimized for SEO.
+
+**Domain:** msk.splitis.ru  
+**Company:** ИП Лагуто Иван Иванович  
+**Technology Stack:** Eleventy 3.x, Node.js, HTML5, CSS3, vanilla JavaScript
+
+## Project Structure
+```
+├── src/                       # Source files for Eleventy
+│   ├── pages/                 # Page templates (HTML/Nunjucks)
+│   │   ├── index.html         # Main page
+│   │   ├── blog/              # Blog articles
+│   │   ├── brands/            # Brand pages (Daikin, Mitsubishi, etc.)
+│   │   ├── katalog/           # Product catalog
+│   │   └── uslugi/            # Services pages
+│   ├── _includes/             # Reusable templates
+│   │   ├── header.html        # Site header
+│   │   ├── footer.html        # Site footer
+│   │   └── page.html          # Base page layout
+│   └── _data/                 # Global data files
+│       ├── site.json          # Site metadata
+│       ├── contacts.json      # Contact information
+│       └── navigation.json    # Navigation structure
+├── assets/                    # Static assets
+│   ├── css/                   # Stylesheets
+│   ├── js/                    # JavaScript files
+│   └── images/                # Image files
+├── _site/                     # Built site (generated, not in git)
+├── server.js                  # Development/production server
+└── .eleventy.js               # Eleventy configuration
+```
+
+## Development Setup
+
+### Prerequisites
+- Node.js 20.x (already installed on Replit)
+- npm (comes with Node.js)
+
+### Installation
+Dependencies are already installed. If you need to reinstall:
+```bash
+npm install
+```
+
+### Running the Development Server
+The site is automatically served through the configured workflow:
+- The workflow builds the site and runs `node server.js`
+- Server runs on port 5000 at `0.0.0.0`
+- Access the site through the Replit webview
+
+### Building the Site
+To rebuild the static site manually:
+```bash
+npm run build
+```
+
+This will:
+1. Process all files in `src/pages/` through Eleventy
+2. Generate optimized HTML in `_site/`
+3. Minify HTML, CSS, and JavaScript
+4. Generate sitemap.xml
+5. Create minified versions of assets
+
+### Available Scripts
+- `npm run build` - Build the site for production
+- `npm run serve` - Build and serve with live reload
+- `npm run dev` - Development mode with watch
+- `npm run server` - Start the Node.js server
+- `npm test` - Run Playwright E2E tests
+
+## Architecture
+
+### Static Site Generation
+The project uses Eleventy to generate static HTML from templates. This approach provides:
+- Fast page loads
+- SEO optimization
+- Easy deployment
+- Lower hosting costs
+- Better security
+
+### Server Configuration
+The `server.js` file serves the built site and handles:
+- Static file serving from `_site/` directory
+- Security headers (CSP, HSTS, X-Frame-Options, etc.)
+- API endpoint for contact form (`/api/contact`)
+- Cache control headers
+- 404 error pages
+
+### Contact Form Integration
+The site includes a contact form that uses Resend API for email delivery. To enable this functionality:
+1. Add `RESEND_API_KEY` to secrets (currently optional for development)
+2. Optionally set `CONTACT_EMAIL` for the recipient address
+
+## Deployment
+
+### Production Deployment
+The site is configured for Replit Autoscale deployment:
+- **Build command:** `npm run build`
+- **Run command:** `node server.js`
+- **Port:** 5000
+- **Type:** Autoscale (stateless)
+
+The deployment will:
+1. Install dependencies
+2. Build the Eleventy site
+3. Start the Node.js server
+4. Serve static files with proper caching and security headers
+
+### Environment Variables
+Optional environment variables:
+- `RESEND_API_KEY` - API key for email functionality (optional)
+- `CONTACT_EMAIL` - Recipient email for contact form (defaults to info@msk.splitis.ru)
+- `NODE_ENV` - Set to "production" for production optimizations
+
+## Key Features
+
+### SEO Optimization
+- Unique meta titles and descriptions for each page
+- Schema.org structured data (Organization, LocalBusiness, Product, FAQ)
+- Semantic HTML5 markup
+- Automatic sitemap.xml generation
+- Breadcrumb navigation
+
+### Performance
+- Minified HTML, CSS, and JavaScript
+- Lazy loading images
+- Optimized asset delivery
+- Fast server response times
+- Mobile-first responsive design
+
+### Content Management
+- 36+ pages covering:
+  - Services (installation, maintenance, repair, refilling)
+  - Product catalog (wall-mounted, multi-split, ducted, cassette)
+  - Brand pages (Daikin, Mitsubishi, LG, Samsung, Panasonic, etc.)
+  - Blog articles about air conditioning
+  - Company information and reviews
+
+### Design Features
+- Modern CSS3 with custom properties
+- Dark/light theme support
+- Glass morphism effects
+- Smooth animations
+- Print-optimized styles
+- Accessibility (WCAG 2.1 Level AA)
+
+## Testing
+The project includes Playwright E2E tests for:
+- Navigation
+- Forms
+- Responsive design
+- Accessibility
+- Interactive elements
+
+Run tests with: `npm test`
+
+## Maintenance Notes
+
+### Adding New Pages
+1. Create an HTML file in `src/pages/` (or appropriate subdirectory)
+2. Use Nunjucks template syntax
+3. Include front matter if needed
+4. Run `npm run build` to generate the page
+5. New page will be automatically added to sitemap.xml
+
+### Updating Styles
+- Main styles: `assets/css/main.css`
+- Component styles: `assets/css/components/`
+- Utility classes: `assets/css/utilities/`
+- Responsive breakpoints: `assets/css/responsive.css`
+
+### Updating Global Data
+Edit JSON files in `src/_data/`:
+- `site.json` - Site name, domain, analytics IDs
+- `contacts.json` - Phone numbers, email, address
+- `navigation.json` - Main navigation structure
+
+## Replit-Specific Configuration
+
+### Workflow
+The "frontend" workflow is configured to:
+- Command: `node server.js`
+- Port: 5000
+- Output type: webview
+- Auto-restart on code changes
+
+### Host Configuration
+The server is configured to bind to `0.0.0.0:5000` which is required for Replit's environment. The host setting allows Replit's proxy to properly route traffic to the application.
+
+## License
+All rights reserved © 2025 ИП Лагуто Иван Иванович  
+Private project - unauthorized use prohibited.
+
+## Contact
+- Phone: +7 (499) 757-57-19
+- Email: info@msk.splitis.ru
+- Address: г. Мытищи, ул. Веры Волошиной, д. 19/16, офис 229
+- Hours: Mon-Sun 09:00-21:00
