@@ -79,6 +79,29 @@ schema: |
 ---
 
 
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="display: flex; align-items: center; gap: var(--spacing-sm); flex-wrap: wrap; list-style: none; margin: 0; padding: 0;">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Главная</span>
+            </a>
+            <meta itemprop="position" content="1">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/blog.html">
+              <span itemprop="name">Блог</span>
+            </a>
+            <meta itemprop="position" content="2">
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Что такое инверторный кондиционер</span>
+            <meta itemprop="position" content="3">
+          </li>
+        </ol>
+      </div>
+    </nav>
     
     <!-- Article Header -->
     <article class="section">
@@ -97,26 +120,31 @@ schema: |
         <!-- Introduction -->
         <div style="font-size: 1.125rem; line-height: 1.75; color: var(--text-secondary); margin-bottom: var(--spacing-2xl);">
           <p>
-            Инверторные кондиционеры - это современное климатическое оборудование, которое стало стандартом для энергоэффективных сплит-систем. В этой статье мы подробно разберем, что такое инверторная технология, как она работает, и почему инверторные кондиционеры экономят до 40% электроэнергии по сравнению с обычными моделями.
+            Что такое инверторный кондиционер - это вопрос, который задают себе тысячи жителей Москвы и Московской области при выборе климатического оборудования. 
+            Инверторные кондиционеры - это современное климатическое оборудование, которое стало стандартом для энергоэффективных сплит-систем. 
+            В этой статье мы подробно разберем, что такое инверторная технология, как она работает, и почему инверторные кондиционеры экономят до 40% 
+            электроэнергии по сравнению с обычными моделями. Вы узнаете о принципе работы инверторного кондиционера, его преимуществах и отличиях от обычных моделей.
           </p>
         </div>
         
         <!-- Section 1 -->
         <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Что такое инверторный кондиционер?</h2>
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Определение и принцип работы инверторного кондиционера</h2>
           
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Что такое инверторный кондиционер</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Инверторный кондиционер - это сплит-система с переменной мощностью компрессора. В отличие от обычных кондиционеров, которые работают по принципу "включился-выключился", инверторные модели плавно регулируют мощность охлаждения и обогрева в зависимости от температуры в помещении.
+            Инверторный кондиционер - это сплит-система с переменной мощностью компрессора. В отличие от обычных кондиционеров, которые работают по принципу "включился-выключился", 
+            инверторные модели плавно регулируют мощность охлаждения и обогрева в зависимости от температуры в помещении. Название "инвертор" происходит от инверторного 
+            преобразователя частоты, который управляет скоростью вращения компрессора. Эта технология была разработана японскими производителями (Daikin, Mitsubishi Electric) 
+            и сегодня является стандартом для премиальных сплит-систем в Москве.
           </p>
           
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Принцип работы инверторной технологии</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Название "инвертор" происходит от инверторного преобразователя частоты, который управляет скоростью вращения компрессора. Эта технология была разработана японскими производителями (Daikin, Mitsubishi Electric) и сегодня является стандартом для премиальных сплит-систем.
+            Как работает компрессор в инверторном режиме? Инверторный преобразователь изменяет частоту переменного тока, подаваемого на компрессор, что позволяет плавно 
+            регулировать скорость его вращения от 10% до 100% от максимальной мощности. Это принципиально отличается от работы обычного кондиционера, где компрессор 
+            работает только в двух режимах: включен (100% мощности) или выключен (0%).
           </p>
-        </section>
-        
-        <!-- Section 2 -->
-        <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Принцип работы инверторного кондиционера</h2>
           
           <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Обычный кондиционер (on/off)</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
@@ -178,7 +206,37 @@ schema: |
         
         <!-- Section 4 -->
         <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Сравнение инверторного и обычного кондиционера</h2>
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Отличия инверторного кондиционера от обычного</h2>
+          
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Главное отличие инверторного кондиционера от обычного заключается в принципе работы компрессора. Обычный кондиционер работает циклично: включился на полную мощность, 
+            охладил помещение, выключился. Инверторный кондиционер работает постоянно, плавно меняя мощность от 10% до 100% в зависимости от текущих условий.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Отличия в работе компрессора</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            В обычном кондиционере компрессор работает только в двух режимах: включен (100% мощности) или выключен. Это приводит к частым включениям/выключениям (до 10 раз в час), 
+            что создает пиковые нагрузки на электросеть и увеличивает износ компрессора. В инверторном кондиционере компрессор работает постоянно, плавно меняя мощность, 
+            что исключает пиковые нагрузки и снижает износ.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Разница в энергопотреблении</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры потребляют на 30-40% меньше электроэнергии благодаря отсутствию пиковых нагрузок при включении и работе на оптимальной мощности. 
+            Обычные кондиционеры тратят больше энергии из-за частых включений на полную мощность. Для квартир в Москве с круглогодичной эксплуатацией это дает существенную экономию.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Разница в уровне шума</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры работают тише (от 19 до 22 дБ) благодаря отсутствию частых включений/выключений и работе на пониженной мощности. Обычные кондиционеры 
+            производят больше шума при каждом включении (25-30 дБ). Это особенно важно для спален и детских комнат в Москве.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Разница в цене</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры стоят на 15-20% дороже обычных (разница составляет 5 000-10 000 рублей). Однако эта разница окупается за 2-3 года за счет экономии 
+            электроэнергии. Для квартир в Москве с постоянным использованием инверторные кондиционеры являются более выгодным выбором в долгосрочной перспективе.
+          </p>
           
           <div class="card" style="margin-bottom: var(--spacing-lg);">
             <table style="width: 100%; border-collapse: collapse;">
@@ -227,11 +285,47 @@ schema: |
         
         <!-- Section 5 -->
         <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Окупаемость инверторного кондиционера</h2>
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Где применяются инверторные кондиционеры</h2>
           
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Разница в цене между обычным и инверторным кондиционером составляет 5000-10000 рублей. Давайте посчитаем окупаемость:
+            Инверторные кондиционеры применяются в различных типах помещений в Москве и Московской области:
           </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Квартиры в Москве</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры идеально подходят для квартир в Москве благодаря тихой работе, экономии электроэнергии и точному поддержанию температуры. 
+            Особенно рекомендуются для спален, детских комнат и гостиных, где важны комфорт и тишина. В московских квартирах с круглогодичной эксплуатацией 
+            инверторные кондиционеры окупаются за счет экономии электроэнергии.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Офисы и коммерческие объекты</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Для офисов в Москве инверторные кондиционеры обеспечивают комфортный микроклимат для сотрудников и экономию на электроэнергии. Благодаря точному 
+            поддержанию температуры и тихой работе они не отвлекают от работы. Экономия электроэнергии особенно важна для коммерческих объектов с постоянной эксплуатацией.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Загородные дома</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            В загородных домах в Московской области инверторные кондиционеры обеспечивают комфортный микроклимат в любое время года. Благодаря функции обогрева 
+            (работа до -7°C, премиум модели до -15°C) они могут использоваться для отопления в межсезонье. Экономия электроэнергии важна для домов с большими площадями.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Для каких помещений подходят</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры подходят для любых помещений, где важны комфорт, тишина и экономия электроэнергии. Особенно рекомендуются для помещений с постоянным 
+            использованием, высокими требованиями к комфорту и где важен низкий уровень шума. В Москве инверторные кондиционеры являются оптимальным выбором для большинства квартир и офисов.
+          </p>
+        </section>
+        
+        <!-- Section 6 -->
+        <section style="margin-bottom: var(--spacing-2xl);">
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Стоит ли переплачивать за инверторный кондиционер</h2>
+          
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Разница в цене между инверторным и обычным кондиционером составляет 5 000-10 000 рублей (15-20%). Давайте рассчитаем окупаемость для квартир в Москве:
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Расчет окупаемости</h3>
           
           <div class="card" style="background: var(--bg-secondary); padding: var(--spacing-xl); margin-bottom: var(--spacing-lg);">
             <h3 style="margin-bottom: var(--spacing-md);">Пример расчета для квартиры 50 м² в Москве</h3>
@@ -252,41 +346,41 @@ schema: |
             </ul>
             
             <p style="color: var(--color-primary); font-weight: 600; font-size: 1.125rem;">
-              Экономия: 2 400 рублей за сезон. Разница в цене (7 000 ₽) окупается за 3 сезона.
+              Экономия: 2 400 рублей за сезон. Разница в цене (7 000 ₽) окупается за 3 сезона (2-3 года).
             </p>
           </div>
-        </section>
-        
-        <!-- Section 6 -->
-        <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Когда стоит выбрать инверторный кондиционер?</h2>
           
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Экономия на электричестве</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Инверторные кондиционеры рекомендуются для:
+            За 10 лет эксплуатации инверторный кондиционер экономит 20-30 тысяч рублей на счетах за электроэнергию в Москве. Это полностью оправдывает разницу в цене 
+            и делает инверторные кондиционеры более выгодным выбором в долгосрочной перспективе. Для квартир с постоянным использованием экономия еще больше.
           </p>
           
-          <ul style="color: var(--text-secondary); margin-bottom: var(--spacing-md); padding-left: var(--spacing-xl); line-height: 1.75;">
-            <li style="margin-bottom: var(--spacing-sm);"><strong>Спальни и детских комнат:</strong> Низкий уровень шума и точное поддержание температуры</li>
-            <li style="margin-bottom: var(--spacing-sm);"><strong>Постоянного использования:</strong> Если кондиционер работает круглосуточно, экономия будет максимальной</li>
-            <li style="margin-bottom: var(--spacing-sm);"><strong>Помещений с высокими требованиями к комфорту:</strong> Офисы, гостиные</li>
-            <li style="margin-bottom: var(--spacing-sm);"><strong>Экономии на долгосрочную перспективу:</strong> Окупаемость за 2-3 года</li>
-          </ul>
-          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Рекомендации для Москвы</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Обычные кондиционеры могут быть достаточны для:
+            Для квартир в Москве с круглогодичной эксплуатацией кондиционера инверторная технология окупается за 2-3 года за счет экономии электроэнергии. 
+            Рекомендуется выбирать инверторные кондиционеры класса A++ и выше для максимальной экономии. Разница в цене составляет 5 000-10 000 рублей, 
+            но экономия электроэнергии составляет 30-40%, что при постоянном использовании дает существенную экономию.
           </p>
-          
-          <ul style="color: var(--text-secondary); margin-bottom: var(--spacing-md); padding-left: var(--spacing-xl); line-height: 1.75;">
-            <li style="margin-bottom: var(--spacing-sm);">Редкого использования (дачи, гаражи)</li>
-            <li style="margin-bottom: var(--spacing-sm);">Ограниченного бюджета</li>
-            <li style="margin-bottom: var(--spacing-sm);">Помещений, где шум не критичен</li>
-          </ul>
         </section>
         
         <!-- Section 7 -->
         <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Лучшие инверторные кондиционеры в Москве</h2>
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Инверторные кондиционеры в Москве</h2>
           
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры в Москве и Московской области представлены широким ассортиментом моделей от ведущих производителей. 
+            Цены на инверторные сплит-системы начинаются от 30 000 рублей и зависят от мощности, бренда и функциональности.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Цены от 30 000 ₽</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            В Москве инверторные кондиционеры можно купить по следующим ценам: эконом сегмент (Haier, Gree) - от 30 000 до 40 000 рублей, 
+            средний сегмент (LG, Panasonic, Samsung) - от 35 000 до 55 000 рублей, премиум сегмент (Daikin, Mitsubishi Electric) - от 45 000 до 120 000 рублей. 
+            Все цены указаны с учетом установки в Москве и МО.
+          </p>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Популярные модели</h3>
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
             В нашем каталоге представлены инверторные сплит-системы от ведущих производителей:
           </p>
@@ -311,12 +405,79 @@ schema: |
               <a href="/katalog/bytovye/nastennye.html" class="btn btn--primary btn--sm" style="margin-top: var(--spacing-sm);">Подробнее</a>
             </div>
           </div>
+          
+          <h3 class="text-2xl font-bold" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-xl);">Где купить и установить</h3>
+          <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
+            Инверторные кондиционеры в Москве можно купить у официальных дилеров с гарантией производителя и профессиональной установкой. 
+            Мы являемся официальным дилером всех брендов в Москве и Московской области, предлагаем инверторные кондиционеры с официальной гарантией, 
+            профессиональной установкой и сервисным обслуживанием. Более 3850 установок выполнено в Москве и МО.
+          </p>
         </section>
         
         <!-- FAQ Section -->
         <section style="margin-bottom: var(--spacing-2xl);">
           <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Часто задаваемые вопросы</h2>
           <div class="faq">
+            <div class="faq__item">
+              <button class="faq__question">
+                Что такое инверторный кондиционер простыми словами?
+                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="faq__answer">
+                <p>Инверторный кондиционер простыми словами - это кондиционер, который работает постоянно, плавно меняя мощность от слабой до сильной, вместо того чтобы включаться и выключаться. Это как автомобиль с автоматической коробкой передач - он плавно переключает скорости, а не резко переключается между первой и пятой передачей. Благодаря этому инверторный кондиционер экономит электроэнергию, работает тише и точнее поддерживает температуру.</p>
+              </div>
+            </div>
+            
+            <div class="faq__item">
+              <button class="faq__question">
+                Сколько экономит инверторный кондиционер?
+                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="faq__answer">
+                <p>Инверторный кондиционер экономит 30-40% электроэнергии по сравнению с обычным кондиционером. Для квартиры 50 м² в Москве это составляет около 2 400 рублей за сезон охлаждения (120 дней по 8 часов). За 10 лет эксплуатации экономия составляет 20-30 тысяч рублей, что полностью оправдывает разницу в цене между инверторным и обычным кондиционером.</p>
+              </div>
+            </div>
+            
+            <div class="faq__item">
+              <button class="faq__question">
+                Какой инверторный кондиционер лучше выбрать?
+                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="faq__answer">
+                <p>Лучший инверторный кондиционер зависит от вашего бюджета и требований. Для премиум сегмента рекомендуем Daikin FTXS25K или Mitsubishi MSZ-LN25VG (от 45 000 ₽, гарантия 5 лет, максимальная надежность). Для оптимального соотношения цены и качества - LG Mega Plus P09SP или Panasonic CS-E7RKD (от 30 000 ₽, гарантия 3 года). Для квартир в Москве рекомендуется выбирать инверторные кондиционеры класса A++ и выше с уровнем шума от 19 до 22 дБ.</p>
+              </div>
+            </div>
+            
+            <div class="faq__item">
+              <button class="faq__question">
+                Работает ли инверторный кондиционер тише обычного?
+                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="faq__answer">
+                <p>Да, инверторные кондиционеры работают тише обычных благодаря отсутствию частых включений/выключений и работе на пониженной мощности. Уровень шума инверторных кондиционеров составляет от 19 до 22 дБ (тише шепота), в то время как обычные кондиционеры производят 25-30 дБ. Это особенно важно для спален и детских комнат в Москве, где важна тишина.</p>
+              </div>
+            </div>
+            
+            <div class="faq__item">
+              <button class="faq__question">
+                Можно ли включить инверторный кондиционер в обычный режим?
+                <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div class="faq__answer">
+                <p>Нет, инверторный кондиционер всегда работает в инверторном режиме - это его основная технология. Однако некоторые модели имеют режим "Turbo" или "Максимальная мощность", который работает как обычный кондиционер на полной мощности для быстрого охлаждения. Но в обычном режиме инверторный кондиционер всегда работает с плавным регулированием мощности.</p>
+              </div>
+            </div>
+            
             <div class="faq__item">
               <button class="faq__question">
                 Чем отличается инверторный кондиционер от обычного?
@@ -369,15 +530,52 @@ schema: |
         
         <!-- Conclusion -->
         <section style="margin-bottom: var(--spacing-2xl);">
-          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Заключение</h2>
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Выводы</h2>
           
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            Инверторные кондиционеры - это современное решение для энергоэффективного кондиционирования воздуха в Москве и Московской области. Они обеспечивают комфортный микроклимат, экономят электроэнергию и имеют длительный срок службы. Хотя стоимость инверторных моделей выше, инвестиция окупается за 2-3 года за счет экономии на счетах за электричество.
+            Инверторные кондиционеры - это современное решение для энергоэффективного кондиционирования воздуха в Москве и Московской области. Они обеспечивают комфортный микроклимат, 
+            экономят электроэнергию до 40% и имеют длительный срок службы 12-15 лет. Хотя стоимость инверторных моделей выше на 15-20%, инвестиция окупается за 2-3 года за счет экономии 
+            на счетах за электричество.
           </p>
           
           <p style="color: var(--text-secondary); margin-bottom: var(--spacing-md); line-height: 1.75;">
-            При выборе инверторного кондиционера обращайте внимание на класс энергоэффективности (A+++ или A++), мощность (правильный расчет для вашего помещения), и репутацию производителя. В нашем <a href="/katalog.html" style="color: var(--color-primary); text-decoration: underline;">каталоге кондиционеров</a> представлены только инверторные модели от проверенных производителей с гарантией качества.
+            При выборе инверторного кондиционера обращайте внимание на класс энергоэффективности (A+++ или A++), мощность (правильный расчет для вашего помещения), и репутацию производителя. 
+            Для квартир в Москве рекомендуется выбирать инверторные кондиционеры среднего и премиум сегментов с гарантией от 3 до 5 лет. В нашем <a href="/katalog.html" style="color: var(--color-primary); text-decoration: underline;">каталоге кондиционеров</a> 
+            представлены только инверторные модели от проверенных производителей с гарантией качества.
           </p>
+        </section>
+        
+        <!-- Related Articles -->
+        <section style="margin-bottom: var(--spacing-2xl);">
+          <h2 class="text-3xl font-bold" style="margin-bottom: var(--spacing-lg);">Похожие статьи</h2>
+          <div style="display: grid; gap: var(--spacing-lg); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="card" style="padding: var(--spacing-xl);">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--spacing-sm);">
+                <a href="/blog/kak-vybrat-kondicioner.html" style="color: inherit; text-decoration: none;">Как выбрать кондиционер для квартиры</a>
+              </h3>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                Полное руководство по выбору кондиционера: типы, мощность, бренды, цены. Экспертные советы от профессионалов.
+              </p>
+            </div>
+            
+            <div class="card" style="padding: var(--spacing-xl);">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--spacing-sm);">
+                <a href="/blog/rejting-konicionerov-2024.html" style="color: inherit; text-decoration: none;">Рейтинг лучших кондиционеров 2024</a>
+              </h3>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                ТОП-10 лучших кондиционеров 2024 года. Обзор моделей Daikin, Mitsubishi, LG, Samsung. Сравнение цен и характеристик.
+              </p>
+            </div>
+            
+            <div class="card" style="padding: var(--spacing-xl);">
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: var(--spacing-sm);">
+                <a href="/blog/kak-ekonomit-elektroenergiyu.html" style="color: inherit; text-decoration: none;">Как экономить электроэнергию с кондиционером</a>
+              </h3>
+              <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                Практические советы по экономии электроэнергии при использовании кондиционера. Режимы работы, настройки, обслуживание.
+              </p>
+            </div>
+          </div>
         </section>
         
         <!-- CTA -->
