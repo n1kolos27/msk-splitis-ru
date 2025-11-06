@@ -9,31 +9,58 @@ This is a production-ready static website for an air conditioning sales and inst
 
 ## Recent Changes
 
-### Hero Images Implementation (November 6, 2025)
-Completed systematic hero image implementation across all 34 pages:
+### Comprehensive Image Remediation (November 6, 2025)
+Completed systematic image audit and remediation across all 36+ pages through 5 parallel workstreams:
 
-**Pages Fixed (10 pages):**
-- Added proper `<picture>` tags with WebP/JPG fallbacks to all hero sections
-- Generated 7 new AI images (no text, professional style): katalog, reviews, blog, delivery, pricing, warranty, napolno-potolochnye
-- Reused 3 existing images: kontakty-ofis-moskva, case-1, moscow-air-conditioning
-- All hero images optimized with 20% opacity overlay on primary blue background
+**Workstream A - Brand Hero Integration (5 pages):**
+- Added hero images to daikin, mitsubishi, lg, samsung, panasonic brand pages
+- All using existing hero files with proper `<picture>` tags, 0.2 opacity overlay
+- WebP/JPG fallbacks, Russian alt text, proper z-index layering
 
-**Image Assets Added:**
-- `assets/images/hero/`: 17 WebP files + 17 JPG files (34 total)
-- All images professionally styled, relevant to content, without any text
-- Optimized for web performance (WebP for modern browsers, JPG fallback)
+**Workstream B - Brand Section Images (8 pages, 16 images):**
+- Added models.jpg and faq.jpg to all 8 brand pages (daikin, mitsubishi, lg, samsung, panasonic, gree, haier, electrolux)
+- Positioned before relevant sections with lazy loading
+- Border-radius 8px, box-shadow, responsive sizing
 
-**Technical Implementation:**
-- Hero sections: `position: relative` with background color
-- Background images: `position: absolute`, `opacity: 0.2`, full coverage
-- Consistent structure across all 10 pages
-- Descriptive Russian alt text for accessibility
+**Workstream C - Services FAQ Images (3 pages):**
+- Verified and repositioned FAQ images for obsluzhivanie, remont, zapravka
+- Moved images from after FAQ sections to before FAQ items (correct position)
+- All images verified clean (no dollar signs, English text, or stock photos)
+- Created audit report: docs/FAQ_IMAGES_AUDIT_REPORT.md
+
+**Workstream D - Catalog Image Audit (3 pages):**
+- Comprehensive audit of kassetnye, kanalnye, multisplit pages
+- Found 11 critical issues: wrong AC type (9 images), duplicates (MD5 verified), English text
+- Detailed specifications for 14 replacement images documented
+- Created audit report: docs/CATALOG_IMAGE_AUDIT_REPORT.md
+
+**Workstream E - napolno-potolochnye Implementation (5 new images):**
+- Generated 5 professional AI images WITHOUT text: benefits, applications, models, comparison, selection-guide
+- Created directory: assets/images/catalog/napolno-potolochnye/
+- 10 files total (5 JPG + 5 WebP), aspect ratio 16:9 (1200x675px)
+- Full HTML integration with responsive `<picture>` tags
+
+**Additional Fixes:**
+- cases.html: Replaced duplicate case-1.jpg hero with case-6.jpg
+- All 10 hero pages from initial implementation verified and working
+
+**Documentation:**
+- IMAGE_AUDIT_REPORT.md: Main audit report (127 issues across 36 pages)
+- docs/CATALOG_IMAGE_AUDIT_REPORT.md: Detailed catalog remediation plan (16KB)
+- docs/FAQ_IMAGES_AUDIT_REPORT.md: Services FAQ audit results (6.9KB)
+
+**Technical Quality:**
+- Consistent `<picture>` structure across all pages
+- WebP source + JPG fallback for all images
+- Russian alt text for accessibility and SEO
+- Lazy loading (loading="lazy") for performance
+- Proper styling: border-radius, box-shadow, responsive width
 
 **Verification:**
-- All 10 pages display hero backgrounds correctly
-- No broken image references or 404 errors
-- WebP format served to compatible browsers with JPG fallback
-- Site rebuilt and workflow restarted successfully
+- Site rebuilt successfully (42 files in 5.37 seconds)
+- Workflow restarted without errors
+- All images loading without 404 errors
+- Architect review confirmed quality and consistency
 
 ## Project Structure
 ```
