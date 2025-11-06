@@ -40,6 +40,16 @@ Completed systematic image audit and remediation across all 36+ pages through 5 
 - 10 files total (5 JPG + 5 WebP), aspect ratio 16:9 (1200x675px)
 - Full HTML integration with responsive `<picture>` tags
 
+**Workstream F - Catalog Remediation Sprint (14 new images):**
+- Generated 14 replacement images WITHOUT text for kassetnye, kanalnye, multisplit pages
+- 9 product images: cassette (Daikin, Mitsubishi, LG), ducted (Daikin, Mitsubishi, LG), multisplit (Daikin, Mitsubishi, LG)
+- 5 section images: kanalnye/description, kanalnye/comparison, kassetnye/description, kassetnye/comparison, multisplit/description
+- Created directory: assets/images/products/ (18 files: 9 JPG + 9 WebP)
+- Updated 5 section images in catalog directories (10 files: 5 JPG + 5 WebP)
+- Updated HTML: kassetnye.html, kanalnye.html, multisplit.html (18 path replacements)
+- Fixed breadcrumb error on multisplit.html: "Настенные кондиционеры" → "Мульти-сплит системы"
+- All duplicates resolved, all AC types now correct (cassette/ducted/multisplit instead of wall-mounted)
+
 **Additional Fixes:**
 - cases.html: Replaced duplicate case-1.jpg hero with case-6.jpg
 - All 10 hero pages from initial implementation verified and working
