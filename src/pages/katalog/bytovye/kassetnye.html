@@ -383,8 +383,12 @@ schema: |
     </nav>
     
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero__container">
+    <section class="hero" style="position: relative;">
+      <picture style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.15;">
+        <source srcset="/assets/images/catalog/kassetnye/hero.webp" type="image/webp">
+        <img src="/assets/images/catalog/kassetnye/hero.jpg" alt="Кассетные кондиционеры в Москве - скрытая установка в потолок" width="1920" height="1080" style="width: 100%; height: 100%; object-fit: cover;">
+      </picture>
+      <div class="container hero__container" style="position: relative; z-index: 1;">
         <div class="hero__content">
           <h1 class="hero__title">Кассетные кондиционеры в Москве и Московской области</h1>
           <p class="hero__subtitle">
