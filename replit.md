@@ -7,6 +7,34 @@ This is a production-ready static website for an air conditioning sales and inst
 **Company:** ИП Лагуто Иван Иванович  
 **Technology Stack:** Eleventy 3.x, Node.js, HTML5, CSS3, vanilla JavaScript
 
+## Recent Changes
+
+### Hero Images Implementation (November 6, 2025)
+Completed systematic hero image implementation across all 34 pages:
+
+**Pages Fixed (10 pages):**
+- Added proper `<picture>` tags with WebP/JPG fallbacks to all hero sections
+- Generated 7 new AI images (no text, professional style): katalog, reviews, blog, delivery, pricing, warranty, napolno-potolochnye
+- Reused 3 existing images: kontakty-ofis-moskva, case-1, moscow-air-conditioning
+- All hero images optimized with 20% opacity overlay on primary blue background
+
+**Image Assets Added:**
+- `assets/images/hero/`: 17 WebP files + 17 JPG files (34 total)
+- All images professionally styled, relevant to content, without any text
+- Optimized for web performance (WebP for modern browsers, JPG fallback)
+
+**Technical Implementation:**
+- Hero sections: `position: relative` with background color
+- Background images: `position: absolute`, `opacity: 0.2`, full coverage
+- Consistent structure across all 10 pages
+- Descriptive Russian alt text for accessibility
+
+**Verification:**
+- All 10 pages display hero backgrounds correctly
+- No broken image references or 404 errors
+- WebP format served to compatible browsers with JPG fallback
+- Site rebuilt and workflow restarted successfully
+
 ## Project Structure
 ```
 ├── src/                       # Source files for Eleventy
