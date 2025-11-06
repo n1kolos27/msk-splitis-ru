@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0066cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00aaff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect x="5" y="10" width="40" height="40" rx="5" fill="url(#grad)"/>
+  <path d="M15 20 L35 20 L35 25 L15 25 Z M20 28 L30 28 L30 33 L20 33 Z M15 36 L35 36 L35 41 L15 41 Z" fill="white" opacity="0.9"/>
+  <text x="55" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0066cc">СПЛИТИС.РУ</text>
+</svg>
