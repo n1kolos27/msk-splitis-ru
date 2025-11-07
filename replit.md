@@ -18,7 +18,7 @@ Replaced pricing/tariff section images with contextually relevant premium qualit
 **Solution Implemented:**
 - Generated 2 NEW contextually relevant premium images WITHOUT any text:
   - `ustanovka/pricing.jpg + pricing.webp`: **Premium finished installation** - complete white AC unit with closed louvers in upscale modern interior, wide room shot showing elegant furniture and professional installation result (160KB JPG, 65KB WebP)
-  - `obsluzhivanie/tariffs.jpg + tariffs.webp`: Spotlessly clean AC after professional maintenance service (112KB JPG, 28KB WebP)
+  - `obsluzhivanie/tariffs.jpg + tariffs.webp`: **Multiple premium AC units** after professional maintenance in upscale interior, showing spotlessly clean equipment and quality service results (131KB JPG, 40KB WebP)
 - Images now show RESULTS of services (what customers get for their money)
 - Updated alt text to accurately describe image content:
   - "Профессионально установленный кондиционер в современном интерьере - результат качественного монтажа в Москве"
