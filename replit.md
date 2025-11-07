@@ -5,7 +5,37 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 
 ## Recent Changes
 
-### Blog Page Popular Articles Images Added (November 7, 2025 - Latest)
+### Floor-Ceiling AC Selection Guide Image Fixed (November 7, 2025 - Latest)
+Replaced irrelevant image in "How to Choose" section on napolno-potolochnye.html WITHOUT any text:
+
+**Problem Identified:**
+- `selection-guide.jpg` image showed people working in office (NOT relevant to floor-ceiling AC selection)
+- User reported: "napolno-potolochnye.html выше как выбрать не соответствует!"
+- Image context mismatch: Section about choosing floor-ceiling AC showed office workers instead of AC unit
+
+**Solution Implemented:**
+- Generated NEW contextually relevant image WITHOUT any text:
+  - `selection-guide.jpg + .webp`: Floor-ceiling AC unit installed on high ceiling in large modern office space (228KB JPG, 105KB WebP)
+- Shows actual floor-ceiling AC installation result in commercial interior
+- Demonstrates placement and scale appropriate for selection guide context
+- Zero text, labels, signs, numbers, logos, or people - pure professional photography
+- Image contextually matches "How to Choose" section content
+
+**Technical Details:**
+- AI-generated image with strong negative prompts preventing text/people
+- Converted from PNG to optimized JPG (quality 90) and WebP (quality 85)
+- Replaced existing files in assets/images/catalog/napolno-potolochnye/ directory
+- Site rebuilt: 655 files copied, 43 HTML files generated in 4.89 seconds
+- Workflow restarted successfully, new image loading correctly
+
+**Impact:**
+- ✅ Image now contextually relevant to floor-ceiling AC selection
+- ✅ Shows actual AC unit installation (not office workers)
+- ✅ Demonstrates product placement in real commercial setting
+- ✅ Maintains project's strict "no text on images" policy
+- ✅ Improves SEO relevance for TOP-1 ranking goal
+
+### Blog Page Popular Articles Images Added (November 7, 2025)
 Created and deployed 6 missing images for Popular Articles section on blog.html WITHOUT any text:
 
 **Problem Identified:**
