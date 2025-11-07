@@ -229,8 +229,11 @@ const server = http.createServer(async (req, res) => {
   const securityHeaders = getSecurityHeaders(process.env.NODE_ENV === 'production');
   
   // Кэширование для статических ресурсов в production
+  // Исключаем /services/ images из долгосрочного кэша (они могут обновляться)
+  const isServiceImage = parsedUrl.pathname.includes('/services/');
   const cacheHeaders = process.env.NODE_ENV === 'production' && 
-    (extname.match(/\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|webp|css|js)$/)) ? {
+    (extname.match(/\.(jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|webp|css|js)$/)) &&
+    !isServiceImage ? {
       'Cache-Control': 'public, max-age=31536000, immutable'
     } : {
       'Cache-Control': 'no-cache, no-store, must-revalidate',
