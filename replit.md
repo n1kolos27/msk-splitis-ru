@@ -9,6 +9,32 @@ This is a production-ready static website for an air conditioning sales and inst
 
 ## Recent Changes
 
+### Brand Pages Image Fixes (November 7, 2025 - Final)
+Fixed remaining image issues on all 8 brand pages based on user feedback:
+
+**Problems Fixed:**
+1. **Duplicate models.jpg** - Image appeared twice on each brand page (before and after product cards)
+2. **Missing related-brands.jpg** - Section "Похожие бренды кондиционеров" had no images (HTML referenced non-existent files)
+
+**Solution Implemented:**
+
+**Duplicate Removal:**
+- Removed duplicate models.jpg from all 8 brand pages (daikin, mitsubishi, lg, samsung, panasonic, haier, gree, electrolux)
+- Each page now shows models.jpg only ONCE (before "Популярные модели" section)
+- Eliminated visual repetition and improved page flow
+
+**Related Brands Images:**
+- Generated 8 NEW related-brands images WITHOUT text (CRITICAL requirement)
+- Created 16 files total (8 JPG + 8 WebP) in assets/images/brands/{brand}/
+- Professional multi-brand showcase photography, 16:9 aspect ratio, clean backgrounds
+- All 8 brands now have complete image sets: about, advantages, technologies, comparison, models, faq, related-brands (14 files per brand)
+
+**Verification:**
+- Site rebuilt successfully: 643 files (includes 16 new related-brands files)
+- All 8 brand pages screenshot-verified: no duplicate images, all sections complete
+- Each brand directory contains 14 images (7 JPG + 7 WebP)
+- Workflow running without errors
+
 ### Brand Product Image Remediation (November 7, 2025)
 Eliminated cross-brand image pollution across all 8 brand pages by generating unique brand-specific product images:
 
