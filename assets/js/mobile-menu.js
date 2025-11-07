@@ -42,12 +42,22 @@
     });
   }
 
+  // Store scroll position
+  let scrollPosition = 0;
+
   // Open menu
   function openMenu() {
     if (!mobileMenu || !menuToggle) return;
     
+    // Store current scroll position
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    
     mobileMenu.classList.add('mobile-menu--open');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('mobile-menu-open');
+    
+    // Apply scroll position to body
+    document.body.style.top = `-${scrollPosition}px`;
+    
     menuToggle.setAttribute('aria-expanded', 'true');
     
     // Fix icon sizes when menu opens
@@ -65,8 +75,15 @@
     if (!mobileMenu || !menuToggle) return;
     
     mobileMenu.classList.remove('mobile-menu--open');
-    document.body.style.overflow = '';
+    document.body.classList.remove('mobile-menu-open');
+    
+    // Remove inline top style
+    document.body.style.top = '';
+    
     menuToggle.setAttribute('aria-expanded', 'false');
+    
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
     
     // Return focus to toggle button
     menuToggle.focus();
