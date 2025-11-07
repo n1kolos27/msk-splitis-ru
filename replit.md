@@ -6,18 +6,18 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 ## Recent Changes
 
 ### Service Images Relevance Update (November 7, 2025 - Latest)
-Replaced pricing/tariff section images with contextually relevant images WITHOUT any text:
+Replaced pricing/tariff section images with contextually relevant premium quality images WITHOUT any text:
 
 **Problem Identified:**
 - Images for pricing sections were not contextually relevant to their placement
 - `ustanovka/pricing.jpg`: Alt text promised "прайс-лист и цены" but showed only a technician working
+- User feedback: First replacement image looked "unfinished" (open louvers showing internals)
 - `obsluzhivanie/tariffs.jpg`: Alt text promised "тарифы на обслуживание" but showed only maintenance work
 - Created user confusion - expected pricing visuals, got generic service photos
-- Alt text misled users and harmed SEO expectations
 
 **Solution Implemented:**
-- Generated 2 NEW contextually relevant images WITHOUT any text:
-  - `ustanovka/pricing.jpg + pricing.webp`: Professionally installed AC unit in modern residential interior (111KB JPG, 28KB WebP)
+- Generated 2 NEW contextually relevant premium images WITHOUT any text:
+  - `ustanovka/pricing.jpg + pricing.webp`: **Premium finished installation** - complete white AC unit with closed louvers in upscale modern interior, wide room shot showing elegant furniture and professional installation result (160KB JPG, 65KB WebP)
   - `obsluzhivanie/tariffs.jpg + tariffs.webp`: Spotlessly clean AC after professional maintenance service (112KB JPG, 28KB WebP)
 - Images now show RESULTS of services (what customers get for their money)
 - Updated alt text to accurately describe image content:
@@ -29,15 +29,15 @@ Replaced pricing/tariff section images with contextually relevant images WITHOUT
 - AI-generated images with strong negative prompts preventing text generation
 - Converted from PNG to optimized JPG (quality 90) and WebP (quality 85)
 - Replaced existing files in assets/images/services/ directories
-- Site rebuilt: 643 files copied, 43 HTML files generated in 5.25 seconds
+- Site rebuilt: 643 files copied, 43 HTML files generated in 10.60 seconds
 - Workflow restarted successfully, new images loading correctly
 
 **Impact:**
 - ✅ Images now contextually relevant to pricing/tariff sections
-- ✅ Shows quality results customers get for their investment
+- ✅ Shows quality results customers get for their investment (premium finish)
 - ✅ Alt text accurately describes image content (better SEO)
 - ✅ Maintains project's strict "no text on images" policy
-- ✅ Optimized file sizes (28KB WebP vs previous 92-134KB)
+- ✅ Professional completed look (closed louvers, wide interior shot)
 
 ## User Preferences
 I prefer simple language and clear, direct instructions. I want iterative development with frequent, small updates rather than large, infrequent changes. Please ask for confirmation before implementing any major architectural changes or significant code refactoring. I expect detailed explanations for complex solutions or decisions. Do not make changes to files outside the `src/` and `assets/` directories, with the exception of Eleventy configuration files. Focus on delivering high-quality, production-ready code with strong emphasis on performance and SEO.
