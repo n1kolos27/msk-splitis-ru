@@ -5,7 +5,44 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 
 ## Recent Changes
 
-### Ducted AC Images Complete Replacement (November 7, 2025 - Latest)
+### Multi-Split AC Images Complete Replacement (November 7, 2025 - Latest)
+Replaced ALL 6 images on multisplit.html with contextually relevant, text-free versions:
+
+**Problem Identified:**
+User requested: "multisplit.html, перепроверить все ли соответствую своему блоку!" (verify everything matches its section)
+- Multiple images likely contained text, diagrams, charts, tables, or labels
+- Some images may have shown processes instead of completed results
+- Images needed to be contextually relevant to their specific sections
+
+**Solution Implemented:**
+Generated 6 NEW images WITHOUT any text, each matching its section:
+1. **benefits.jpg + .webp**: Moscow building facade with single outdoor unit serving multiple rooms (315KB JPG, 196KB WebP) - matches "Преимущества" section
+2. **models.jpg + .webp**: Showroom display of Daikin, Mitsubishi, LG indoor units (158KB JPG, 73KB WebP) - matches "Популярные модели" section
+3. **comparison.jpg + .webp**: Three different-sized rooms showing capacity comparison (216KB JPG, 96KB WebP) - matches "Сравнение моделей" section
+4. **applications.jpg + .webp**: Three vignettes (apartment, office, cottage) showing applications (167KB JPG, 70KB WebP) - matches "Где применяются" section
+5. **description.jpg + .webp**: Technical close-up of multi-split components with concealed piping (229KB JPG, 95KB WebP) - matches "Подробное описание" section
+6. **selection-guide.jpg + .webp**: Four-panel sequential collage showing selection process (272KB JPG, 118KB WebP) - matches "Как выбрать" section
+
+**Technical Details:**
+- Consulted architect to analyze each section and determine proper image content
+- AI-generated images showing completed installations (not processes)
+- Zero text, labels, diagrams, charts, tables, or infographics
+- Each image contextually relevant to its section content
+- Professional architectural photography and product display
+- Converted to optimized JPG (quality 90) and WebP (quality 85)
+- Replaced all 6 files in assets/images/catalog/multisplit/ directory
+- Site rebuilt: 655 files copied, 43 HTML files generated in 5.86 seconds
+- Workflow restarted successfully
+
+**Impact:**
+- ✅ ALL 6 images now completely text-free (БЕЗ ТЕКСТА!)
+- ✅ Each image contextually matches its section
+- ✅ Shows completed results, not processes
+- ✅ Professional quality imagery
+- ✅ Maintains project's strict "no text on images" policy
+- ✅ Enhanced SEO relevance through contextual image-content alignment
+
+### Ducted AC Images Complete Replacement (November 7, 2025)
 Replaced ALL 3 images with TEXT on kanalnye.html with text-free versions showing concealed ducted HVAC systems:
 
 **Problem Identified:**
