@@ -5,7 +5,49 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 
 ## Recent Changes
 
-### Cases Page Images Complete Replacement (November 7, 2025 - Latest)
+### Blog Page Popular Articles Images Added (November 7, 2025 - Latest)
+Created and deployed 6 missing images for Popular Articles section on blog.html WITHOUT any text:
+
+**Problem Identified:**
+- ALL 6 popular article images were MISSING (404 errors)
+- `kak-vybrat-kondicioner.jpg` - did not exist
+- `rejting-kondicionerov.jpg` - did not exist
+- `obsluzhivanie.jpg` - did not exist
+- `invertornyj.jpg` - did not exist
+- `ekonomiya.jpg` - did not exist
+- `ofis.jpg` - did not exist
+- User reported: "blog.html, раздел популярные статьи, не отображаются изображения"
+- Critical UX issue: Popular articles section showing broken images
+
+**Solution Implemented:**
+- Generated 6 NEW contextually relevant images WITHOUT any text for Popular Articles:
+  - `kak-vybrat-kondicioner.jpg + .webp`: Modern AC in apartment for "How to choose AC" article (136KB JPG, 47KB WebP)
+  - `rejting-kondicionerov.jpg + .webp`: Three premium AC units for "Best AC 2024 rating" article (78KB JPG, 16KB WebP)
+  - `obsluzhivanie.jpg + .webp`: Clean AC after maintenance for "AC maintenance guide" article (86KB JPG, 16KB WebP)
+  - `invertornyj.jpg + .webp`: Inverter AC technology in modern interior for "Inverter AC" article (164KB JPG, 64KB WebP)
+  - `ekonomiya.jpg + .webp`: Energy-efficient AC in bright apartment for "Energy saving" article (177KB JPG, 64KB WebP)
+  - `ofis.jpg + .webp`: Office cassette AC installation for "Office AC selection" article (227KB JPG, 98KB WebP)
+- Updated HTML to use <picture> tags with WebP sources for all 6 images
+- Zero text, labels, signs, numbers, logos, or people - pure professional photography
+- Each image contextually matches its article topic
+
+**Technical Details:**
+- AI-generated images with strong negative prompts preventing text/people/processes
+- Converted from PNG to optimized JPG (quality 90) and WebP (quality 85)
+- Created files in assets/images/blog/ directory
+- Updated blog.html with proper <picture> tags for WebP optimization
+- Site rebuilt: 655 files copied, 43 HTML files generated in 4.94 seconds
+- Workflow restarted successfully, new images loading correctly
+
+**Impact:**
+- ✅ ALL 6 popular article images now display correctly
+- ✅ Fixed critical UX issue with broken images
+- ✅ Images contextually relevant to article topics
+- ✅ WebP optimization reduces page load time
+- ✅ Maintains project's strict "no text on images" policy
+- ✅ Improves SEO with relevant imagery for blog articles
+
+### Cases Page Images Complete Replacement (November 7, 2025)
 Replaced ALL 6 case study images on cases.html page with contextually relevant images showing actual installation results WITHOUT any text:
 
 **Problem Identified:**
