@@ -5,7 +5,47 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 
 ## Recent Changes
 
-### Service Images Relevance Update (November 7, 2025 - Latest)
+### Cases Page Images Complete Replacement (November 7, 2025 - Latest)
+Replaced ALL 6 case study images on cases.html page with contextually relevant images showing actual installation results WITHOUT any text:
+
+**Problem Identified:**
+- ALL 6 case images were NOT contextually relevant to the case descriptions
+- `case-1.jpg`: Showed technician working with socket (not installed Daikin in apartment)
+- `case-2.jpg`: Studio photo of AC unit on gray background (not Mitsubishi in office)
+- `case-3.jpg`: Technician servicing/cleaning AC (not installed LG in apartment)
+- `case-4.jpg`: Industrial rooftop ventilation (not cassette AC in office ceiling)
+- `case-5.jpg`: Studio photo of outdoor unit (not multi-split in cottage)
+- `case-6.jpg`: Duplicate of case-3, technician servicing (not installation result)
+- Critical for SEO: Cases page shows PROCESSES/PRODUCTS instead of RESULTS
+- User goal: Achieve TOP-1 ranking - requires relevant case study imagery
+
+**Solution Implemented:**
+- Generated 6 NEW contextually relevant images WITHOUT any text showing installation RESULTS:
+  - `case-1.jpg + case-1.webp`: Daikin installed in modern apartment living room (203KB JPG, 79KB WebP)
+  - `case-2.jpg + case-2.webp`: Mitsubishi Electric installed in upscale office (153KB JPG, 44KB WebP)
+  - `case-3.jpg + case-3.webp`: LG installed in apartment bedroom (216KB JPG, 96KB WebP)
+  - `case-4.jpg + case-4.webp`: Cassette AC unit in office suspended ceiling (175KB JPG, 65KB WebP)
+  - `case-5.jpg + case-5.webp`: Multi-split system in luxury cottage (337KB JPG, 179KB WebP)
+  - `case-6.jpg + case-6.webp`: Premium installation result for hero background (206KB JPG, 86KB WebP)
+- All images show completed installations in real interiors (not processes or studio shots)
+- Zero text, labels, signs, numbers, logos, or people - pure professional photography
+- Each image contextually matches its case description for SEO relevance
+
+**Technical Details:**
+- AI-generated images with strong negative prompts preventing text/people/processes
+- Converted from PNG to optimized JPG (quality 90) and WebP (quality 85)
+- Replaced all 6 existing files in assets/images/cases/ directory
+- Site rebuilt: 643 files copied, 43 HTML files generated in 4.79 seconds
+- Workflow restarted successfully, new images loading correctly
+
+**Impact:**
+- ✅ ALL case images now contextually relevant to case descriptions
+- ✅ Shows actual installation RESULTS (not processes/products)
+- ✅ Improves SEO relevance for TOP-1 ranking goal
+- ✅ Maintains project's strict "no text on images" policy
+- ✅ Professional completed installations in real environments
+
+### Service Images Relevance Update (November 7, 2025)
 Replaced pricing/tariff section images with contextually relevant premium quality images WITHOUT any text:
 
 **Problem Identified:**
