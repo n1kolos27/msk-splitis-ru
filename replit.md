@@ -5,7 +5,41 @@ This project is a production-ready static website for "ИП Лагуто Ива�
 
 ## Recent Changes
 
-### Cassette AC Comparison Image Fixed (November 7, 2025 - Latest)
+### Ducted AC Images Complete Replacement (November 7, 2025 - Latest)
+Replaced ALL 3 images with TEXT on kanalnye.html with text-free versions showing concealed ducted HVAC systems:
+
+**Problem Identified:**
+- `description.jpg`: "Dunteed Air System" diagram with labeled components (Compressor, Condenser, Fan, Evaporator, Thermostat, Grilles, SUPPLY AIR, RETURN AIR)
+- `models.jpg`: Russian table with model names (Daikin FTX525K, Mitsubishi Electric MSZ-LN25, LG S12EQ3), prices, площадь, мощность, шум, энерго-класс, цена
+- `comparison.jpg`: "DUCTED AIR CONDITIONER COMPARISON: CAPACITY & CONFIGURATION OVERVIEW" with extensive infographics, BTU, SEER, EER, KW, capacity bars, ducting options graphs
+- User reported: "kanalnye.html, соответственно та же история!" (same problem as other pages)
+- Critical violation of "БЕЗ ТЕКСТА!" requirement
+
+**Solution Implemented:**
+- Generated 3 NEW images WITHOUT any text showing proper ducted AC systems:
+  - `description.jpg + .webp`: Interior cutaway of concealed ducted AC with hidden unit in ceiling void, insulated ducts, linear grilles (158KB JPG, 65KB WebP)
+  - `models.jpg + .webp`: Multiple ducted fan-coil units, plenum boxes, flexible ducts on clean background (192KB JPG, 92KB WebP)
+  - `comparison.jpg + .webp`: Side-by-side room scenarios showing ducted AC airflow distribution across zones (258KB JPG, 130KB WebP)
+- All images show correct ducted/concealed HVAC systems (not wall-mounted or cassette units)
+- Zero text, labels, diagrams, model names, prices, specifications, or charts
+- Professional architectural visualization and product photography
+
+**Technical Details:**
+- Consulted architect for proper ducted AC system representation
+- AI-generated images emphasizing: ceiling void installation, duct networks, linear diffusers, plenums
+- Converted to optimized JPG (quality 90) and WebP (quality 85)
+- Replaced all 3 files in assets/images/catalog/kanalnye/ directory
+- Site rebuilt: 655 files copied, 43 HTML files generated in 10.61 seconds
+- Workflow restarted successfully
+
+**Impact:**
+- ✅ ALL 3 images now completely text-free (БЕЗ ТЕКСТА!)
+- ✅ Correctly shows ducted/concealed AC systems (not other AC types)
+- ✅ Visual representation maintains educational value
+- ✅ Maintains project's strict "no text on images" policy
+- ✅ Improved architectural accuracy and professionalism
+
+### Cassette AC Comparison Image Fixed (November 7, 2025)
 Replaced comparison image with EXTENSIVE TEXT on kassetnye.html with text-free version:
 
 **Problem Identified:**
