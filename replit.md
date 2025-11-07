@@ -9,6 +9,41 @@ This is a production-ready static website for an air conditioning sales and inst
 
 ## Recent Changes
 
+### Brand Product Image Remediation (November 7, 2025)
+Eliminated cross-brand image pollution across all 8 brand pages by generating unique brand-specific product images:
+
+**Problem Identified:**
+- User screenshots revealed critical issue: brand pages displaying wrong/duplicate products
+- Samsung, Panasonic, Haier, Electrolux pages all showed same lg-s12eq3.jpg placeholder
+- Cross-brand contamination compromised brand authenticity and user experience
+
+**Solution Implemented:**
+- Generated 21 NEW brand-specific product images WITHOUT text (CRITICAL requirement)
+- Created 42 files total (21 JPG + 21 WebP) in assets/images/products/
+- Professional AC unit photography style, 4:3 aspect ratio, clean backgrounds
+
+**New Product Images by Brand:**
+- Mitsubishi: mitsubishi-msz-fh25ve, mitsubishi-msz-ap35vg, mitsubishi-msz-hr25vf
+- Samsung: samsung-ar09, samsung-ar12, samsung-ar07
+- Panasonic: panasonic-cs-tz25tkew, panasonic-cs-tz35tkew, panasonic-cs-tz20tkew
+- Haier: haier-as09ns4era, haier-as12ns4era, haier-as07ns4era
+- Gree: gree-gwh09qb, gree-gwh12qb, gree-gwh07qb
+- Electrolux: electrolux-eacs-09hpr, electrolux-eacs-12hpr, electrolux-eacs-07hpr
+- Daikin: daikin-ftxs25k (existing), daikin-ftxm35n (new), daikin-fvxm50f (new)
+- LG: lg-s12eq3 (existing), lg-artcool-gallery (existing), lg-p12ep (new)
+
+**HTML Updates:**
+- Updated 7 brand pages (Mitsubishi, Samsung, Panasonic, Haier, Gree, Electrolux, LG)
+- Daikin page was already correct, no changes needed
+- Replaced all product card images with brand-specific files
+- Maintained consistent `<picture>` tag structure (WebP source + JPG fallback)
+
+**Verification:**
+- Site rebuilt successfully: 627 files in 7.90 seconds
+- All 8 brand pages screenshot-verified: each shows correct brand products
+- No cross-brand contamination remaining (lg-s12eq3.jpg only on LG page)
+- Workflow running without errors
+
 ### Comprehensive Image Remediation (November 6, 2025)
 Completed systematic image audit and remediation across all 36+ pages through 5 parallel workstreams:
 
