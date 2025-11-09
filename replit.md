@@ -21,7 +21,7 @@ Key features include:
 - **Content Management**: Over 36 pages covering services (installation, maintenance, repair, refilling), a comprehensive product catalog (wall-mounted, multi-split, ducted, cassette), dedicated brand pages, and a blog.
 
 ### System Design Choices
-The project utilizes Eleventy for static site generation, ensuring maintainability, speed, and cost-effectiveness. The folder structure (`src/pages`, `src/_includes`, `src/_data`, `assets/`) is designed for modularity and easy content management. Development and production workflows are streamlined for Replit Autoscale deployment, binding to `0.0.0.0:5000`. E2E testing with Playwright is integrated to maintain code quality. The `server.js` handles static file serving, security headers (CSP, HSTS, X-Frame-Options), cache control, and 404 pages.
+The project utilizes Eleventy for static site generation, ensuring maintainability, speed, and cost-effectiveness. The folder structure (`src/pages`, `src/_includes`, `src/_data`, `assets/`) is designed for modularity and easy content management. Development and production workflows are streamlined for Replit Autoscale deployment, binding to `0.0.0.0:5000`. The `server.js` handles static file serving, security headers (CSP, HSTS, X-Frame-Options), cache control, and 404 pages.
 
 **⚠️ IMPORTANT - Eleventy Template Files:**
 - Eleventy uses templates from `_includes/` directory in project root
@@ -33,4 +33,3 @@ The project utilizes Eleventy for static site generation, ensuring maintainabili
 - **Resend API**: Used for handling email delivery from the contact form.
 - **Node.js**: Runtime environment for Eleventy and the server.
 - **npm**: Package manager for project dependencies.
-- **Playwright**: Used for End-to-End testing.

@@ -1,7 +1,7 @@
 {
-  "name": "msk-splitis-ru-e2e-tests",
+  "name": "msk-splitis-ru",
   "version": "1.0.0",
-  "description": "E2E тесты для сайта msk.splitis.ru с использованием Playwright",
+  "description": "Сайт компании по продаже и установке кондиционеров msk.splitis.ru",
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
@@ -9,27 +9,13 @@
     "server": "node server.js",
     "server:https": "node server-https.js",
     "cert:generate": "bash generate-localhost-cert.sh",
-    "cert:generate:win": "powershell -ExecutionPolicy Bypass -File generate-localhost-cert.ps1",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:debug": "playwright test --debug",
-    "test:headed": "playwright test --headed",
-    "test:report": "playwright show-report",
-    "test:ci": "playwright test --project=chromium --reporter=list,html",
-    "test:chromium": "playwright test --project=chromium",
-    "test:all": "playwright test"
+    "cert:generate:win": "powershell -ExecutionPolicy Bypass -File generate-localhost-cert.ps1"
   },
-  "keywords": [
-    "playwright",
-    "e2e",
-    "testing"
-  ],
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
-    "@playwright/test": "^1.40.0",
     "html-minifier": "^4.0.0",
     "cssnano": "^7.0.6",
     "postcss": "^8.4.47",

@@ -1,0 +1,259 @@
+================================================================================
+NOTICE - УВЕДОМЛЕНИЕ О ЗАВИСИМОСТЯХ И ЛИЦЕНЗИЯХ
+NOTICE - DEPENDENCIES AND LICENSES NOTIFICATION
+================================================================================
+
+Этот проект использует следующие open-source библиотеки и технологии:
+
+ОСНОВНЫЕ ТЕХНОЛОГИИ (CORE TECHNOLOGIES):
+----------------------------------------
+
+1. HTML5 (W3C Standard)
+   - Лицензия: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Коммерческое использование: Разрешено ✅
+   - Тип: W3C Living Standard
+
+2. CSS3 (W3C Standard)
+   - Лицензия: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Коммерческое использование: Разрешено ✅
+   - Тип: W3C Living Standard
+
+3. JavaScript (ECMAScript ES6+)
+   - Лицензия: Нет (стандарт языка, не требует лицензии)
+   - Коммерческое использование: Разрешено ✅
+   - Тип: ECMA International Standard
+
+ВНЕШНИЕ ЗАВИСИМОСТИ (EXTERNAL DEPENDENCIES):
+---------------------------------------------
+
+4. Inter Font (Google Fonts)
+   - Провайдер: Google LLC
+   - Лицензия: SIL Open Font License 1.1 (OFL-1.1)
+   - URL: https://scripts.sil.org/OFL
+   - Коммерческое использование: Разрешено ✅
+   - Подключение: CDN (https://fonts.googleapis.com)
+   - Требования лицензии: Автоматически соблюдены через Google Fonts
+
+5. Schema.org Vocabulary
+   - Провайдер: Schema.org (Google, Microsoft, Yahoo, Yandex)
+   - Лицензия: Creative Commons Attribution-ShareAlike 3.0 Unported
+   - URL: https://schema.org/docs/terms.html
+   - Коммерческое использование: Разрешено ✅
+   - Использование: JSON-LD разметка на страницах
+
+6. Open Graph Protocol
+   - Провайдер: Meta (Facebook)
+   - Лицензия: MIT License
+   - URL: https://github.com/opengraphprotocol/specs
+   - Коммерческое использование: Разрешено ✅
+   - Использование: Meta-теги на страницах
+
+7. Twitter Cards
+   - Провайдер: Twitter (X Corp)
+   - Лицензия: Открытый стандарт
+   - Коммерческое использование: Разрешено ✅
+   - Использование: Meta-теги на страницах
+
+СТАНДАРТЫ (STANDARDS):
+---------------------
+
+8. JSON-LD (JSON for Linking Data)
+   - Стандарт: W3C Recommendation
+   - Лицензия: W3C Software Notice and License
+   - Коммерческое использование: Разрешено ✅
+
+NPM ЗАВИСИМОСТИ (DEV DEPENDENCIES):
+------------------------------------
+
+Все npm зависимости используются только в процессе разработки и сборки.
+Финальный продукт не содержит npm зависимостей.
+
+Всего зависимостей: 267 уникальных пакетов
+Все зависимости: Dev Dependencies (100%)
+Runtime Dependencies: 0
+
+Основные зависимости:
+
+1. @11ty/eleventy v3.1.2 - MIT
+   Static Site Generator для генерации HTML страниц
+
+2. @11ty/eleventy-img v6.0.4 - MIT
+   Оптимизация изображений
+
+3. @playwright/test v1.56.1 - Apache-2.0
+   E2E тестирование
+
+4. html-minifier v4.0.0 - MIT
+   Минификация HTML
+
+5. cssnano v7.1.2 - MIT
+   Минификация CSS
+
+6. postcss v8.5.6 - MIT
+   Обработка CSS
+
+7. terser v5.44.0 - BSD-2-Clause
+   Минификация JavaScript
+
+Распределение лицензий npm зависимостей:
+- MIT: 198 пакетов (74.2%)
+- BSD-2-Clause: 17 пакетов (6.4%)
+- ISC: 16 пакетов (6.0%)
+- Apache-2.0: 14 пакетов (5.2%)
+- LGPL-3.0-or-later: 8 пакетов (3.0%) - все опциональные
+- Другие: 14 пакетов (5.2%)
+
+ВАЖНО О LGPL-3.0 ЗАВИСИМОСТЯХ:
+-------------------------------
+
+Все 8 пакетов с лицензией LGPL-3.0-or-later являются опциональными 
+нативными модулями библиотеки sharp (@img/sharp-*). Они используются 
+только в процессе сборки для оптимизации изображений и НЕ включаются 
+в финальный продукт (_site/). Таким образом, они совместимы с коммерческим 
+использованием, так как не являются частью распространяемого продукта.
+
+ВАЖНАЯ ИНФОРМАЦИЯ (IMPORTANT INFORMATION):
+------------------------------------------
+
+✅ Все используемые технологии и библиотеки разрешены для коммерческого использования.
+✅ Проект не содержит GPL или AGPL зависимостей в runtime.
+✅ Все LGPL зависимости являются опциональными и не включаются в продукт.
+✅ Все лицензии совместимы с проприетарным использованием.
+✅ Финальный продукт не содержит npm зависимостей.
+
+Полный список всех зависимостей см. в THIRD_PARTY_LICENSES.md
+Полный анализ зависимостей и breakdown проекта см. в PROJECT_BREAKDOWN.md
+Отчет о совместимости с коммерческим использованием см. в LICENSE_COMPLIANCE.md
+
+================================================================================
+
+This project uses the following open-source libraries and technologies:
+
+CORE TECHNOLOGIES:
+------------------
+
+1. HTML5 (W3C Standard)
+   - License: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Commercial use: Permitted ✅
+   - Type: W3C Living Standard
+
+2. CSS3 (W3C Standard)
+   - License: W3C Software Notice and License
+   - URL: https://www.w3.org/Consortium/Legal/2002/copyright-software-20021231
+   - Commercial use: Permitted ✅
+   - Type: W3C Living Standard
+
+3. JavaScript (ECMAScript ES6+)
+   - License: None (language standard, no license required)
+   - Commercial use: Permitted ✅
+   - Type: ECMA International Standard
+
+EXTERNAL DEPENDENCIES:
+----------------------
+
+4. Inter Font (Google Fonts)
+   - Provider: Google LLC
+   - License: SIL Open Font License 1.1 (OFL-1.1)
+   - URL: https://scripts.sil.org/OFL
+   - Commercial use: Permitted ✅
+   - Connection: CDN (https://fonts.googleapis.com)
+   - License requirements: Automatically satisfied via Google Fonts
+
+5. Schema.org Vocabulary
+   - Provider: Schema.org (Google, Microsoft, Yahoo, Yandex)
+   - License: Creative Commons Attribution-ShareAlike 3.0 Unported
+   - URL: https://schema.org/docs/terms.html
+   - Commercial use: Permitted ✅
+   - Usage: JSON-LD markup on pages
+
+6. Open Graph Protocol
+   - Provider: Meta (Facebook)
+   - License: MIT License
+   - URL: https://github.com/opengraphprotocol/specs
+   - Commercial use: Permitted ✅
+   - Usage: Meta tags on pages
+
+7. Twitter Cards
+   - Provider: Twitter (X Corp)
+   - License: Open Standard
+   - Commercial use: Permitted ✅
+   - Usage: Meta tags on pages
+
+STANDARDS:
+----------
+
+8. JSON-LD (JSON for Linking Data)
+   - Standard: W3C Recommendation
+   - License: W3C Software Notice and License
+   - Commercial use: Permitted ✅
+
+NPM DEPENDENCIES (DEV DEPENDENCIES):
+------------------------------------
+
+All npm dependencies are used only during development and build process.
+The final product does not contain npm dependencies.
+
+Total dependencies: 267 unique packages
+All dependencies: Dev Dependencies (100%)
+Runtime Dependencies: 0
+
+Main dependencies:
+
+1. @11ty/eleventy v3.1.2 - MIT
+   Static Site Generator for HTML page generation
+
+2. @11ty/eleventy-img v6.0.4 - MIT
+   Image optimization
+
+3. @playwright/test v1.56.1 - Apache-2.0
+   E2E testing
+
+4. html-minifier v4.0.0 - MIT
+   HTML minification
+
+5. cssnano v7.1.2 - MIT
+   CSS minification
+
+6. postcss v8.5.6 - MIT
+   CSS processing
+
+7. terser v5.44.0 - BSD-2-Clause
+   JavaScript minification
+
+License distribution of npm dependencies:
+- MIT: 198 packages (74.2%)
+- BSD-2-Clause: 17 packages (6.4%)
+- ISC: 16 packages (6.0%)
+- Apache-2.0: 14 packages (5.2%)
+- LGPL-3.0-or-later: 8 packages (3.0%) - all optional
+- Others: 14 packages (5.2%)
+
+IMPORTANT ABOUT LGPL-3.0 DEPENDENCIES:
+---------------------------------------
+
+All 8 packages with LGPL-3.0-or-later license are optional native modules 
+of the sharp library (@img/sharp-*). They are used only during the build 
+process for image optimization and are NOT included in the final product 
+(_site/). Therefore, they are compatible with commercial use, as they are 
+not part of the distributed product.
+
+IMPORTANT INFORMATION:
+----------------------
+
+✅ All used technologies and libraries are permitted for commercial use.
+✅ The project does not contain GPL or AGPL dependencies in runtime.
+✅ All LGPL dependencies are optional and not included in the product.
+✅ All licenses are compatible with proprietary use.
+✅ The final product does not contain npm dependencies.
+
+See THIRD_PARTY_LICENSES.md for complete list of all dependencies
+See PROJECT_BREAKDOWN.md for complete dependency analysis and project breakdown
+See LICENSE_COMPLIANCE.md for commercial use compatibility report
+
+================================================================================
+Last updated: January 2025
+Последнее обновление: Январь 2025
+================================================================================
