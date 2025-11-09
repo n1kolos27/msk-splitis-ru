@@ -23,6 +23,12 @@ Key features include:
 ### System Design Choices
 The project utilizes Eleventy for static site generation, ensuring maintainability, speed, and cost-effectiveness. The folder structure (`src/pages`, `src/_includes`, `src/_data`, `assets/`) is designed for modularity and easy content management. Development and production workflows are streamlined for Replit Autoscale deployment, binding to `0.0.0.0:5000`. E2E testing with Playwright is integrated to maintain code quality. The `server.js` handles static file serving, security headers (CSP, HSTS, X-Frame-Options), cache control, and 404 pages.
 
+**⚠️ IMPORTANT - Eleventy Template Files:**
+- Eleventy uses templates from `_includes/` directory in project root
+- Always edit header/footer in `_includes/header.html` and `_includes/footer.html`
+- Duplicate files in `src/_includes/` and `components/` have been removed (November 9, 2025)
+- After editing templates, rebuild with `npx @11ty/eleventy` and restart frontend workflow
+
 ## External Dependencies
 - **Resend API**: Used for handling email delivery from the contact form.
 - **Node.js**: Runtime environment for Eleventy and the server.
