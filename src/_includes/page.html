@@ -119,7 +119,7 @@
   </script>
   {% endif %}
 </head>
-<body>
+<body{% if site.analytics and site.analytics.yandex %} data-yandex-metrika-id="{{ site.analytics.yandex }}"{% endif %}>
   <!-- Google Tag Manager (noscript) -->
   {% if site.gtm %}
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}"

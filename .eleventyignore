@@ -20,6 +20,9 @@ migrate-pages.js
 tests/
 playwright.config.js
 
+# Игнорируем документацию (не нужна в production сборке)
+docs/
+
 # Игнорируем конфигурационные файлы
 serve.bat
 serve.py

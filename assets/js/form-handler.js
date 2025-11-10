@@ -183,8 +183,14 @@
       showSuccess(form);
       
       // Отслеживание отправки формы в аналитике (если доступно)
-      if (typeof ym !== 'undefined') {
-        ym(105124660, 'reachGoal', 'form_submit');
+      // Получаем ID Яндекс.Метрики из data-атрибута body
+      const yandexMetrikaId = document.body.getAttribute('data-yandex-metrika-id');
+      if (typeof ym !== 'undefined' && yandexMetrikaId) {
+        try {
+          ym(parseInt(yandexMetrikaId, 10), 'reachGoal', 'form_submit');
+        } catch (e) {
+          console.warn('Ошибка отправки цели в Яндекс.Метрику:', e);
+        }
       }
       if (typeof gtag !== 'undefined') {
         gtag('event', 'form_submit', {

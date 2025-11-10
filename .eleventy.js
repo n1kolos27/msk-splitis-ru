@@ -84,6 +84,10 @@ module.exports = function(eleventyConfig) {
   // Добавляем поддержку файлов без front matter
   eleventyConfig.setDataFileSuffixes([".json", ".11tydata"]);
 
+  // Исключаем папку docs из сборки
+  eleventyConfig.ignores.add("docs/**");
+  eleventyConfig.ignores.add("**/docs/**");
+
   // Добавляем папки для отслеживания изменений
   eleventyConfig.addWatchTarget("src/_includes");
   eleventyConfig.addWatchTarget("src/_layouts");

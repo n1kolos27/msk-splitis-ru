@@ -1,36 +1,46 @@
-# 🌨️ HTML5/CSS3 Static Landing Pages - Production Ready
+# 🌨️ msk.splitis.ru - Production Ready Static Site
 
 **Проект:** Сайт msk.splitis.ru  
 **Компания:** ИП Лагуто Иван Иванович  
 **Домен:** msk.splitis.ru  
 **Версия:** 1.0.0  
-**Репозиторий:** msk-splitis-ru
+**Репозиторий:** msk-splitis-ru  
+**SSG:** Eleventy (11ty) v3.1.2
 
-> **Примечание:** Проект готовится к миграции на 11ty (Eleventy) для улучшения масштабируемости и устранения дублирования кода. Подробный анализ архитектуры в [ARCHITECTURE_ANALYSIS.md](./ARCHITECTURE_ANALYSIS.md)
+> **Статус:** Проект успешно мигрирован на Eleventy для улучшения масштабируемости и устранения дублирования кода. Используется модульная архитектура с компонентами и централизованными данными.
 
 ---
 
 ## 📋 Описание проекта
 
-Production-ready HTML5/CSS3 проект для компании по продаже и установке кондиционеров в Москве и Московской области. Каждая страница - полноценный лендинг с общей header/footer, оптимизированный для ТОП-1 позиций в поиске.
+Production-ready статический сайт на Eleventy для компании по продаже и установке кондиционеров в Москве и Московской области. Каждая страница - полноценный лендинг с общей header/footer, оптимизированный для ТОП-1 позиций в поиске.
 
 ### Ключевые особенности
 
+- ✅ **Eleventy (11ty) v3.1.2** - современный статический генератор сайтов
 - ✅ **Валидный HTML5** - соответствует стандартам W3C
 - ✅ **CSS3 с современными возможностями** - CSS Variables, Grid, Flexbox
 - ✅ **Mobile-First дизайн** - адаптация для всех устройств
 - ✅ **Full-screen hero секции** - на всех страницах
 - ✅ **Поддержка печати** - оптимизированные стили @media print
-- ✅ **Темная/светлая тема** - переключение через :target селектор
+- ✅ **Темная/светлая тема** - переключение через JavaScript
 - ✅ **SEO оптимизация** - Schema.org разметка, правильная структура
+- ✅ **Аналитика** - Яндекс.Метрика и Google Tag Manager
+- ✅ **Формы обратной связи** - интеграция с Resend API
 - ✅ **Accessibility** - WCAG 2.1 Level AA
-- ✅ **Производительность** - минимальный JavaScript, оптимизированный CSS
+- ✅ **Производительность** - минифицированный CSS/JS, оптимизированные изображения
 
 ---
 
 ## 🛠️ Технологии и лицензии
 
 ### Основные технологии
+
+#### Eleventy (11ty) v3.1.2
+- **Лицензия:** MIT License
+- **Совместимость:** Коммерческое использование разрешено
+- **Версия:** 3.1.2
+- **Ссылка:** https://www.11ty.dev/
 
 #### HTML5 (W3C Standard)
 - **Лицензия:** W3C Software Notice and License
@@ -49,10 +59,17 @@ Production-ready HTML5/CSS3 проект для компании по прода
 - **Совместимость:** Коммерческое использование разрешено
 - **Ссылка:** https://fonts.google.com/specimen/Inter
 
-### Инструменты разработки (не включаются в production)
+#### Resend API
+- **Лицензия:** MIT License
+- **Назначение:** Отправка email через формы обратной связи
+- **Версия:** 3.2.0
+- **Ссылка:** https://resend.com/
+
+### Инструменты разработки
 
 - **VS Code** / **Cursor** - Редактор кода
-- **Live Server** - Локальный сервер для разработки
+- **Eleventy** - Статический генератор сайтов
+- **Playwright** - E2E тестирование
 - **W3C Validator** - Валидация HTML/CSS
 - **Lighthouse** - Анализ производительности
 
@@ -61,118 +78,74 @@ Production-ready HTML5/CSS3 проект для компании по прода
 ## 📁 Структура проекта
 
 ```
-public_html/
 ├── LICENSE                         # Лицензия проекта
 ├── NOTICE                          # Уведомление о зависимостях
 ├── README.md                       # Документация проекта
 ├── CONTRIBUTING.md                 # Руководство по разработке
+├── package.json                    # Зависимости и скрипты
+├── .eleventy.js                    # Конфигурация Eleventy
 │
-├── index.html                      # Главная страница
-├── o-kompanii.html                 # О компании
-├── kontakty.html                   # Контакты
-├── katalog.html                    # Каталог товаров
-├── calculator.html                 # Калькулятор (статический)
-├── cases.html                      # Кейсы
-├── reviews.html                    # Отзывы
-├── blog.html                       # Блог
+├── src/                            # Исходные файлы
+│   ├── pages/                      # HTML страницы с front matter
+│   │   ├── index.html              # Главная страница
+│   │   ├── o-kompanii.html         # О компании
+│   │   ├── kontakty.html           # Контакты
+│   │   ├── katalog.html            # Каталог товаров
+│   │   ├── cases.html              # Кейсы
+│   │   ├── reviews.html            # Отзывы
+│   │   ├── blog.html               # Блог
+│   │   ├── blog/                   # Статьи блога
+│   │   ├── brands/                 # Страницы брендов
+│   │   ├── uslugi/                 # Страницы услуг
+│   │   └── katalog/                # Страницы каталога
+│   │
+│   ├── _includes/                  # Шаблоны (layouts)
+│   │   ├── page.html               # Основной layout
+│   │   ├── header.html             # Шапка сайта
+│   │   └── footer.html             # Подвал
+│   │
+│   └── _data/                      # Централизованные данные
+│       ├── site.json               # Настройки сайта (GTM, Яндекс.Метрика)
+│       ├── contacts.json            # Контактная информация
+│       └── navigation.json          # Навигация
 │
-├── assets/                         # Ресурсы
+├── assets/                         # Ресурсы (копируются как есть)
 │   ├── css/
-│   │   ├── main.css               # Основные стили
-│   │   ├── components/            # Компонентные стили
-│   │   │   ├── header.css
-│   │   │   ├── footer.css
-│   │   │   ├── buttons.css
-│   │   │   ├── cards.css
-│   │   │   ├── forms.css
-│   │   │   ├── badges.css
-│   │   │   ├── hero.css
-│   │   │   ├── stats.css
-│   │   │   ├── benefits.css
-│   │   │   ├── testimonials.css
-│   │   │   ├── faq.css
-│   │   │   ├── cta.css
-│   │   │   ├── pricing.css
-│   │   │   └── print.css          # Стили для печати
-│   │   ├── utilities/             # Утилитарные классы
-│   │   │   ├── layout.css
-│   │   │   ├── typography.css
-│   │   │   ├── spacing.css
-│   │   │   └── themes.css         # Темы (светлая/темная)
-│   │   └── responsive.css         # Медиа-запросы
+│   │   ├── main.css                # Основные стили (импорты)
+│   │   ├── components/             # Компонентные стили (21 файл)
+│   │   └── utilities/              # Утилитарные классы (5 файлов)
 │   │
-│   ├── js/                         # JavaScript (минимальный)
-│   │   ├── theme-switcher.js      # Переключение темы
-│   │   ├── mobile-menu.js         # Мобильное меню
-│   │   ├── accordion.js          # Аккордеоны FAQ
-│   │   └── smooth-scroll.js       # Плавная прокрутка
+│   ├── js/                         # JavaScript модули
+│   │   ├── form-handler.js         # Обработчик форм (Resend API)
+│   │   ├── smooth-scroll.js        # Плавная прокрутка к якорям
+│   │   ├── theme-switcher.js       # Переключение темы
+│   │   ├── mobile-menu.js          # Мобильное меню
+│   │   └── ...                     # Другие модули
 │   │
-│   ├── images/                     # Изображения
-│   │   ├── logo.svg                # Логотип ИП Лагуто
-│   │   ├── logo-icon.svg          # Иконка логотипа
-│   │   ├── favicon.ico             # Фавикон
-│   │   ├── og-image.jpg            # Open Graph изображение
-│   │   ├── hero/                   # Hero изображения
-│   │   ├── products/               # Изображения товаров
-│   │   ├── services/               # Изображения услуг
-│   │   └── team/                   # Фото команды
-│   │
-│   └── fonts/                      # Шрифты (опционально, локально)
-│       └── inter/                  # Inter font files
+│   └── images/                     # Изображения
 │
-├── katalog/                        # Каталог
-│   ├── index.html                  # Главная каталога
-│   ├── bytovye/                    # Бытовые кондиционеры
-│   │   ├── index.html
-│   │   ├── nastennye.html          # Настенные сплит-системы
-│   │   ├── multisplit.html        # Мульти-сплит системы
-│   │   └── kanalnye-kassetnye.html # Канальные и кассетные
-│   ├── kommercheskie.html         # Коммерческие системы
-│   └── promyshlennye.html          # Промышленные решения
+├── api/                            # API endpoints для форм
+│   ├── contact.js                  # Vercel Serverless Function
+│   ├── contact.php                 # PHP endpoint
+│   └── ...
 │
-├── brands/                         # Бренды
-│   ├── daikin.html
-│   ├── mitsubishi.html
-│   ├── lg.html
-│   ├── samsung.html
-│   ├── panasonic.html
-│   ├── gree.html
-│   ├── haier.html
-│   └── electrolux.html
-│
-├── uslugi/                         # Услуги
-│   ├── index.html                  # Список услуг
-│   ├── ustanovka.html              # Установка (от 5000₽)
-│   ├── obsluzhivanie.html          # Обслуживание (от 2500₽)
-│   ├── remont.html                 # Ремонт (от 1500₽)
-│   └── zapravka.html               # Заправка (от 2000₽)
-│
-├── blog/                           # Блог
-│   ├── index.html                  # Список статей
-│   ├── vybor-kondicionera.html
-│   ├── ustanovka-i-montazh.html
-│   ├── obsluzhivanie-i-remont.html
-│   └── novosti-i-obzory.html
-│
-├── components/                     # HTML компоненты (для справки)
-│   ├── header.html                 # Шапка сайта
-│   ├── footer.html                 # Подвал
-│   ├── navigation.html             # Навигация
-│   └── breadcrumbs.html            # Хлебные крошки
+├── components/                     # HTML компоненты
+│   ├── header.html
+│   ├── footer.html
+│   └── ...
 │
 ├── schemas/                        # Schema.org разметка (JSON-LD)
-│   ├── organization.json
-│   ├── localbusiness.json
-│   ├── product.json
-│   ├── faqpage.json
-│   └── breadcrumblist.json
+│   ├── breadcrumb.json
+│   ├── faq.json
+│   └── product.json
 │
-└── docs/                           # Документация
-    ├── architecture.md              # Архитектура проекта
-    ├── components.md               # Документация компонентов
-    ├── styling.md                  # Руководство по стилям
-    ├── seo.md                      # SEO руководство
-    └── deployment.md                # Руководство по развертыванию
+├── tests/                          # E2E тесты (Playwright)
+│   ├── navigation.spec.js
+│   ├── forms.spec.js
+│   └── ...
+│
+└── _site/                          # Собранный сайт (генерируется)
+    └── ...                         # Статические HTML файлы
 ```
 
 ---
@@ -361,17 +334,43 @@ CSS использует селектор `:target` в комбинации с `
 
 ### Локальная разработка
 
-1. Откройте файлы в браузере
-2. Используйте Live Server для разработки
-3. Проверьте валидацию HTML/CSS
+```bash
+# Установить зависимости
+npm install
+
+# Запустить dev сервер с hot reload
+npm run dev
+
+# Или просто собрать проект
+npm run build
+
+# Запустить локальный сервер
+npm run server
+```
 
 ### Production развертывание
 
-1. Оптимизировать изображения
-2. Минифицировать CSS (опционально)
-3. Загрузить на хостинг
-4. Настроить SSL сертификат
-5. Настроить CDN (опционально)
+```bash
+# Собрать проект (минифицирует CSS/JS автоматически)
+npm run build
+
+# Результат в папке _site/
+# Загрузить содержимое _site/ на хостинг
+```
+
+### Настройка переменных окружения
+
+Для работы форм обратной связи необходимо настроить:
+
+```bash
+RESEND_API_KEY=your_resend_api_key
+CONTACT_EMAIL=info@msk.splitis.ru
+```
+
+### Аналитика
+
+- **Google Tag Manager:** ID настраивается в `src/_data/site.json` (gtm)
+- **Яндекс.Метрика:** ID настраивается в `src/_data/site.json` (analytics.yandex)
 
 ---
 
