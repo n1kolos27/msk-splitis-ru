@@ -7,9 +7,28 @@
   RewriteEngine On
   RewriteBase /
 
-  # Редирект с HTTP на HTTPS
+  # ============================================
+  # РЕДИРЕКТ С ОСНОВНОГО ДОМЕНА НА ПОДДОМЕН
+  # ============================================
+  # Редирект splitis.ru и www.splitis.ru на msk.splitis.ru
+  # Важно: эти правила должны быть ПЕРВЫМИ, до других редиректов
+  
+  # Редирект splitis.ru (без www) на msk.splitis.ru
+  RewriteCond %{HTTP_HOST} ^splitis\.ru$ [NC]
+  RewriteRule ^(.*)$ https://msk.splitis.ru/$1 [R=301,L]
+  
+  # Редирект www.splitis.ru на msk.splitis.ru
+  RewriteCond %{HTTP_HOST} ^www\.splitis\.ru$ [NC]
+  RewriteRule ^(.*)$ https://msk.splitis.ru/$1 [R=301,L]
+
+  # Редирект с HTTP на HTTPS (для msk.splitis.ru)
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} ^msk\.splitis\.ru$ [NC]
+  RewriteRule ^(.*)$ https://msk.splitis.ru/$1 [L,R=301]
+
+  # Редирект с www.msk.splitis.ru на msk.splitis.ru
+  RewriteCond %{HTTP_HOST} ^www\.msk\.splitis\.ru$ [NC]
+  RewriteRule ^(.*)$ https://msk.splitis.ru/$1 [R=301,L]
 
   # Редирект с www на non-www (или наоборот)
   # Раскомментируйте нужный вариант

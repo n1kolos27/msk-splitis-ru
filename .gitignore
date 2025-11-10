@@ -28,6 +28,12 @@ Thumbs.db
 .env.local
 .env.*.local
 
+# API Tokens and Secrets
+timeweb-token.txt
+*.token
+*.secret
+ssh-key-info.txt
+
 # Temporary files
 /tmp/
 *.tmp
