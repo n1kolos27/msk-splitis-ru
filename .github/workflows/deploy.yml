@@ -22,7 +22,7 @@ jobs:
         # cache: 'npm'  # Отключено, так как может вызывать проблемы без package-lock.json
     
     - name: Install dependencies
-      run: npm ci
+      run: npm install
     
     - name: Build project
       run: npm run build
