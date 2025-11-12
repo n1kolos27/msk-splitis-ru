@@ -124,15 +124,6 @@ Production-ready статический сайт на Eleventy для компа
 │   │
 │   └── images/                     # Изображения
 │
-├── api/                            # API endpoints для форм
-│   ├── contact.js                  # Vercel Serverless Function
-│   ├── contact.php                 # PHP endpoint
-│   └── ...
-│
-├── components/                     # HTML компоненты
-│   ├── header.html
-│   ├── footer.html
-│   └── ...
 │
 ├── schemas/                        # Schema.org разметка (JSON-LD)
 │   ├── breadcrumb.json

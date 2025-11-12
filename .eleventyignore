@@ -30,5 +30,8 @@ serve.sh
 server.js
 
 # Игнорируем исходные includes (используем _includes в корне)
-src/_includes/
+# src/_includes/ - удалена, больше не используется
+
+# Игнорируем markdown файлы в assets (не должны быть HTML страницами)
+assets/images/OG_IMAGE_INSTRUCTIONS.md
 

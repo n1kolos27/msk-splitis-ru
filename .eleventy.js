@@ -84,9 +84,13 @@ module.exports = function(eleventyConfig) {
   // Добавляем поддержку файлов без front matter
   eleventyConfig.setDataFileSuffixes([".json", ".11tydata"]);
 
-  // Исключаем папку docs из сборки
+  // Исключаем служебные директории из сборки
   eleventyConfig.ignores.add("docs/**");
   eleventyConfig.ignores.add("**/docs/**");
+  eleventyConfig.ignores.add("components/**");
+  eleventyConfig.ignores.add("**/components/**");
+  eleventyConfig.ignores.add("test-results/**");
+  eleventyConfig.ignores.add("playwright-report/**");
 
   // Добавляем папки для отслеживания изменений
   eleventyConfig.addWatchTarget("src/_includes");
@@ -97,9 +101,9 @@ module.exports = function(eleventyConfig) {
   // Копирование статических файлов
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");
-  eleventyConfig.addPassthroughCopy("sitemap.xml");
+  // sitemap.xml генерируется автоматически, не копируем старый
   eleventyConfig.addPassthroughCopy("schemas");
-  eleventyConfig.addPassthroughCopy("components");
+  // components/ не копируем - это дубликаты, используются _includes/
   
   // Копирование файлов для production (безопасность и конфигурация)
   eleventyConfig.addPassthroughCopy(".htaccess");
@@ -310,24 +314,133 @@ module.exports = function(eleventyConfig) {
       
       // Собираем все HTML страницы из _site
       const siteDir = path.join(process.cwd(), '_site');
+      
+      // Список директорий, которые нужно исключить из sitemap
+      const excludedDirs = ['components', 'docs', 'schemas', 'assets', '_includes', 'test-results', 'playwright-report'];
+      
+      // Функция проверки, нужно ли исключить путь
+      const shouldExclude = (relativePath) => {
+        if (!relativePath || relativePath === '.') return false;
+        
+        const pathParts = relativePath.split('/').filter(p => p);
+        const fullPath = '/' + relativePath;
+        
+        // Проверяем, содержит ли путь любую из исключенных директорий
+        if (pathParts.some(part => excludedDirs.includes(part))) {
+          return true;
+        }
+        
+        // Проверяем, начинается ли путь с исключенных путей
+        if (fullPath.startsWith('/assets/') || 
+            fullPath.startsWith('/components/') || 
+            fullPath.startsWith('/docs/') || 
+            fullPath.startsWith('/schemas/')) {
+          return true;
+        }
+        
+        return false;
+      };
+      
       const walkDir = (dir, filelist = []) => {
-        const files = fs.readdirSync(dir);
-        files.forEach(file => {
-          const filepath = path.join(dir, file);
-          if (fs.statSync(filepath).isDirectory()) {
-            filelist = walkDir(filepath, filelist);
-          } else if (file.endsWith('.html') && file !== 'index.html') {
-            const relativePath = path.relative(siteDir, filepath).replace(/\\/g, '/');
-            filelist.push('/' + relativePath);
-          } else if (file === 'index.html') {
-            const relativePath = path.relative(siteDir, dir).replace(/\\/g, '/');
-            if (relativePath === '.') {
-              filelist.push('/');
-            } else {
-              filelist.push('/' + relativePath + '/');
+        // Проверяем существование директории
+        if (!fs.existsSync(dir)) {
+          return filelist;
+        }
+        
+        try {
+          const files = fs.readdirSync(dir);
+          files.forEach(file => {
+            const filepath = path.join(dir, file);
+            
+            // КРИТИЧНО: Сначала проверяем расширение файла
+            // Если это не HTML и не директория - пропускаем БЕЗ ЛЮБЫХ ПРОВЕРОК
+            const isHtmlFile = file.endsWith('.html');
+            
+            // Для не-HTML файлов проверяем только, является ли это директорией
+            // Но делаем это ТОЛЬКО если файл может быть директорией (нет расширения или известное расширение директории)
+            if (!isHtmlFile) {
+              // Пытаемся проверить, является ли это директорией, но БЕЗОПАСНО
+              let isDirectory = false;
+              try {
+                // Проверяем существование перед lstatSync
+                if (fs.existsSync(filepath)) {
+                  const stat = fs.lstatSync(filepath);
+                  isDirectory = stat.isDirectory();
+                } else {
+                  // Файл не существует - пропускаем
+                  return;
+                }
+              } catch (e) {
+                // Если не можем проверить - пропускаем элемент полностью (это не HTML, нам не нужно)
+                return;
+              }
+              
+              // Если это директория - обрабатываем рекурсивно
+              if (isDirectory) {
+                const dirName = path.basename(filepath);
+                if (excludedDirs.includes(dirName)) {
+                  return; // Пропускаем исключенные директории
+                }
+                const dirRelativePath = path.relative(siteDir, filepath).replace(/\\/g, '/');
+                if (!shouldExclude(dirRelativePath)) {
+                  filelist = walkDir(filepath, filelist);
+                }
+              }
+              // Если это не директория и не HTML - пропускаем полностью
+              return;
             }
-          }
-        });
+            
+            // Дальше обрабатываем только HTML файлы
+            
+            // Обрабатываем только HTML файлы
+            const relativePath = path.relative(siteDir, filepath).replace(/\\/g, '/');
+            
+            try {
+              // Проверяем существование только для HTML файлов
+              if (!fs.existsSync(filepath)) {
+                return; // Пропускаем несуществующие HTML файлы
+              }
+              
+              // Это HTML файл
+              if (file === 'index.html') {
+                const relativePath = path.relative(siteDir, dir).replace(/\\/g, '/');
+                
+                // Пропускаем index.html в исключенных директориях
+                if (relativePath === '.') {
+                  filelist.push('/');
+                } else if (!shouldExclude(relativePath)) {
+                  // Нормализуем путь: убираем двойные слеши, добавляем один слеш в начале и конце
+                  let normalizedPath = relativePath.replace(/\/+/g, '/');
+                  if (!normalizedPath.startsWith('/')) {
+                    normalizedPath = '/' + normalizedPath;
+                  }
+                  if (!normalizedPath.endsWith('/')) {
+                    normalizedPath = normalizedPath + '/';
+                  }
+                  filelist.push(normalizedPath);
+                }
+              } else {
+                // Проверяем, что путь не исключен
+                if (!shouldExclude(relativePath)) {
+                  // Нормализуем путь: убираем двойные слеши, добавляем один слеш в начале
+                  let normalizedPath = relativePath.replace(/\/+/g, '/');
+                  if (!normalizedPath.startsWith('/')) {
+                    normalizedPath = '/' + normalizedPath;
+                  }
+                  filelist.push(normalizedPath);
+                }
+              }
+            } catch (statError) {
+              // Игнорируем ошибки для HTML файлов (но выводим предупреждение)
+              console.warn(`Warning: Could not process HTML file ${filepath}:`, statError.message);
+              return;
+            }
+          });
+        } catch (readError) {
+          // Игнорируем ошибки readdirSync
+          console.warn(`Warning: Could not read directory ${dir}:`, readError.message);
+        }
+        
         return filelist;
       };
       
@@ -342,27 +455,91 @@ module.exports = function(eleventyConfig) {
       sitemap += `    <priority>1.0</priority>\n`;
       sitemap += `  </url>\n`;
       
-      // Добавляем остальные страницы
-      urls.forEach(url => {
-        if (url === '/') return; // Главная уже добавлена
+      // Добавляем остальные страницы (убираем дубликаты и нормализуем)
+      const normalizedUrls = urls
+        .map(url => {
+          // Нормализуем URL: убираем множественные слеши
+          let normalized = url.replace(/\/+/g, '/');
+          
+          // Убираем завершающий слеш для обычных файлов (не index.html директорий)
+          if (normalized.endsWith('/') && normalized !== '/' && !normalized.match(/\/[^\/]+\/$/)) {
+            normalized = normalized.slice(0, -1);
+          }
+          
+          // Убеждаемся, что начинается с одного слеша
+          if (!normalized.startsWith('/')) {
+            normalized = '/' + normalized;
+          }
+          
+          return normalized;
+        })
+        .filter(url => {
+          // Фильтруем пустые, двойные слеши и главную страницу
+          return url && url !== '' && url !== '/' && url !== '//';
+        });
+      
+      const uniqueUrls = [...new Set(normalizedUrls)]; // Убираем дубликаты
+      
+      uniqueUrls.forEach(url => {
+        // Дополнительная проверка - пропускаем главную страницу, пустые URL и двойные слеши
+        if (!url || url === '' || url === '/' || url === '//' || url.match(/^\/+$/)) {
+          return;
+        }
+        
+        // Исключаем служебные страницы (404)
+        if (url.includes('404') || url.includes('404.html')) {
+          return;
+        }
+        
+        // Финальная нормализация URL
+        let finalUrl = url
+          .replace(/\/index\.html$/, '') // Убираем /index.html в конце
+          .replace(/\/+/g, '/') // Убираем множественные слеши
+          .replace(/^\/+/, '/') // Убеждаемся, что начинается с одного слеша
+          .replace(/\/+$/, (match, offset, string) => {
+            // Убираем завершающий слеш, кроме главной страницы
+            return string === '/' ? '/' : '';
+          });
+        
+        // Финальная проверка - не должно быть двойных слешей или пустых URL
+        if (!finalUrl || finalUrl === '' || finalUrl === '//' || finalUrl.match(/^\/+$/)) {
+          return;
+        }
         
         let priority = '0.8';
         let changefreq = 'monthly';
         
         // Определяем приоритет и частоту обновления
-        if (url.includes('/blog/')) {
+        if (finalUrl.includes('/blog/')) {
           priority = '0.7';
           changefreq = 'monthly';
-        } else if (url.includes('/katalog/') || url.includes('/uslugi/')) {
+        } else if (finalUrl.includes('/katalog/') || finalUrl.includes('/uslugi/')) {
           priority = '0.9';
           changefreq = 'weekly';
-        } else if (url.includes('/brands/')) {
+        } else if (finalUrl.includes('/brands/')) {
           priority = '0.8';
           changefreq = 'monthly';
         }
         
+        // Финальная проверка перед добавлением в sitemap
+        // Убеждаемся, что нет двойных слешей между baseUrl и finalUrl
+        let fullUrl = baseUrl;
+        if (finalUrl.startsWith('/')) {
+          fullUrl += finalUrl;
+        } else {
+          fullUrl += '/' + finalUrl;
+        }
+        
+        // Финальная нормализация - убираем любые двойные слеши
+        fullUrl = fullUrl.replace(/([^:]\/)\/+/g, '$1');
+        
+        // Проверяем, что URL не заканчивается на двойной слеш
+        if (fullUrl.endsWith('//')) {
+          fullUrl = fullUrl.slice(0, -1);
+        }
+        
         sitemap += `  <url>\n`;
-        sitemap += `    <loc>${baseUrl}${url.replace(/\/index\.html$/, '/')}</loc>\n`;
+        sitemap += `    <loc>${fullUrl}</loc>\n`;
         sitemap += `    <lastmod>${today}</lastmod>\n`;
         sitemap += `    <changefreq>${changefreq}</changefreq>\n`;
         sitemap += `    <priority>${priority}</priority>\n`;

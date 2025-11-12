@@ -53,6 +53,16 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="dns-prefetch" href="https://yandex.ru">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  
+  <!-- Google Tag Manager -->
+  {% if site.gtm %}
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','{{ site.gtm }}');</script>
+  {% endif %}
   
   <!-- Preload Critical Resources -->
   <link rel="preload" href="/assets/css/main.css" as="style">
@@ -81,6 +91,12 @@
   {% endif %}
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  {% if site.gtm %}
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {% endif %}
+  
   <!-- Skip to main content link for accessibility -->
   <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
   
@@ -111,6 +127,32 @@
     {% for script in scripts %}
     <script src="{{ script }}" defer></script>
     {% endfor %}
+  {% endif %}
+  
+  <!-- Яндекс.Метрика -->
+  {% if site.analytics.yandex %}
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym({{ site.analytics.yandex }}, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/{{ site.analytics.yandex }}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  {% endif %}
+  
+  <!-- Атрибут для form-handler.js -->
+  {% if site.analytics.yandex %}
+  <script>
+    document.body.setAttribute('data-yandex-metrika-id', '{{ site.analytics.yandex }}');
+  </script>
   {% endif %}
 </body>
 </html>

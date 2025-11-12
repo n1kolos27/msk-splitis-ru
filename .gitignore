@@ -40,6 +40,12 @@ ssh-key-info.txt
 *.swp
 *.swo
 
+# Временные файлы и директории
+/attached_assets/
+/netlify/
+/api/
+/components/
+
 # IDE
 .vscode/
 .idea/
